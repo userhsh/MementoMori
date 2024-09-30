@@ -4,12 +4,32 @@ using UnityEngine;
 
 public class PlayerMove : MonoBehaviour
 {
+    IInteractable interactObject = null;
+    IUseable useableItem = null;
+
     float moveSpeed = 5f;
 
-    void FixedUpdate()
+    GripPos gripPos = null;
+
+    private void Awake()
+    {
+        gripPos = GetComponentInChildren<GripPos>();
+    }
+
+    private void FixedUpdate()
     {
         PlayerMovement();
         Dash();
+        PlayerRotate();
+    }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        interactObject = other.gameObject.GetComponent<IInteractable>();
+        useableItem = other.gameObject.GetComponent<IUseable>();
+
+        interactObject?.Interact();
+        useableItem?.GetItem(gripPos.transform);
     }
 
     private void PlayerMovement()
@@ -44,5 +64,16 @@ public class PlayerMove : MonoBehaviour
         }
     }
 
-   
+    private void PlayerRotate()
+    {
+        if (Input.GetKeyDown(KeyCode.E)) 
+        {
+            transform.Rotate(new Vector3(0, 90, 0));
+        }
+    }
+
+    private void GripItem()
+    {
+
+    }
 }

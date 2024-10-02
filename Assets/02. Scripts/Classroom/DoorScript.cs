@@ -1,9 +1,11 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class DoorScript : MonoBehaviour
 {
+    bool isOpen = false;
     Animator animator;
 
     private void Awake()
@@ -16,7 +18,6 @@ public class DoorScript : MonoBehaviour
         if (other.CompareTag("PLAYER"))
         {
             animator.SetBool("isOpen", true);
-            Debug.Log("문이 열렸습니다");
         }
     }
 }

@@ -42,7 +42,7 @@ namespace NavKeypad
         private string currentInput;
         private bool displayingResult = false;
         private bool accessWasGranted = false;
-        public bool AccessWasGranted {  get { return accessWasGranted; } }
+        public bool AccessWasGranted { get { return accessWasGranted; } }
 
         private void Awake()
         {

@@ -4,12 +4,21 @@ using UnityEngine;
 
 public class PlayerMove : MonoBehaviour
 {
+    IInteractable interactable = null;
+
     float moveSpeed = 5f;
 
     void FixedUpdate()
     {
         PlayerMovement();
         Dash();
+        Rotate();
+    }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        interactable = other.gameObject.GetComponent<IInteractable>();
+        interactable?.Interact();
     }
 
     private void PlayerMovement()
@@ -48,5 +57,11 @@ public class PlayerMove : MonoBehaviour
         }
     }
 
-
+    private void Rotate()
+    {
+        if (Input.GetKeyDown(KeyCode.E))
+        {
+            transform.Rotate(new Vector3(0, 90, 0));
+        }
+    }
 }

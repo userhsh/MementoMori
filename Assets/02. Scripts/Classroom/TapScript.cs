@@ -12,14 +12,14 @@ public class TapScript : MonoBehaviour
         animator = GetComponent<Animator>();
     }
 
-    void OnTriggerEnter(Collider other)
+    public void TurnOnWater(Collider _collider)
     {
-        if (other.CompareTag("HOLE"))
+        if (_collider.CompareTag("HOLE"))
         {
             Debug.Log("수도꼭지 장착");
             transform.localPosition = new Vector3(-0.014f, 1.158f, 0.404f);
         }
-        if (other.CompareTag("PLAYER"))
+        if (_collider.CompareTag("PLAYER"))
         {
             Debug.Log("수도꼭지 틀기");
             animator.SetBool("isTurnOn", true);

@@ -15,8 +15,10 @@ public class MorgueDoor : Door
         // 현재 로드된 씬 이름 가져오기
         GetCurrentSceneName();
 
+        PlayerPositionInit();
+
         // 문을 잠긴 상태로 
-        isLocked = true;
+        isLocked = false;
 
         // 이동할 씬 이름 가져오기
         if (currentSceneName == SCENENAME.HallwayScene.ToString()) // 현재 씬이 복도 씬이라면 

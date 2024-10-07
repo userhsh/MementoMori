@@ -12,7 +12,9 @@ public class Door : MonoBehaviour, IInteractable
     // 불러올 씬 이름 저장할 변수
     protected string moveSceneName = null;
     // 현재 씬 이름 저장할 변수
-    protected string currentSceneName = null; 
+    protected string currentSceneName = null;
+
+    protected Vector3 startPos;
 
     // 이동 시 필요한 Scene 이름 저장할 enum 타입 변수
     protected enum SCENENAME
@@ -29,6 +31,13 @@ public class Door : MonoBehaviour, IInteractable
     {
         // 현재 로드된 씬 이름 가져오기
         currentSceneName = SceneManager.GetActiveScene().name;
+        PlayerController.Instance.PlayerRayControll();
+    }
+
+    protected void PlayerPositionInit()
+    {
+        startPos = PlayerController.Instance.GetStartPosition();
+        PlayerController.Instance.PlayerPositionInit(startPos);
     }
 
     public void Interact()

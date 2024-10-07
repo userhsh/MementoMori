@@ -34,7 +34,6 @@ public class ItemCrowBar : MonoBehaviour
             strangeTile.gameObject.SetActive(false);
             this.gameObject.SetActive(false);
             switchButton.GetComponent<BoxCollider>().enabled = true;
-        }
-      
+        }      
     }
 }

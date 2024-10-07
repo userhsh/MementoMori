@@ -9,10 +9,17 @@ public class Scalpel : MonoBehaviour, IUseable
     // 인형을 담을 변수 선언
     //Doll doll = null;
 
+    bool isUse = false;
+
     // 디버그 용
     private void OnTriggerEnter(Collider other)
     {
-        Use(other);
+        isUse = true;
+    }
+
+    private void OnTriggerExit(Collider other)
+    {
+        isUse = false;
     }
 
     public void GetItem(Transform _pos)
@@ -23,6 +30,7 @@ public class Scalpel : MonoBehaviour, IUseable
 
     public void Use(Collider _collider)
     {
+        if (!isUse) return;
         // _collider로 베개 가져오기
         pillow = _collider.gameObject.GetComponent<Pillow>();
         // 베개를 못 가져왔을 경우

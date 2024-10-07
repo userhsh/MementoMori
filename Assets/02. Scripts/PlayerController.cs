@@ -12,8 +12,6 @@ public class PlayerController : MonoBehaviour
     private XRRayInteractor[] xrRayInteractors = null;
     private XRInteractorLineVisual[] xrInteractorsLineVisuals = null;
 
-    private IInteractable interactable = null;
-
     private PlayerController() { }
     private static PlayerController _instance;
     private static readonly object _lock = new object();
@@ -48,12 +46,6 @@ public class PlayerController : MonoBehaviour
     private void Start()
     {
         PlayerPositionInit(startPosition);
-    }
-
-    private void OnTriggerEnter(Collider other)
-    {
-        interactable = other.gameObject.GetComponent<IInteractable>();
-        interactable?.Interact();
     }
 
     private void PlayerControllerInit()
@@ -102,12 +94,12 @@ public class PlayerController : MonoBehaviour
         {
             foreach (var rayDistance in xrRayInteractors)
             {
-                rayDistance.maxRaycastDistance = 0.3f;
+                rayDistance.maxRaycastDistance = 10f;
             }
 
             foreach (var rayDistance in xrInteractorsLineVisuals)
             {
-                rayDistance.lineLength = 0.3f;
+                rayDistance.lineLength = 10f;
             }
         }
     }

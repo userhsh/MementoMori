@@ -6,15 +6,25 @@ using UnityEngine.UI;
 
 public class ComputerUI : MonoBehaviour
 {
+    QuizWindow quizWindow = null;
+    AnswerWindow answerWindow = null;
+
     Keyboard keyboard = null; //키보드 버튼 배열 담아둔 스크립트 불러올 곳
     TextMeshProUGUI passwordText = null; //출력용 비밀번호 텍스트 > ****
     WrongImage wrongImage = null; //오답에서 엔터 누르면 출력할 이미지
 
     string password = ""; //정답과 비교용 실제 텍스트
-    string correctPassword = "3752"; //정답
+    string correctPassword = "3752"; //패스워드 정답
+    string quizAnswer = "3"; //퀴즈 정답
 
     public void ComputerUIInit()
     {
+        quizWindow = GetComponentInChildren<QuizWindow>();
+        quizWindow.gameObject.SetActive(false);
+
+        answerWindow = GetComponentInChildren<AnswerWindow>();
+        answerWindow.gameObject.SetActive(false);
+
         keyboard = GetComponentInChildren<Keyboard>();
         passwordText = GetComponentInChildren<TextMeshProUGUI>();
         wrongImage = GetComponentInChildren<WrongImage>();
@@ -64,7 +74,14 @@ public class ComputerUI : MonoBehaviour
         if (password == correctPassword)
         {
             print("CorrectPassword");
+            password = "";
             // 지금 윈도우 끄고 새 윈도우 켤것
+            quizWindow.gameObject.SetActive(true); //퀴즈화면 띄움
+
+            if(password == quizAnswer)
+            {
+                answerWindow.gameObject.SetActive(true);
+            }
         }
         else
         {

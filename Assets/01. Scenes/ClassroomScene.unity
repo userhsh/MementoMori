@@ -1586,6 +1586,7 @@ GameObject:
   - component: {fileID: 33669148402504772}
   - component: {fileID: 23995097620753294}
   - component: {fileID: 65435019312530672}
+  - component: {fileID: 65435019312530673}
   m_Layer: 0
   m_Name: Pencil
   m_TagString: Untagged
@@ -1671,6 +1672,18 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 0.009573497, y: 0.01006618, z: 0.17589465}
   m_Center: {x: 0, y: -9.313226e-10, z: 0.004467737}
+--- !u!114 &65435019312530673
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1217708456732608}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: acd1c7a1ec58d5a4296955d7a7ddf82e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!33 &267876694162650052
 MeshFilter:
   m_ObjectHideFlags: 0

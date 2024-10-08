@@ -96,12 +96,12 @@ public class PlayerController : MonoBehaviour
         {
             foreach (var rayDistance in xrRayInteractors)
             {
-                rayDistance.maxRaycastDistance = 0.3f;
+                rayDistance.maxRaycastDistance = 10f;
             }
 
             foreach (var rayDistance in xrInteractorsLineVisuals)
             {
-                rayDistance.lineLength = 0.3f;
+                rayDistance.lineLength = 10f;
             }
         }
     }

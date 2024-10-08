@@ -11,16 +11,6 @@ public class SheetRackCase : MonoBehaviour
         animator = GetComponent<Animator>();
     }
 
-
-    private void OnTriggerEnter(Collider other)
-    {
-        Debug.Log(other.gameObject.name);
-        if (other.CompareTag("PLAYER"))
-        {
-            Interact();
-        }
-    }
-
     public void Interact()
     {
         animator.SetTrigger("CabinetClick");

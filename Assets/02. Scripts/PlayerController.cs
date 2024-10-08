@@ -12,6 +12,8 @@ public class PlayerController : MonoBehaviour
     private XRRayInteractor[] xrRayInteractors = null;
     private XRInteractorLineVisual[] xrInteractorsLineVisuals = null;
 
+    private IInteractable interactable = null;
+
     private PlayerController() { }
     private static PlayerController _instance;
     private static readonly object _lock = new object();
@@ -94,12 +96,12 @@ public class PlayerController : MonoBehaviour
         {
             foreach (var rayDistance in xrRayInteractors)
             {
-                rayDistance.maxRaycastDistance = 10f;
+                rayDistance.maxRaycastDistance = 0.3f;
             }
 
             foreach (var rayDistance in xrInteractorsLineVisuals)
             {
-                rayDistance.lineLength = 10f;
+                rayDistance.lineLength = 0.3f;
             }
         }
     }

@@ -9,7 +9,6 @@ public class Remocon : MonoBehaviour, IUseable
     IInteractable interactable = null;
 
     TV TV = null;
-    Player player = null;
 
     private void Awake()
     {
@@ -23,17 +22,11 @@ public class Remocon : MonoBehaviour, IUseable
 
     private void OnTriggerEnter(Collider other)
     {
-        
 
         TV = other.gameObject.GetComponent<TV>();
-        player = other.gameObject.GetComponent<Player>();
         interactable = other.gameObject.GetComponent<IInteractable>();
 
-        if(player != null ) 
-        {
-            
-        }
-        else if (TV != null)
+        if (TV != null)
         {
             interactable?.Interact();
         }
@@ -41,13 +34,14 @@ public class Remocon : MonoBehaviour, IUseable
         {
             print("다른 곳에 사용해보자.");
         }
+
     }
 
 
     public void GetItem(Transform _pos)
     {
         print("리모컨 획득");
-        this.gameObject.SetActive(false);
+        //this.gameObject.SetActive(false);
     }
 
 

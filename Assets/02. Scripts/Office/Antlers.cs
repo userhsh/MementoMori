@@ -8,7 +8,10 @@ public class Antlers : MonoBehaviour, IInteractable
     private void OnTriggerEnter(Collider other)
     {
         Debug.Log(other.gameObject.name);
-        Interact();
+        if (other.CompareTag("PLAYER"))
+        {
+            Interact();
+        }
     }
 
     public void Interact()

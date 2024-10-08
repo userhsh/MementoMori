@@ -13,7 +13,7 @@ public class PCUIManager : MonoBehaviour
 
     private void Awake()
     {
-        antlers = GameObject.Find("Antlers_Wood").GetComponent<Antlers>();
+        antlers = GameObject.FindObjectOfType<Antlers>();
         computerUI = GetComponentInChildren<ComputerUI>();
 
         computerUI.ComputerUIInit();

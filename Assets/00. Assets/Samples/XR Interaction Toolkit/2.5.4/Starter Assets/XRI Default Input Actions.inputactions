@@ -781,6 +781,33 @@
                     "processors": "",
                     "interactions": "",
                     "initialStateCheck": true
+                },
+                {
+                    "name": "Collection On",
+                    "type": "Button",
+                    "id": "6bda3951-fd87-4a8d-97af-9e580a6ab9e2",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
+                    "name": "Collection Off",
+                    "type": "Button",
+                    "id": "5ad077da-7c8f-4c14-8be6-763d47fcc423",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
+                    "name": "Menu On",
+                    "type": "Button",
+                    "id": "929ea6ba-810c-455b-9016-8ef3744905d9",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
                 }
             ],
             "bindings": [
@@ -946,6 +973,39 @@
                     "processors": "ScaleVector2(x=0),StickDeadzone",
                     "groups": "Generic XR Controller",
                     "action": "Scale Delta",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "1fd8ec38-55a6-4b1e-ad88-87fff5733f4d",
+                    "path": "*/{SecondaryButton}",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Collection On",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "5b56d98f-7c11-455a-a602-a734cd148220",
+                    "path": "*/{PrimaryButton}",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Collection Off",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "8d61f160-108a-4a9a-a5f5-5ed0f4a45843",
+                    "path": "*/{MenuButton}",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Menu On",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }

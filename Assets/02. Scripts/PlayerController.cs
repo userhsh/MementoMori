@@ -50,6 +50,12 @@ public class PlayerController : MonoBehaviour
         PlayerPositionInit(startPosition);
     }
 
+    //private void OnTriggerEnter(Collider other) //충돌 시 충돌된 놈의 해당 Interact 활성
+    //{
+    //    interactable = other.gameObject.GetComponent<IInteractable>();
+    //    interactable?.Interact();
+    //}
+
     private void PlayerControllerInit()
     {
         if (_instance != null && _instance != this)
@@ -96,12 +102,12 @@ public class PlayerController : MonoBehaviour
         {
             foreach (var rayDistance in xrRayInteractors)
             {
-                rayDistance.maxRaycastDistance = 10f;
+                rayDistance.maxRaycastDistance = 0.3f;
             }
 
             foreach (var rayDistance in xrInteractorsLineVisuals)
             {
-                rayDistance.lineLength = 10f;
+                rayDistance.lineLength = 0.3f;
             }
         }
     }

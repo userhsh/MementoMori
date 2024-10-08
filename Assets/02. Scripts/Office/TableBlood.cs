@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class TableBlood : MonoBehaviour, IInteractable
 {
-    PaperNone paperNone = null; //획득용 빈종이
+    PaperNone paperNone = null; //티비 밑 획득용 빈종이
     PaperName paperName = null; //이름 적힐 종이
     Pencil pencil = null; 
     SpriteRenderer nameElie = null; //이름
@@ -22,26 +22,24 @@ public class TableBlood : MonoBehaviour, IInteractable
 
         paperNone = other.gameObject.GetComponent<PaperNone>();
         pencil = other.gameObject.GetComponent<Pencil>();
-
-        Interact();
-
-    }
-
-    public void Interact()
-    {
-
-
-        if (paperNone != null)
+        
+        if (paperNone != null )
         {
             Destroy(paperNone.gameObject); //빈 종이 삭제
             paperName.gameObject.SetActive(true); //이름 종이 출현
         }
 
-        if (paperName.enabled == true && pencil != null) //이름 종이 출현 상태에서 연필 대면
+        if(paperName.enabled == true && pencil != null ) //이름 종이 출현 상태에서 연필 대면
         {
             Destroy(pencil.gameObject); //연필 삭제 후
             nameElie.enabled = true; //이름 출현
         }
+        
+    }
+
+    public void Interact()
+    {
+        throw new System.NotImplementedException();
     }
 
 

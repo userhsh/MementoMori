@@ -6,7 +6,7 @@ public class PlayerMove : MonoBehaviour
 {
     IInteractable interactable = null;
 
-    float moveSpeed = 5f;
+    float moveSpeed = 10f;
 
     void FixedUpdate()
     {

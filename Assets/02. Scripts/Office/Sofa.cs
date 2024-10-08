@@ -12,19 +12,12 @@ public class Sofa : MonoBehaviour, IInteractable
         animator = GetComponent<Animator>();    
     }
 
-    private void OnTriggerEnter(Collider other)
-    {
-        if (other.CompareTag("PLAYER"))
-        {
-            Debug.Log(other.gameObject.name);
-            Interact();
-        }
-    }
-
+   
     public void Interact()
     {
-        animator.SetTrigger("SofaClick");
-        Destroy(gameObject, 1f);
+        print("½îÆÄ »ç¶óÁü");
+        this.gameObject.GetComponent<Animator>().enabled = true;
+        Destroy(gameObject, 2f);
     }
 
 

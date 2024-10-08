@@ -5,27 +5,27 @@ using UnityEngine;
 public class Flashlight : MonoBehaviour, IUseable
 {
 
-    Light light = null;
+    //Light light = null;
 
     private void Awake()
     {
-        light = GetComponentInChildren<Light>();
-        light.enabled = false;
+        //light = GetComponentInChildren<Light>();
+        //light.enabled = false;
     }
 
     private void Update()
     {
-        if(Input.GetKey(KeyCode.Space)) 
-        {
-            light.enabled = true;
-        }
+        //if(Input.GetKey(KeyCode.Space)) 
+        //{
+            //light.enabled = true;
+        //}
     }
 
 
     public void GetItem(Transform _pos)
     {
         print("¼ÕÀüµî È¹µæ");
-        this.gameObject.SetActive(false);  
+  
     }
 
     public void Use(Collider _collider)

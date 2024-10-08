@@ -13,11 +13,17 @@ public class DoorScript : MonoBehaviour
         animator = GetComponent<Animator>();
     }
 
-    void OnTriggerEnter(Collider other)
+    public void OpenCaseDoor()
     {
-        if (other.CompareTag("PLAYER"))
+        if (isOpen == false)
         {
             animator.SetBool("isOpen", true);
+            isOpen = true;
+        }
+        else
+        {
+            animator.SetBool("isOpen", false);
+            isOpen = false;
         }
     }
 }

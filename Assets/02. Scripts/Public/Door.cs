@@ -31,13 +31,6 @@ public class Door : MonoBehaviour, IInteractable
     {
         // 현재 로드된 씬 이름 가져오기
         currentSceneName = SceneManager.GetActiveScene().name;
-        PlayerController.Instance.PlayerRayControll();
-    }
-
-    protected void PlayerPositionInit()
-    {
-        startPos = PlayerController.Instance.GetStartPosition();
-        PlayerController.Instance.PlayerPositionInit(startPos);
     }
 
     public void Interact()

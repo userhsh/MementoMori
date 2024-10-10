@@ -19,7 +19,7 @@ public class SlidePuzzleBoard : MonoBehaviour
     // isClearable의 프로퍼티 (get만 열어줌)
     public bool IsClearable { get { return isClearable; } }
     // 퍼즐을 클리어했는지 확인하는 변수 선언
-    private bool isPuzzleClear = false;
+    private bool isPuzzleClear;
     // isPuzzleClear의 프로퍼티
     public bool IsPuzzleClear { get { return isPuzzleClear; } }
 
@@ -46,6 +46,7 @@ public class SlidePuzzleBoard : MonoBehaviour
     {
         // 타일들 가져오기
         tiles = GetComponentsInChildren<SlidePuzzleTile>();
+        isPuzzleClear = false;
         TileInit();
     }
 

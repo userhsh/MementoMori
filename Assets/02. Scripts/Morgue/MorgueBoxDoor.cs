@@ -7,6 +7,8 @@ public class MorgueBoxDoor : MonoBehaviour
     Animator animator;
     bool DoorOpen = false;
 
+
+
     private void Awake()
     {
         this.animator = GetComponent<Animator>();
@@ -29,4 +31,18 @@ public class MorgueBoxDoor : MonoBehaviour
         }
     }
    
+    public void Animationing()
+    {
+        this.gameObject.GetComponent<Collider>().enabled = false;
+    }
+    public void AnimationEnd()
+    {
+        this.gameObject.GetComponent<Collider>().enabled = true;
+    }
+
+    public void InteractionText()
+    {
+        GetComponentInChildren<GameObject>().SetActive(true);
+    }
+
 }

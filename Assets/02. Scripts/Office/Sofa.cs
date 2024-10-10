@@ -15,7 +15,6 @@ public class Sofa : MonoBehaviour, IInteractable
    
     public void Interact()
     {
-        print("½îÆÄ »ç¶óÁü");
         this.gameObject.GetComponent<Animator>().enabled = true;
         Destroy(gameObject, 2f);
     }

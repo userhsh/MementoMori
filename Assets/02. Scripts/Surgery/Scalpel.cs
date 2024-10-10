@@ -14,12 +14,18 @@ public class Scalpel : MonoBehaviour, IUseable
     // 디버그 용
     private void OnTriggerEnter(Collider other)
     {
-        isUse = true;
+        if (other.gameObject.layer == 1 >> 8)
+        {
+            isUse = true;
+        }
     }
 
     private void OnTriggerExit(Collider other)
     {
-        isUse = false;
+        if (other.gameObject.layer == 1 >> 8)
+        {
+            isUse = false;
+        }
     }
 
     public void GetItem(Transform _pos)
@@ -30,17 +36,19 @@ public class Scalpel : MonoBehaviour, IUseable
 
     public void Use(Collider _collider)
     {
-        if (!isUse) return;
-        // _collider로 베개 가져오기
-        pillow = _collider.gameObject.GetComponent<Pillow>();
-        // 베개를 못 가져왔을 경우
-        if (pillow == null)
+        if (isUse)
         {
-            // 메서드 빠져나오기
-            return;
+            // _collider로 베개 가져오기
+            pillow = _collider.gameObject.GetComponent<Pillow>();
+            // 베개를 못 가져왔을 경우
+            if (pillow == null)
+            {
+                // 메서드 빠져나오기
+                return;
+            }
+            // 베개가 있을 경우 Interact 실행
+            pillow?.Interact();
         }
-        // 베개가 있을 경우 Interact 실행
-        pillow?.Interact();
 
         // _collider로 인형 가져오기
         //doll = _collider.gameObject.GetComponent<Doll>();

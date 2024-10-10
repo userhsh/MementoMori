@@ -13,14 +13,14 @@ public class ItemCrowBar : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.gameObject == GameObject.Find("StrangeTile").gameObject)
+        if (other.gameObject.name == "StrangeTile")
         {
             use = true;
         }
     }
     private void OnTriggerExit(Collider other)
     {
-        if (other.gameObject == GameObject.Find("StrangeTile").gameObject)
+        if (other.gameObject.name == "StrangeTile")
         {
             use = false;
         }

@@ -9,7 +9,7 @@ public class SlidePuzzle : MonoBehaviour
     // SlidePuzzleBoard 프로퍼티 get만 열어주기
     public SlidePuzzleBoard Board { get { return board; } }
 
-    private void Awake()
+    public void BoardInit()
     {
         board = GetComponentInChildren<SlidePuzzleBoard>();
     }

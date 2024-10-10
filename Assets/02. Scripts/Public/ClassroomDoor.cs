@@ -15,8 +15,6 @@ public class ClassroomDoor : Door
         // 현재 로드된 씬 이름 가져오기
         GetCurrentSceneName();
 
-        PlayerPositionInit();
-
         // 문을 열린 상태로 
         isLocked = false;
 

@@ -22,6 +22,8 @@ public class PosterHuman : MonoBehaviour, IInteractable
     {
         // 슬라이드 퍼즐 가져오기
         slidePuzzle = GetComponentInChildren<SlidePuzzle>();
+        // 슬라이드 퍼즐 보드 Init 해주기
+        slidePuzzle.BoardInit();
         // 슬라이드 퍼즐 꺼두기
         slidePuzzle.gameObject.SetActive(false);
     }
@@ -36,7 +38,7 @@ public class PosterHuman : MonoBehaviour, IInteractable
     private void PuzzleClear()
     {
         // 퍼즐이 클리어 되었다면
-        if (slidePuzzle.Board.IsPuzzleClear) 
+        if (slidePuzzle.Board.IsPuzzleClear)
         {
             // 인체모형도, 퍼즐 제거
             Destroy(this.gameObject);

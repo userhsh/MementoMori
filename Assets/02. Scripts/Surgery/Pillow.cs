@@ -4,14 +4,17 @@ using UnityEngine;
 
 public class Pillow : MonoBehaviour, IInteractable
 {
+    public Fabric fabric;
+
+    private void Awake()
+    {
+        fabric.gameObject.SetActive(false);
+    }
+
     public void Interact()
     {
-        // Resources 폴더에서 천 프리팹 가져오기
-        GameObject fabic = Resources.Load("Prefabs/PillowFabic") as GameObject;
-
         // 천 생성
-        Instantiate(fabic, this.transform.position, fabic.transform.rotation);
-
+        fabric.gameObject.SetActive(true);
         // 베개 제거
         Destroy(gameObject);
     }

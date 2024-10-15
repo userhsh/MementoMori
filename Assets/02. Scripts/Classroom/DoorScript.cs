@@ -2,12 +2,15 @@ using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.XR.Interaction.Toolkit;
 
 public class DoorScript : MonoBehaviour
 {
+    private AudioClip openSound;
+    private AudioClip closeSound;
+
     private AudioSource audioSource;  // 오디오 소스
-    public AudioClip openSound;      // 문 열리는 소리
-    public AudioClip closeSound;     // 문 닫히는 소리
+    private XRGrabInteractable grabInteractable;
 
     bool isOpen = false;
     Animator animator;
@@ -17,23 +20,35 @@ public class DoorScript : MonoBehaviour
 
         audioSource = GetComponent<AudioSource>();
         animator = GetComponent<Animator>();
+        grabInteractable = GetComponent<XRGrabInteractable>();
     }
 
-    public void OpenCaseDoor()
+    private void Start()
+    {
+        openSound = Resources.Load<AudioClip>("DoorSound/doorOpen");
+        closeSound = Resources.Load<AudioClip>("DoorSound/doorClose");
+
+        // 물체를 잡을 때 호출되는 이벤트 연결
+        grabInteractable.selectEntered.AddListener(OpenCaseDoor);
+    }
+
+    public void OpenCaseDoor(SelectEnterEventArgs args)
     {
         if (isOpen == false)
         {
-            animator.SetBool("isOpen", true);
             isOpen = true;
-            // 문 열리는 소리 재생
-            audioSource.PlayOneShot(openSound);
+            animator.SetBool("isOpen", true);
+
+            audioSource.clip = openSound;
+            audioSource.PlayDelayed(0.7f);
         }
         else
         {
-            animator.SetBool("isOpen", false);
             isOpen = false;
-            // 문 닫히는 소리 재생
-            audioSource.PlayOneShot(closeSound);
+            animator.SetBool("isOpen", false);
+
+            audioSource.clip = closeSound;
+            audioSource.PlayDelayed(0.4f);
         }
     }
 }

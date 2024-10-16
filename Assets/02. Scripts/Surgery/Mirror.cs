@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.XR.Interaction.Toolkit;
 
 public class Mirror : MonoBehaviour, IInteractable
 {
@@ -8,6 +9,10 @@ public class Mirror : MonoBehaviour, IInteractable
     MirrorStain mirrorStain = null;
     // 거울 때 제거하는 애니메이터 가져올 변수 선언
     Animator stainAnimator = null;
+    // 거울 UI 가져올 변수 선언
+    Canvas mirrorCanvas = null;
+
+    bool isInteractable = false;
 
     private void Awake()
     {
@@ -17,12 +22,33 @@ public class Mirror : MonoBehaviour, IInteractable
     // Mirror Init 메서드
     private void MirrorInit()
     {
+        mirrorCanvas = GetComponentInChildren<Canvas>();
         mirrorStain = GetComponentInChildren<MirrorStain>();
         stainAnimator = mirrorStain.gameObject.GetComponent<Animator>();
+
+        mirrorCanvas.gameObject.SetActive(false);
+    }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.gameObject.name == "PillowFabic_Medicine")
+        {
+            isInteractable = true;
+        }
+    }
+
+    private void OnTriggerExit(Collider other)
+    {
+        if (other.gameObject.name == "PillowFabic_Medicine")
+        {
+            isInteractable = false;
+        }
     }
 
     public void Interact()
     {
+        if (!isInteractable) return;
+
         // 거울 때 제거 코루틴 실행
         StartCoroutine(RemoveStain());
     }
@@ -33,7 +59,7 @@ public class Mirror : MonoBehaviour, IInteractable
         stainAnimator.SetTrigger("IsRemoveStain");
         // 애니메이션 재생 시간 보장
         yield return new WaitForSeconds(1f);
-        // 때 제거
-        Destroy(mirrorStain.gameObject);
+
+        mirrorCanvas.gameObject.SetActive(true);
     }
 }

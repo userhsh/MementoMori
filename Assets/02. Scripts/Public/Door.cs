@@ -8,7 +8,7 @@ public class Door : MonoBehaviour, IInteractable
     // 문 잠금 여부 판별 변수
     protected bool isLocked;
     // 문 잠금 여부 프로퍼티
-    public bool IsLocked{ get { return isLocked; } set { isLocked = value; } }
+    public bool IsLocked { get { return isLocked; } set { isLocked = value; } }
     // 불러올 씬 이름 저장할 변수
     protected string moveSceneName = null;
     // 현재 씬 이름 저장할 변수

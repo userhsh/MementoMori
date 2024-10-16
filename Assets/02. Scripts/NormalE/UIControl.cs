@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.InputSystem;
 using UnityEngine.SceneManagement;
 
 public class UIControl : MonoBehaviour
@@ -10,6 +11,7 @@ public class UIControl : MonoBehaviour
     CanvasGroup gameoverCanvas = null;
 
     Truck truck = null;
+
 
     private void Awake()
     {
@@ -21,27 +23,24 @@ public class UIControl : MonoBehaviour
 
     }
 
+
+
     private void Update()
     {
-        Debug.Log("Truck Destroy Status: " + truck.isTruckDestroy);
 
         if (truck.isTruckDestroy == true)
         {
             gameoverCanvas.alpha = 1f;
             gameoverCanvas.interactable = true;
 
-            Invoke("BackToStart", 3f);
+            Invoke("BackToStart", 5f);
 
         }
     }
 
-
     private void BackToStart()
     {
-        if (Input.anyKey)
-        {
-            SceneManager.LoadScene("GameStartScene");
-        }
+        SceneManager.LoadScene("GameStartScene");
     }
 
 }

@@ -10,6 +10,11 @@ public class RightController : XRRayInteractor
     public GameObject UIItem;
     public Text UIItemText;
 
+    public GameObject subTitle;
+    public Text subTitleText;
+
+    public GameObject[] UICollectionGet;
+
     public void RightHandRenderIdle()
     {
         RightHandRender.SetActive(true);
@@ -20,51 +25,38 @@ public class RightController : XRRayInteractor
         RightHandRender.SetActive(false);
     }
 
-    //public void Entering(XRBaseInteractable interactable)
-    //{
-    //    if (isGrip)
-    //    {
-    //        switch (interactable.name)
-    //        {
-    //            case "Doll":
-    //                playerUI.SetActive(true);
-    //                playerUIText.text = "아이템: 인형";
-    //                break;
-    //            case "Crowbar":
-    //                playerUI.SetActive(true);
-    //                playerUIText.text = "아이템: 크로우바";
-    //                break;
-
-
-    //        }
-    //    }
-    //}
-
-    //public void Exited(XRBaseInteractable interactable)
-    //{
-    //    playerUIText.text = "";
-    //    playerUI.SetActive(false);
-    //}
-
-    public bool isGrip = true;
+    public bool isGrip = true; //그립 시 레이방지용 불값
     protected override void OnSelectEntered(XRBaseInteractable interactable)
     {
-        isGrip = false;
+
+        switch (interactable.name)
+        {
+            case "Collection1":
+                UICollectionGet[0].SetActive(true);
+
+                break;
+            case "Collection2":
+                UICollectionGet[1].SetActive(true);
+                break;
+            case "Collection3":
+                UICollectionGet[2].SetActive(true);
+                break;
+            case "Collection4":
+                UICollectionGet[3].SetActive(true);
+                break;
+            default:
+                break;
+        }
+        isGrip = false; //그립 시 레이가 상호작용 X
     }
 
     protected override void OnSelectExited(XRBaseInteractable interactable)
     {
-        isGrip = true;
+        isGrip = true; //그립 해제 시 레이 상호작용 O
     }
 
     protected override void OnHoverEntered(XRBaseInteractable interactable)
     {
-
-        //if (interactable.transform.childCount != 0)
-        //{
-        //    interactable?.transform.GetChild(0).gameObject.SetActive(true);
-        //    interactable.transform.GetChild(0).GetComponent<TextMesh>().text = "열기";
-        //}
 
         if (isGrip)
         {
@@ -109,7 +101,7 @@ public class RightController : XRRayInteractor
                 case "Paper_None":
                     UIItem.SetActive(true);
                     UIItemText.text = "아이템: 빈(?)종이";
-                    break;  
+                    break;
                 case "SurgeryKey":
                     UIItem.SetActive(true);
                     UIItemText.text = "아이템: 빈(?)종이";
@@ -117,20 +109,45 @@ public class RightController : XRRayInteractor
                 case "Scalpel":
                     UIItem.SetActive(true);
                     UIItemText.text = "아이템: 메스";
-                    break; 
+                    break;
                 case "PillowFabic_Medicine":
                     UIItem.SetActive(true);
                     UIItemText.text = "아이템: 깨끗한 천";
-                    break; 
+                    break;
                 case "Medicine":
                     UIItem.SetActive(true);
                     UIItemText.text = "아이템: 약통";
-                    break; 
+                    break;
                 case "PillowFabic":
                     UIItem.SetActive(true);
                     UIItemText.text = "아이템: 천";
                     break;
+                default:
+                    break;
             }
+
+            switch (interactable.name)
+            {
+                case "Collection1":
+                    subTitle.SetActive(true);
+                    subTitleText.text = "첫번째 수집품";
+                    break;
+                case "Collection2":
+                    subTitle.SetActive(true);
+                    subTitleText.text = "두번째 수집품";
+                    break;
+                case "Collection3":
+                    subTitle.SetActive(true);
+                    subTitleText.text = "세번째 수집품";
+                    break;
+                case "Collection4":
+                    subTitle.SetActive(true);
+                    subTitleText.text = "네번째 수집품";
+                    break;
+                default:
+                    break;
+            }
+
         }
 
 
@@ -141,5 +158,9 @@ public class RightController : XRRayInteractor
     {
         UIItemText.text = "";
         UIItem.SetActive(false);
+        subTitleText.text = "";
+        subTitle.SetActive(false);
     }
+
+
 }

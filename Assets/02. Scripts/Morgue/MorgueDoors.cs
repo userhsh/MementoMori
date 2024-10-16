@@ -7,6 +7,7 @@ public class MorgueDoors : MonoBehaviour
     Animator animator;
     public bool MorgueDoorLock = true; //πÆ ¿·±Ë »∞º∫
     bool DoorOpen = false;
+    public GameObject lockIcon;
 
     private void Awake()
     {
@@ -30,6 +31,10 @@ public class MorgueDoors : MonoBehaviour
                 this.animator.SetBool("DoorOpen", false);
                 DoorOpen = false;
             }
+        }
+        else
+        {
+            lockIcon.gameObject.SetActive(true);
         }
 
     }

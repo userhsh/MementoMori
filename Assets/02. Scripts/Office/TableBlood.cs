@@ -28,15 +28,16 @@ public class TableBlood : MonoBehaviour, IInteractable
         {
             Destroy(paperNone.gameObject); //빈 종이 삭제
             paperName.gameObject.SetActive(true); //이름 종이 출현
+
+            if (paperName.enabled == true && pencil != null) //이름 종이 출현 상태에서 연필 대면
+            {
+                isTrue = true;
+                Destroy(pencil.gameObject); //연필 삭제 후
+                nameElie.enabled = true; //이름 출현
+
+            }
         }
 
-        if (paperName.enabled == true && pencil != null) //이름 종이 출현 상태에서 연필 대면
-        {
-            isTrue = true;
-            Destroy(pencil.gameObject); //연필 삭제 후
-            nameElie.enabled = true; //이름 출현
-
-        }
 
     }
 

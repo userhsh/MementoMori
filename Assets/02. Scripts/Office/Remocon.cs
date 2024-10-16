@@ -35,25 +35,7 @@ public class Remocon : MonoBehaviour, IUseable
             }
 
         }
-        Debug.DrawRay(transform.position, transform.up * rayLength, Color.red);
     }
-
-    //private void OnTriggerEnter(Collider other)
-    //{
-
-    //    TV = other.gameObject.GetComponent<TV>();
-    //    interactable = other.gameObject.GetComponent<IInteractable>();
-
-    //    if (TV != null)
-    //    {
-    //        interactable?.Interact();
-    //    }
-    //    else
-    //    {
-    //        print("다른 곳에 사용해보자.");
-    //    }
-
-    //}
 
 
     public void GetItem(Transform _pos)

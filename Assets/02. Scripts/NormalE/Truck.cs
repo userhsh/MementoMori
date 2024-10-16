@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Truck : MonoBehaviour
 {
-    Player player = null;
+
 
     private Transform playerPosition;
 
@@ -29,13 +29,9 @@ public class Truck : MonoBehaviour
     private void OnTriggerEnter(Collider other)
     {
 
-        if (other.gameObject.CompareTag("PLAYER"))
-        {
+        this.gameObject.SetActive(false);
+        isTruckDestroy = true;
 
-            this.gameObject.SetActive(false);
-            isTruckDestroy = true;
-
-        }
     }
 
 }

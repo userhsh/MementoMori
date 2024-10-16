@@ -18,6 +18,10 @@ public class LeftController : XRRayInteractor
     public GameObject UIItem;
     public Text UIItemText;
 
+    public GameObject subTitle;
+    public Text subTitleText;
+
+    public GameObject[] UICollectionGet;
 
     private void Start()
     {
@@ -28,18 +32,16 @@ public class LeftController : XRRayInteractor
 
     void MenuOn(InputAction.CallbackContext context) //메뉴 키 누를 시
     {
-         UImenu.SetActive(true);
+        UImenu.SetActive(true);
     }
 
     void CollectionOn(InputAction.CallbackContext context) //Y키 누를 시
     {
         UIcollection.SetActive(true);
-        print("ui킴");
     }
     void CollectionOff(InputAction.CallbackContext context) //X키 누를 시
     {
         UIcollection.SetActive(false);
-        print("ui끔");
     }
 
     public void LeftHandRenderIdle() //기존에 왼손랜더러 켜짐
@@ -55,6 +57,25 @@ public class LeftController : XRRayInteractor
     public bool isGrip = true;
     protected override void OnSelectEntered(XRBaseInteractable interactable)
     {
+        switch (interactable.name)
+        {
+            case "Collection1":
+                UICollectionGet[0].SetActive(true);
+
+                break;
+            case "Collection2":
+                UICollectionGet[1].SetActive(true);
+                break;
+            case "Collection3":
+                UICollectionGet[2].SetActive(true);
+                break;
+            case "Collection4":
+                UICollectionGet[3].SetActive(true);
+                break;
+            default:
+                break;
+        }
+
         isGrip = false;
     }
 
@@ -65,12 +86,6 @@ public class LeftController : XRRayInteractor
 
     protected override void OnHoverEntered(XRBaseInteractable interactable)
     {
-
-        //if (interactable.transform.childCount != 0)
-        //{
-        //    interactable?.transform.GetChild(0).gameObject.SetActive(true);
-        //    interactable.transform.GetChild(0).GetComponent<TextMesh>().text = "열기";
-        //}
 
         if (isGrip)
         {
@@ -136,7 +151,32 @@ public class LeftController : XRRayInteractor
                     UIItem.SetActive(true);
                     UIItemText.text = "아이템: 천";
                     break;
+                default:
+                    break;
             }
+
+            switch (interactable.name)
+            {
+                case "Collection1":
+                    subTitle.SetActive(true);
+                    subTitleText.text = "첫번째 수집품";
+                    break;
+                case "Collection2":
+                    subTitle.SetActive(true);
+                    subTitleText.text = "두번째 수집품";
+                    break;
+                case "Collection3":
+                    subTitle.SetActive(true);
+                    subTitleText.text = "세번째 수집품";
+                    break;
+                case "Collection4":
+                    subTitle.SetActive(true);
+                    subTitleText.text = "네번째 수집품";
+                    break;
+                default:
+                    break;
+            }
+
         }
 
 

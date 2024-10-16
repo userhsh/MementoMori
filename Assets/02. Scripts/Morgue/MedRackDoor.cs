@@ -5,8 +5,9 @@ using UnityEngine;
 public class MedRackDoor : MonoBehaviour
 {
     Animator animator;
-   public bool MedRackDoorLock = true; //πÆ ¿·±Ë »∞º∫
+    public bool MedRackDoorLock = true; //πÆ ¿·±Ë »∞º∫
     bool DoorOpen = false;
+    public GameObject lockIcon;
 
     private void Awake()
     {
@@ -30,6 +31,10 @@ public class MedRackDoor : MonoBehaviour
                 this.animator.SetBool("DoorOpen", false);
                 DoorOpen = false;
             }
+        }
+        else
+        {
+            lockIcon.gameObject.SetActive(true);
         }
 
     }

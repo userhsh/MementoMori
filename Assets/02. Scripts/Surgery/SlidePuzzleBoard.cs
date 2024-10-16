@@ -13,7 +13,7 @@ public class SlidePuzzleBoard : MonoBehaviour
     // 타일 배열의 인덱스를 담을 변수 선언
     private int tileIndex = 0;
     // 타일 사이의 거리 0.97
-    private float tileDistance = 0.97f;
+    private float tileDistance = 0.58f;
     // 퍼즐을 깰 수 있는지 확인할 변수 선언
     private bool isClearable = false;
     // isClearable의 프로퍼티 (get만 열어줌)

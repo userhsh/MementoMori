@@ -6,6 +6,8 @@ public class PosterHuman : MonoBehaviour, IInteractable
 {
     // SlidePuzzle 담을 변수 선언
     SlidePuzzle slidePuzzle = null;
+    // 금고 담을 변수 선언
+    public SafeBox safeBox = null;
 
     private void Awake()
     {
@@ -26,6 +28,8 @@ public class PosterHuman : MonoBehaviour, IInteractable
         slidePuzzle.BoardInit();
         // 슬라이드 퍼즐 꺼두기
         slidePuzzle.gameObject.SetActive(false);
+        // 금고 꺼두기
+        safeBox.gameObject.SetActive(false);
     }
 
     public void Interact()
@@ -42,6 +46,8 @@ public class PosterHuman : MonoBehaviour, IInteractable
         {
             // 인체모형도, 퍼즐 제거
             Destroy(this.gameObject);
+            // 금고 생성
+            safeBox.gameObject.SetActive(true);
         }
     }
 

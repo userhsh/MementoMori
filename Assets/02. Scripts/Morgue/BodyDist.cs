@@ -9,7 +9,8 @@ public class BodyDist : MonoBehaviour
 
     void Update()
     {
-        this.transform.position = cameraOffset.position - new Vector3(0, offsetDist, 0);
-        this.transform.rotation = cameraOffset.rotation;
+        Vector3 offSetPosition = new Vector3(cameraOffset.position.x, this.transform.position.y, cameraOffset.position.z);
+
+        transform.position = offSetPosition;
     }
 }

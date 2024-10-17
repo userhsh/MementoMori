@@ -77,11 +77,13 @@ public class LeftController : XRRayInteractor
         }
 
         isGrip = false;
+        UIItem.transform.GetChild(1).gameObject.SetActive(false);
     }
 
     protected override void OnSelectExited(XRBaseInteractable interactable)
     {
-        isGrip = true;
+        isGrip = true; //그립 해제 시 레이 상호작용 O
+        UIItem.transform.GetChild(1).gameObject.SetActive(true);
     }
 
     protected override void OnHoverEntered(XRBaseInteractable interactable)

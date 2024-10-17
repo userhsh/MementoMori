@@ -34,6 +34,7 @@ public class MedRackDoor : MonoBehaviour
         }
         else
         {
+            lockIcon.gameObject.SetActive(false);
             lockIcon.gameObject.SetActive(true);
         }
 

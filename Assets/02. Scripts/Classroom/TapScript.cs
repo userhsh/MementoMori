@@ -22,7 +22,7 @@ public class TapScript : MonoBehaviour
 
     private void Start()
     {
-        waterSound = Resources.Load<AudioClip>("WaterSound/waterSound");
+        waterSound = Resources.Load<AudioClip>("WaterSound/watersound");
         // 물체를 잡을 때 호출되는 이벤트 연결
         grabInteractable.selectEntered.AddListener(TurnOnWater);
     }

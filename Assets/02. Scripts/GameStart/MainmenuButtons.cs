@@ -36,7 +36,7 @@ public class MainmenuButtons : MonoBehaviour
 
     void ChangeMorgueScene()    
     {
-        SceneManager.LoadScene("MorgueScene");  // 시체안치실 씬 로드
+        SceneManager.LoadScene("MainScene");  // 메인씬 로드
     }
 
     void EnterOption()

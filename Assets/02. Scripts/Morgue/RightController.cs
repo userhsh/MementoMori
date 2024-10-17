@@ -33,7 +33,6 @@ public class RightController : XRRayInteractor
         {
             case "Collection1":
                 UICollectionGet[0].SetActive(true);
-
                 break;
             case "Collection2":
                 UICollectionGet[1].SetActive(true);
@@ -48,11 +47,13 @@ public class RightController : XRRayInteractor
                 break;
         }
         isGrip = false; //그립 시 레이가 상호작용 X
+        UIItem.transform.GetChild(1).gameObject.SetActive(false);
     }
 
     protected override void OnSelectExited(XRBaseInteractable interactable)
     {
         isGrip = true; //그립 해제 시 레이 상호작용 O
+        UIItem.transform.GetChild(1).gameObject.SetActive(true);
     }
 
     protected override void OnHoverEntered(XRBaseInteractable interactable)

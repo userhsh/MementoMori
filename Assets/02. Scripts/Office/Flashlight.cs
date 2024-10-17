@@ -2,35 +2,29 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Flashlight : MonoBehaviour, IUseable
+public class Flashlight : MonoBehaviour
 {
 
-    //Light light = null;
+    Light flashLight = null;
 
     private void Awake()
     {
-        //light = GetComponentInChildren<Light>();
-        //light.enabled = false;
-    }
-
-    private void Update()
-    {
-        //if(Input.GetKey(KeyCode.Space)) 
-        //{
-            //light.enabled = true;
-        //}
+        flashLight = GetComponentInChildren<Light>();
+        flashLight.enabled = false;
     }
 
 
-    public void GetItem(Transform _pos)
-    {
-        print("¼ÕÀüµî È¹µæ");
-  
-    }
 
-    public void Use(Collider _collider)
+    public void LightOnOff()
     {
-        throw new System.NotImplementedException();
+        if (flashLight.enabled == false)
+        {
+            flashLight.enabled = true;
+        }
+        else
+        {
+            flashLight.enabled = false;
+        }
     }
 
 

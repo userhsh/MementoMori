@@ -14,6 +14,8 @@ public class Mirror : MonoBehaviour, IInteractable
 
     bool isInteractable = false;
 
+    public MedicineFabric medicineFabric = null;
+
     private void Awake()
     {
         MirrorInit();
@@ -57,9 +59,11 @@ public class Mirror : MonoBehaviour, IInteractable
     {
         // 때 제거 애니메이션 실행
         stainAnimator.SetTrigger("IsRemoveStain");
+        // 약 묻은 천 제거
+        Destroy(medicineFabric);
         // 애니메이션 재생 시간 보장
         yield return new WaitForSeconds(1f);
-
+        // 거울 캔버스 켜기
         mirrorCanvas.gameObject.SetActive(true);
     }
 }

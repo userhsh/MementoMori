@@ -1,57 +1,93 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting.Antlr3.Runtime;
 using UnityEngine;
-using UnityEngine.SceneManagement;
+using UnityEngine.InputSystem;
 
 public class Door : MonoBehaviour, IInteractable
 {
     // 문 잠금 여부 판별 변수
     protected bool isLocked;
-    // 문 잠금 여부 프로퍼티
-    public bool IsLocked { get { return isLocked; } set { isLocked = value; } }
-    // 불러올 씬 이름 저장할 변수
-    protected string moveSceneName = null;
-    // 현재 씬 이름 저장할 변수
-    protected string currentSceneName = null;
+    // 문 잠금 해제 가능 여부 판별 변수
+    protected bool isUnLockable = false;
+    // 문 열림 상태 확인 변수
+    protected bool isOpen = false;
+    // 문 열쇠 이름
+    protected string doorKey;
+    // 문 애니메이터
+    protected Animator doorAnimator = null;
+    // 문 애니메이션 파라미터
+    protected string doorOpenParameter = "IsOpen";
+    // 문 오디오 소스
+    protected AudioSource doorAudioSource = null;
+    // 문 오디오 클립 배열 0 - 열림, 1 - 닫힘
+    protected AudioClip[] doorAudioClips = null;
 
-    protected Vector3 startPos;
+    public LockIcon lockIcon = null;
 
-    // 이동 시 필요한 Scene 이름 저장할 enum 타입 변수
-    protected enum SCENENAME
+    protected AudioClip unlockSound;
+    protected AudioSource audioSource;
+
+    Collider keyCollider = null;
+
+    private void OnCollisionEnter(Collision collision)
     {
-        HallwayScene,    
-        MorgueScene,     
-        ClassroomScene,  
-        OfficeScene,     
-        SurgeryScene,    
+        if (collision.collider.name == doorKey)
+        {
+            keyCollider = collision.collider;
+            isUnLockable = true;
+        }
     }
 
-    // 현재 씬 판단 메서드
-    protected void GetCurrentSceneName()
+    protected void OnCollisionExit(Collision collision) 
     {
-        // 현재 로드된 씬 이름 가져오기
-        currentSceneName = SceneManager.GetActiveScene().name;
+        if (collision.collider.gameObject.name == doorKey)
+        {
+            isUnLockable = false;
+            keyCollider = null;
+        }
     }
 
     public void Interact()
     {
-        if (!isLocked) // 문이 잠겨있지 않다면
+        DoorOpen();
+    }
+
+    // 문 열고 닫는 메서드
+    private void DoorOpen()
+    {
+        if (isLocked)
         {
-            // 문 열기(씬 이동)
-            // sceneName으로 씬이동
-            SceneManager.LoadScene(moveSceneName);
+            lockIcon?.gameObject.SetActive(false);
+            lockIcon?.gameObject.SetActive(true);
         }
-        else // 문이 잠겼다면
+        else
         {
-            // 문을 열 수 없음
-            print("Door Locked");
+            // 문 열림 상태 변경
+            isOpen = !isOpen;
+            // 문 애니메이션 재생
+            doorAnimator.SetBool(doorOpenParameter, isOpen);
+            // 열쇠 삭제
+            Destroy(keyCollider.gameObject);
+            // 문 여닫힘 사운드 재생
+
         }
     }
 
     // 문 잠금 해제 메서드
     public void DoorUnlock()
     {
+        if (!isUnLockable) return;
+
         // 문 잠금을 해제 상태로 바꾸기
         isLocked = false;
+        // 잠금 해제 소리 재생
+        DoorUnLockSound();
+    }
+
+    // 문 잠금 해제 소리 재생 메서드
+    private void DoorUnLockSound()
+    {
+        audioSource.PlayOneShot(unlockSound);
     }
 }

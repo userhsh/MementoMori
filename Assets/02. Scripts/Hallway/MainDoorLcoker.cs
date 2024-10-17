@@ -29,7 +29,7 @@ public class MainDoorLcoker : MonoBehaviour
     {
         arrowButtons = GetComponentsInChildren<Button>();
         passwordTexts = GetComponentsInChildren<TextMeshProUGUI>();
-
+     
         ButtonsInit();
     }
 
@@ -39,23 +39,35 @@ public class MainDoorLcoker : MonoBehaviour
         // 모든 버튼에 대해서
         for (int i = 0; i < arrowButtons.Length; i++)
         {
-            // 마지막 버튼이라면
-            if (i == arrowButtons.Length - 1)
+            switch (i) 
             {
-                // PasswordCheck 메서드 매핑
-                arrowButtons[i].onClick.AddListener(PasswordCheck);
-            }
-            // 인덱스 0 ~ 3 인 버튼이라면
-            else if (i < 4)
-            {
-                // UpArrowButton 메서드 매핑, _value로 i (= 0, 1, 2, 3)
-                arrowButtons[i].onClick.AddListener(() => UpArrowButton(i));
-            }
-            // 인덱스 4 ~ 7 인 버튼이라면
-            else
-            {
-                // DownArrowButton 메서드 매핑, _value로 i % 4 (= 0, 1, 2, 3)
-                arrowButtons[i].onClick.AddListener(() => DownArrowButton(i % 4));
+                case 0:
+                    arrowButtons[i].onClick.AddListener(() => UpArrowButton(0));
+                    break;
+                case 1:
+                    arrowButtons[i].onClick.AddListener(() => UpArrowButton(1));
+                    break;
+                case 2:
+                    arrowButtons[i].onClick.AddListener(() => UpArrowButton(2));
+                    break;
+                case 3:
+                    arrowButtons[i].onClick.AddListener(() => UpArrowButton(3));
+                    break;
+                case 4:
+                    arrowButtons[i].onClick.AddListener(() => DownArrowButton(0));
+                    break;
+                case 5:
+                    arrowButtons[i].onClick.AddListener(() => DownArrowButton(1));
+                    break;
+                case 6:
+                    arrowButtons[i].onClick.AddListener(() => DownArrowButton(2));
+                    break;
+                case 7:
+                    arrowButtons[i].onClick.AddListener(() => DownArrowButton(3));
+                    break;
+                case 8:
+                    arrowButtons[i].onClick.AddListener(PasswordCheck);
+                    break;
             }
         }
     }
@@ -73,7 +85,6 @@ public class MainDoorLcoker : MonoBehaviour
             // 10을 빼주기 
             password[_value] -= 10;
         }
-
         // 텍스트에 전달
         passwordTexts[_value].text = password[_value].ToString();
     }
@@ -90,21 +101,27 @@ public class MainDoorLcoker : MonoBehaviour
         {
             password[_value] += 10;
         }
-
         // 텍스트에 전달
         passwordTexts[_value].text = password[_value].ToString();
     }
 
     private void PasswordCheck()
     {
-        foreach (int i in password)
+        nowPassword = "";
+
+        for (int i = 0; i < password.Length; i++) 
         {
-            nowPassword += i.ToString();
+            nowPassword += password[i];
         }
 
         if (correctPassword == nowPassword)
         {
             isGameclear = true;
+            Destroy(this.gameObject);
+        }
+        else
+        {
+            isGameclear = false;
         }
     }
 }

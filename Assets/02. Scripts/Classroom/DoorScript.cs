@@ -18,6 +18,8 @@ public class DoorScript : MonoBehaviour
     bool isOpen = false;
     Animator animator;
 
+    public LockIcon lockIcon;
+
     private void Awake()
     {
 
@@ -32,6 +34,8 @@ public class DoorScript : MonoBehaviour
         openSound = Resources.Load<AudioClip>("DoorSound/doorOpen");
         closeSound = Resources.Load<AudioClip>("DoorSound/doorClose");
 
+        lockIcon.gameObject.SetActive(false);
+
         // 물체를 잡을 때 호출되는 이벤트 연결
         grabInteractable.selectEntered.AddListener(OpenCaseDoor);
     }
@@ -41,7 +45,7 @@ public class DoorScript : MonoBehaviour
     {
         if (isLocked)
         {
-            Debug.Log("문이 잠겨 있습니다. 열쇠가 필요합니다.");
+            lockIcon.gameObject.SetActive(true);
             return;  // 잠긴 상태일 때는 열리지 않음
         }
 

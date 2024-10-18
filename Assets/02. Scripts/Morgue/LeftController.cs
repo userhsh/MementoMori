@@ -23,7 +23,7 @@ public class LeftController : XRRayInteractor
 
     public GameObject[] UICollectionGet;
 
-    private void Start()
+    private new void Start()
     {
         menu.action.performed += MenuOn;
         collectionOn.action.performed += CollectionOn;
@@ -55,6 +55,8 @@ public class LeftController : XRRayInteractor
     }
 
     public bool isGrip = true;
+
+#pragma warning disable 672
     protected override void OnSelectEntered(XRBaseInteractable interactable)
     {
         switch (interactable.name)
@@ -178,16 +180,13 @@ public class LeftController : XRRayInteractor
                 default:
                     break;
             }
-
         }
-
-
     }
-
 
     protected override void OnHoverExited(XRBaseInteractable interactable)
     {
         UIItemText.text = "";
         UIItem.SetActive(false);
     }
+#pragma warning restore 672
 }

@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public class MainDoorLcoker : MonoBehaviour
@@ -109,7 +110,7 @@ public class MainDoorLcoker : MonoBehaviour
     {
         nowPassword = "";
 
-        for (int i = 0; i < password.Length; i++) 
+        for (int i = 0; i < password.Length; i++)
         {
             nowPassword += password[i];
         }
@@ -118,6 +119,8 @@ public class MainDoorLcoker : MonoBehaviour
         {
             isGameclear = true;
             Destroy(this.gameObject);
+
+            if (isGameclear) SceneManager.LoadScene(2);
         }
         else
         {

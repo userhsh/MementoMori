@@ -26,6 +26,8 @@ public class RightController : XRRayInteractor
     }
 
     public bool isGrip = true; //그립 시 레이방지용 불값
+
+#pragma warning disable 672
     protected override void OnSelectEntered(XRBaseInteractable interactable)
     {
 
@@ -58,7 +60,6 @@ public class RightController : XRRayInteractor
 
     protected override void OnHoverEntered(XRBaseInteractable interactable)
     {
-
         if (isGrip)
         {
             switch (interactable.name)
@@ -154,7 +155,6 @@ public class RightController : XRRayInteractor
 
     }
 
-
     protected override void OnHoverExited(XRBaseInteractable interactable)
     {
         UIItemText.text = "";
@@ -162,6 +162,5 @@ public class RightController : XRRayInteractor
         subTitleText.text = "";
         subTitle.SetActive(false);
     }
-
-
+#pragma warning restore 672
 }

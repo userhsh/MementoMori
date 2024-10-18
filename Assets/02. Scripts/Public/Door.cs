@@ -32,7 +32,7 @@ public class Door : MonoBehaviour, IInteractable
 
     private void OnCollisionEnter(Collision collision)
     {
-        if (collision.collider.name == doorKey)
+        if (collision.collider.gameObject.name == doorKey)
         {
             keyCollider = collision.collider;
             isUnLockable = true;

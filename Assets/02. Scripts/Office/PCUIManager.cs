@@ -28,7 +28,7 @@ public class PCUIManager : MonoBehaviour
 
     private void OnComputer()
     {
-        if (antlers.transform.localEulerAngles == Vector3.zero)
+        if (antlers.InteractionCount % 4 == 2)
         {
             computerUI.gameObject.SetActive(true);
         }

@@ -3,9 +3,14 @@ using TMPro;
 
 public class NumberInput : MonoBehaviour
 {
-    public TextMeshProUGUI displayText1;  // 첫 번째 숫자 텍스트
-    public TextMeshProUGUI displayText2;  // 두 번째 숫자 텍스트
-    public GameObject passwordObject;     // Password 오브젝트 (비활성화/활성화할 오브젝트)
+    [SerializeField]
+    private TextMeshProUGUI displayText1;  // 첫 번째 숫자 텍스트
+    [SerializeField]
+    private TextMeshProUGUI displayText2;  // 두 번째 숫자 텍스트
+    [SerializeField]
+    private GameObject successText; // 정답 텍스트
+    [SerializeField]
+    private GameObject passwordObject;     // Password 오브젝트 (비활성화/활성화할 오브젝트)
 
     private int firstInputNumber = 0;     // 첫 번째 입력 숫자
     private int secondInputNumber = 0;    // 두 번째 입력 숫자
@@ -19,6 +24,7 @@ public class NumberInput : MonoBehaviour
         if (passwordObject != null)
         {
             passwordObject.SetActive(false);
+            successText.SetActive(false);
         }
     }
 
@@ -59,6 +65,7 @@ public class NumberInput : MonoBehaviour
         {
             // Password 오브젝트 활성화
             passwordObject.SetActive(true);
+            successText.SetActive(true);
         }
         else
         {

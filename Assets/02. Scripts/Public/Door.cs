@@ -63,12 +63,12 @@ public class Door : MonoBehaviour, IInteractable
         }
         else
         {
+            // 열쇠 삭제
+            Destroy(keyCollider?.gameObject);
             // 문 열림 상태 변경
             isOpen = !isOpen;
             // 문 애니메이션 재생
             doorAnimator.SetBool(doorOpenParameter, isOpen);
-            // 열쇠 삭제
-            Destroy(keyCollider.gameObject);
             // 문 여닫힘 사운드 재생
 
         }

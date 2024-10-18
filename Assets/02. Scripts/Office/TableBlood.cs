@@ -52,6 +52,7 @@ public class TableBlood : MonoBehaviour, IInteractable
         isTrue = true;
         Destroy(otherCollider.gameObject);
         nameElie.enabled = true; //이름 출현
+        this.gameObject.name = "Collection2";
     }
 
     public void Collection2Get()
@@ -59,6 +60,7 @@ public class TableBlood : MonoBehaviour, IInteractable
         if (isTrue)
         {
             GameObject.Find("PlayerUI").GetComponent<UIManager>().collections[1] = true;
+            this.gameObject.SetActive(false);
         }
     }
 

@@ -4,7 +4,6 @@ using UnityEngine;
 
 public class Flashlight : MonoBehaviour
 {
-
     Light flashLight = null;
 
     private void Awake()
@@ -12,8 +11,6 @@ public class Flashlight : MonoBehaviour
         flashLight = GetComponentInChildren<Light>();
         flashLight.enabled = false;
     }
-
-
 
     public void LightOnOff()
     {
@@ -26,6 +23,4 @@ public class Flashlight : MonoBehaviour
             flashLight.enabled = false;
         }
     }
-
-
 }

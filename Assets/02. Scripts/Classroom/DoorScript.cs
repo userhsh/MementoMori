@@ -50,7 +50,7 @@ public class DoorScript : MonoBehaviour
             isOpen = true;
             animator.SetBool("isOpen", true);
             audioSource.clip = openSound;
-            audioSource.PlayDelayed(0.7f);
+            audioSource.PlayDelayed(0.55f);
         }
         else
         {

@@ -6,6 +6,12 @@ using UnityEngine.UI;
 
 public class ComputerUI : MonoBehaviour
 {
+
+    AudioSource audioSource = null;
+    AudioClip numberClip = null;
+    AudioClip correctClip = null;
+    AudioClip wrongClip = null;
+
     QuizWindow quizWindow = null;
     AnswerWindow answerWindow = null;
 
@@ -23,6 +29,12 @@ public class ComputerUI : MonoBehaviour
 
     public void ComputerUIInit()
     {
+        audioSource = GetComponent<AudioSource>();
+        numberClip = Resources.Load<AudioClip>("OfficeSFX/PCNumber");
+        correctClip = Resources.Load<AudioClip>("OfficeSFX/Correct");
+        wrongClip = Resources.Load<AudioClip>("OfficeSFX/Wrong");
+
+
         quizWindow = GetComponentInChildren<QuizWindow>();
         quizWindow.gameObject.SetActive(false);
 
@@ -63,6 +75,8 @@ public class ComputerUI : MonoBehaviour
 
     private void CheckPassword()
     {
+        
+
         if (password.Length == 0) return;
 
 
@@ -71,6 +85,7 @@ public class ComputerUI : MonoBehaviour
             if (password == correctPassword)
             {
                 print("CorrectPassword");
+                audioSource.PlayOneShot(correctClip);
                 quizWindow.gameObject.SetActive(true); //퀴즈화면 띄움
                 isQuizOn = true;
                 ClearPassword();
@@ -79,6 +94,7 @@ public class ComputerUI : MonoBehaviour
             else
             {
                 wrongImage.gameObject.SetActive(true);
+                audioSource.PlayOneShot(wrongClip);
                 Invoke("OffWrongImage", 1f);
                 ClearPassword();
             }
@@ -88,6 +104,7 @@ public class ComputerUI : MonoBehaviour
             if (password == quizAnswer)
             {
                 print("정답화면 출력");
+                audioSource.PlayOneShot(correctClip);
                 quizWindow.gameObject.SetActive(false);
                 answerWindow.gameObject.SetActive(true);
                 surgeryKey.gameObject.SetActive(true);
@@ -95,6 +112,7 @@ public class ComputerUI : MonoBehaviour
             else
             {
                 print("오답");
+                audioSource.PlayOneShot(wrongClip);
                 ClearPassword();
             }
         }
@@ -138,6 +156,7 @@ public class ComputerUI : MonoBehaviour
             else
             {
                 _button.onClick.AddListener(() => GetNumber(_button.name)); //숫자입력 받음
+                audioSource.PlayOneShot(numberClip);
             }
         }
     }

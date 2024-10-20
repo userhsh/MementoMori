@@ -6,7 +6,6 @@ using UnityEngine;
 public class TV : MonoBehaviour, IInteractable
 {
     TVPW tvPW = null; //TV에 띄워지는 현관 비밀번호 이미지(자식 오브젝트)
-    //Remocon remocon = null;
 
     private void Awake()
     {

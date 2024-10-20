@@ -27,12 +27,13 @@ public class GunHit : MonoBehaviour
         bloodImage = GetComponentInChildren<Image>();
         endText = GetComponentInChildren<TextMeshProUGUI>();
         shotSource = GetComponent<AudioSource>();
-        shotClip = Resources.Load<AudioClip>("shotClip");
-        //흔들기 전 원래 위치값과 회전값 저장
+        shotClip = Resources.Load<AudioClip>("OfficeSFX/shotClip");
+        
+        //흔들기 전 원래 위치값과 회전값 
         originPos = shakeCamera.localPosition;
         originRot = shakeCamera.localRotation;
 
-        // 스크립트가 시작될 때 피 이미지가 보이지 않도록 설정
+        // 스크립트가 시작될 때 피 이미지가 보이지 않도록
         bloodImage.gameObject.SetActive(false);
         endText.gameObject.SetActive(false);
     }
@@ -43,7 +44,7 @@ public class GunHit : MonoBehaviour
 
         print("1");
 
-        //shotSource.PlayOneShot(shotClip);
+        shotSource.PlayOneShot(shotClip);
         float passTime = 0f;
 
         //duration 동안 흔들기 위해서 while
@@ -75,15 +76,15 @@ public class GunHit : MonoBehaviour
 
     }
 
-    // 피 효과를 화면에 나타내는 코루틴
+
     public IEnumerator ShowBloodEffect()
     {
         print("2");
         // 피 이미지 활성화
         bloodImage.gameObject.SetActive(true);
-        float elapsed = 0f; // 경과 시간을 기록할 변수
+        float elapsed = 0f; // 경과 시간
 
-        // 설정한 피 효과 지속 시간 동안 반복
+
         while (elapsed < bloodDuration)
         {
             float alpha = Mathf.Lerp(1f, 0f, elapsed / bloodDuration); // 1에서 0으로
@@ -94,7 +95,7 @@ public class GunHit : MonoBehaviour
         }
 
         
-        // 피 효과가 끝나면 이미지를 비활성화
+        // 피 비활성화
         bloodImage.gameObject.SetActive(false);
         Invoke("ShowEndText", 5f);
     }

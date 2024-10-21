@@ -23,6 +23,8 @@ public class ChildPalmPrint : MonoBehaviour
 
         //물체를 잡을 때 호출되는 이벤트 연결
         grabInteractable.selectEntered.AddListener(OnGrabbed);
+
+        gameObject.SetActive(false);
     }
 
 

@@ -4,12 +4,34 @@ using UnityEngine;
 
 public class Flashlight : MonoBehaviour
 {
+    IInteractable interactable = null;
+
     Light flashLight = null;
+
+    public float interactionDistance = 1.5f;
+
+    public GameObject Collection1;
+    public GameObject range;
 
     private void Awake()
     {
         flashLight = GetComponentInChildren<Light>();
         flashLight.enabled = false;
+    }
+
+    private void Update()
+    {
+        RaycastHit hit;
+        if (Physics.Raycast(transform.position, transform.forward, out hit, interactionDistance))
+        {
+            if (hit.collider.CompareTag("RANGE"))
+            {
+                if (flashLight.enabled == true)
+                {                  
+                    Collection1.SetActive(true);
+                }
+            }
+        }
     }
 
     public void LightOnOff()
@@ -23,4 +45,6 @@ public class Flashlight : MonoBehaviour
             flashLight.enabled = false;
         }
     }
+
+
 }

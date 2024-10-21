@@ -20,14 +20,17 @@ public class Door : MonoBehaviour, IInteractable
     protected string doorOpenParameter = "IsOpen";
     // 문 오디오 소스
     protected AudioSource doorAudioSource = null;
-    // 문 오디오 클립 배열 0 - 열림, 1 - 닫힘
-    protected AudioClip[] doorAudioClips = null;
-
+    // 문 여는 소리
+    protected AudioClip doorOpenSound = null;
+    // 문 닫는 소리
+    protected AudioClip doorCloseSound = null;
+    // 문 잠금 아이콘
     public LockIcon lockIcon = null;
-
+    // 문 잠금 해제 소리
     protected AudioClip unlockSound;
+    // 문 오디오 소스 컴포넌트
     protected AudioSource audioSource;
-
+    // 충돌된 열쇠 확인용 콜라이더
     Collider keyCollider = null;
 
     private void OnCollisionEnter(Collision collision)
@@ -70,15 +73,15 @@ public class Door : MonoBehaviour, IInteractable
             // 문 애니메이션 재생
             doorAnimator.SetBool(doorOpenParameter, isOpen);
             // 문 여닫힘 사운드 재생
-            if (doorAudioClips[0] != null && doorAudioClips[1] != null)
+            if (doorOpenSound != null && doorCloseSound != null)
             {
                 if (isOpen)
                 {
-                    audioSource.PlayOneShot(doorAudioClips[0]);
+                    audioSource.PlayOneShot(doorOpenSound);
                 }
                 else
                 {
-                    audioSource.PlayOneShot(doorAudioClips[1]);
+                    audioSource.PlayOneShot(doorCloseSound);
                 }
             }
             

@@ -20,6 +20,8 @@ public class MainDoorLcoker : MonoBehaviour
     // 게임 클리어 여부
     bool isGameclear = false;
 
+    public UIManager uiManager = null;
+
     private void Awake()
     {
         MainDoorLockerInit();
@@ -30,7 +32,7 @@ public class MainDoorLcoker : MonoBehaviour
     {
         arrowButtons = GetComponentsInChildren<Button>();
         passwordTexts = GetComponentsInChildren<TextMeshProUGUI>();
-     
+
         ButtonsInit();
     }
 
@@ -40,7 +42,7 @@ public class MainDoorLcoker : MonoBehaviour
         // 모든 버튼에 대해서
         for (int i = 0; i < arrowButtons.Length; i++)
         {
-            switch (i) 
+            switch (i)
             {
                 case 0:
                     arrowButtons[i].onClick.AddListener(() => UpArrowButton(0));
@@ -120,11 +122,25 @@ public class MainDoorLcoker : MonoBehaviour
             isGameclear = true;
             Destroy(this.gameObject);
 
-            if (isGameclear) SceneManager.LoadScene(2);
+            ChangeEndingScene();
         }
         else
         {
             isGameclear = false;
+        }
+    }
+
+    private void ChangeEndingScene()
+    {
+        if (!isGameclear) return;
+
+        if (uiManager.IsAllCollection)
+        {
+            SceneManager.LoadScene("TrueEndingScene");
+        }
+        else
+        {
+            SceneManager.LoadScene("NomalEndingScene");
         }
     }
 }

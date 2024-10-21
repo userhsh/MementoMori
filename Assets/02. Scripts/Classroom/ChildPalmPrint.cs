@@ -17,6 +17,7 @@ public class ChildPalmPrint : MonoBehaviour
         // XRGrabInteractable ÄÄÆ÷³ÍÆ®¸¦ °¡Á®¿È
         grabInteractable = GetComponent<XRGrabInteractable>();
     }
+
     private void Start()
     {
         collectionSound = Resources.Load<AudioClip>("CollectionSound/collectionSound");
@@ -36,5 +37,7 @@ public class ChildPalmPrint : MonoBehaviour
 
         audioSource.clip = collectionSound;
         audioSource.Play();
+
+        this.gameObject.SetActive(false);
     }
 }

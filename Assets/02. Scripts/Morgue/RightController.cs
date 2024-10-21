@@ -92,7 +92,7 @@ public class RightController : XRRayInteractor
                     UIItem.SetActive(true);
                     UIItemText.text = "아이템: 사무실 열쇠";
                     break;
-                case "RemoCon":
+                case "RemoconPivot":
                     UIItem.SetActive(true);
                     UIItemText.text = "아이템: 리모콘";
                     break;
@@ -106,7 +106,7 @@ public class RightController : XRRayInteractor
                     break;
                 case "SurgeryKey":
                     UIItem.SetActive(true);
-                    UIItemText.text = "아이템: 빈(?)종이";
+                    UIItemText.text = "아이템: 수술실 열쇠";
                     break;
                 case "Scalpel":
                     UIItem.SetActive(true);
@@ -123,6 +123,20 @@ public class RightController : XRRayInteractor
                 case "PillowFabic":
                     UIItem.SetActive(true);
                     UIItemText.text = "아이템: 천";
+                    break;
+                case "ShutterButton":
+                    UIItem.SetActive(true);
+                    UIItemText.text = "아이템: 셔터 버튼";
+                    break;                
+                case "Mirror":
+                    UIItem.SetActive(true);
+                    UIItem.transform.GetChild(1).gameObject.SetActive(false);
+                    UIItemText.text = "더럽다. 무언가로 닦을 수 있을 것 같다.";
+                    break;
+                case "BloodCollider":
+                    UIItem.SetActive(true);
+                    UIItem.transform.GetChild(1).gameObject.SetActive(false);
+                    UIItemText.text = "무언가 적혔던 흔적이 있다.";
                     break;
                 default:
                     break;
@@ -157,6 +171,7 @@ public class RightController : XRRayInteractor
 
     protected override void OnHoverExited(XRBaseInteractable interactable)
     {
+        UIItem.transform.GetChild(1).gameObject.SetActive(true);
         UIItemText.text = "";
         UIItem.SetActive(false);
         subTitleText.text = "";

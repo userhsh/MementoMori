@@ -8,7 +8,7 @@ public class Flashlight : MonoBehaviour
 
     Light flashLight = null;
 
-    public float interactionDistance = 1.5f;
+    public float interactionDistance = 2f;
 
     public GameObject Collection1;
     public GameObject range;
@@ -45,6 +45,4 @@ public class Flashlight : MonoBehaviour
             flashLight.enabled = false;
         }
     }
-
-
 }

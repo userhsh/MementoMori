@@ -11,6 +11,8 @@ public class TableBlood : MonoBehaviour, IInteractable
 
     bool isPencilInteractable = false;
 
+    public Collider bloodCollider = null;
+
     private void Awake()
     {
         paperName = GetComponentInChildren<PaperName>();
@@ -21,11 +23,10 @@ public class TableBlood : MonoBehaviour, IInteractable
 
     private void OnTriggerEnter(Collider other)
     {
-        otherCollider = other;
-
         if (other.gameObject.name == "Paper_None")
         {
-            Destroy(other.gameObject); //빈 종이 삭제
+            Destroy(other?.gameObject); //빈 종이 삭제
+            bloodCollider.gameObject.SetActive(false);
             paperName.gameObject.SetActive(true); //이름 종이 출현
         }
 
@@ -33,6 +34,10 @@ public class TableBlood : MonoBehaviour, IInteractable
         {
             isPencilInteractable = true;
         }
+
+        if (other.gameObject.layer == 1 >> 10) return;
+
+        otherCollider = other;
     }
 
     private void OnTriggerExit(Collider other)
@@ -50,7 +55,7 @@ public class TableBlood : MonoBehaviour, IInteractable
         if (!isPencilInteractable) return;
 
         isTrue = true;
-        Destroy(otherCollider.gameObject);
+        Destroy(otherCollider?.gameObject);
         nameElie.enabled = true; //이름 출현
         this.gameObject.name = "Collection2";
     }

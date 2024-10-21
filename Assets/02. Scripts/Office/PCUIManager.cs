@@ -11,6 +11,7 @@ public class PCUIManager : MonoBehaviour
     AudioSource audioSource = null;
     AudioClip clip = null;
     ComputerUI computerUI = null;
+    public GameObject computerSound;
 
     private void Awake()
     {
@@ -24,6 +25,8 @@ public class PCUIManager : MonoBehaviour
         computerUI.ComputerUIInit();
 
         computerUI.gameObject.SetActive(false);
+
+        computerSound.GetComponent<AudioSource>().clip = clip;
     }
 
     private void Update()
@@ -36,11 +39,19 @@ public class PCUIManager : MonoBehaviour
         if (antlers.InteractionCount % 4 == 2)
         {
             computerUI.gameObject.SetActive(true);
-            audioSource.PlayOneShot(clip);
+            if (!audioSource.isPlaying)
+            {
+                computerSound.GetComponent<AudioSource>().enabled = true;
+                //audioSource.PlayOneShot(clip);
+            }
+               
         }
         else
         {
+            computerSound.GetComponent<AudioSource>().enabled = false;
             computerUI.gameObject.SetActive(false);
         }
     }
+
+
 }

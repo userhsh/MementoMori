@@ -10,6 +10,7 @@ public class TapScript : MonoBehaviour
     private AudioSource audioSource;  // 오디오 소스
     private XRGrabInteractable grabInteractable;
 
+    bool isTurnOn = false;
     Animator animator;
 
     private void Awake()

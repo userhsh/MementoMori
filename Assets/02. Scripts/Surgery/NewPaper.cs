@@ -6,7 +6,7 @@ public class NewPaper : MonoBehaviour
 {
     public void GetCollection()
     {
-        GameObject.Find("PlayerUI").GetComponent<UIManager>().collections[1] = true;
+        GameObject.Find("PlayerUI").GetComponent<UIManager>().collections[3] = true;
         this.gameObject.SetActive(false);
     }
 }

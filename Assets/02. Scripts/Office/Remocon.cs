@@ -10,7 +10,7 @@ public class Remocon : MonoBehaviour, IUseable
 
     TV TV = null;
 
-    float rayLength = 2f;
+    float rayLength = 3f;
 
     [SerializeField]
     private LayerMask interactableLayer;

@@ -36,5 +36,8 @@ public class SurgeryDoor : Door
 
         audioSource = GetComponent<AudioSource>();
         unlockSound = Resources.Load<AudioClip>("UnlockSound/unlockSound");
+
+        doorAudioClips[0] = Resources.Load<AudioClip>("DoorSound/doorOpen");
+        doorAudioClips[1] = Resources.Load<AudioClip>("DoorSound/doorClose");
     }
 }

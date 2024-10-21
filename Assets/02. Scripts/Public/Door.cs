@@ -30,12 +30,6 @@ public class Door : MonoBehaviour, IInteractable
 
     Collider keyCollider = null;
 
-    private void Awake()
-    {
-        doorAudioClips[0] = Resources.Load<AudioClip>("DoorSound/doorOpen");
-        doorAudioClips[1] = Resources.Load<AudioClip>("DoorSound/doorClose");
-    }
-
     private void OnCollisionEnter(Collision collision)
     {
         if (collision.collider.gameObject.name == doorKey)
@@ -76,7 +70,18 @@ public class Door : MonoBehaviour, IInteractable
             // 문 애니메이션 재생
             doorAnimator.SetBool(doorOpenParameter, isOpen);
             // 문 여닫힘 사운드 재생
-            audioSource.PlayOneShot(doorAudioClips[0]);
+            if (doorAudioClips[0] != null && doorAudioClips[1] != null)
+            {
+                if (isOpen)
+                {
+                    audioSource.PlayOneShot(doorAudioClips[0]);
+                }
+                else
+                {
+                    audioSource.PlayOneShot(doorAudioClips[1]);
+                }
+            }
+            
         }
     }
 

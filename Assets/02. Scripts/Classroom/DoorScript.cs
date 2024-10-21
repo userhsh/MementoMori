@@ -34,7 +34,7 @@ public class DoorScript : MonoBehaviour
         openSound = Resources.Load<AudioClip>("DoorSound/doorOpen");
         closeSound = Resources.Load<AudioClip>("DoorSound/doorClose");
 
-        lockIcon.gameObject.SetActive(false);
+        lockIcon?.gameObject.SetActive(false);
 
         // 물체를 잡을 때 호출되는 이벤트 연결
         grabInteractable.selectEntered.AddListener(OpenCaseDoor);

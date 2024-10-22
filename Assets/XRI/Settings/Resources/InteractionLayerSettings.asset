@@ -23,6 +23,7 @@ MonoBehaviour:
   - 
   - 
   - 
+  - ITEM
   - 
   - 
   - 
@@ -43,5 +44,4 @@ MonoBehaviour:
   - 
   - 
   - 
-  - 
-  - 
+  - Teleport

@@ -30,12 +30,16 @@ public class LeftController : XRRayInteractor
         collectionOff.action.performed += CollectionOff;
     }
 
+    public void RemoveEvent()
+    {
+        menu.action.performed -= MenuOn;
+        collectionOn.action.performed -= CollectionOn;
+        collectionOff.action.performed -= CollectionOff;
+    }
+
     void MenuOn(InputAction.CallbackContext context) //메뉴 키 누를 시
     {
-        if (UImenu != null)
-        {
-            UImenu.SetActive(true);
-        }
+        UImenu?.SetActive(true);
     }
 
     void CollectionOn(InputAction.CallbackContext context) //Y키 누를 시

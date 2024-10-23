@@ -18,6 +18,7 @@ public class UIManager : MonoBehaviour
     public GameObject collectionLockImg;
     public GameObject[] collectionImgs;
 
+    public LeftController leftController;
 
     private bool isAllCollection = false;
     public bool IsAllCollection { get { return isAllCollection; } }
@@ -70,6 +71,7 @@ public class UIManager : MonoBehaviour
     }
     public void ExitButton()
     {
+        leftController.RemoveEvent();
         UnityEngine.SceneManagement.SceneManager.LoadScene("GameStartScene");
     }
 

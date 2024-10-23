@@ -17,12 +17,12 @@ public class RightController : XRRayInteractor
 
     public void RightHandRenderIdle()
     {
-        RightHandRender.SetActive(true);
+        RightHandRender?.SetActive(true);
     }
 
     public void RightHandRenderGripping()
     {
-        RightHandRender.SetActive(false);
+        RightHandRender?.SetActive(false);
     }
 
     public bool isGrip = true; //그립 시 레이방지용 불값

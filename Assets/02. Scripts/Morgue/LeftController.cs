@@ -32,26 +32,29 @@ public class LeftController : XRRayInteractor
 
     void MenuOn(InputAction.CallbackContext context) //메뉴 키 누를 시
     {
-        UImenu.SetActive(true);
+        if (UImenu != null)
+        {
+            UImenu.SetActive(true);
+        }
     }
 
     void CollectionOn(InputAction.CallbackContext context) //Y키 누를 시
     {
-        UIcollection.SetActive(true);
+        UIcollection?.SetActive(true);
     }
     void CollectionOff(InputAction.CallbackContext context) //X키 누를 시
     {
-        UIcollection.SetActive(false);
+        UIcollection?.SetActive(false);
     }
 
     public void LeftHandRenderIdle() //기존에 왼손랜더러 켜짐
     {
-        LeftHandRender.SetActive(true);
+        LeftHandRender?.SetActive(true);
     }
 
     public void LeftHandRenderGripping() //뭔가를 상호작용시 왼손랜더러 꺼짐
     {
-        LeftHandRender.SetActive(false);
+        LeftHandRender?.SetActive(false);
     }
 
     public bool isGrip = true;

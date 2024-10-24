@@ -36,7 +36,7 @@ public class MainmenuButtons : MonoBehaviour
 
     void ChangeMorgueScene()    
     {
-        SceneManager.LoadScene("MainScene");  // ¸ÞÀÎ¾À ·Îµå
+        SceneManager.LoadScene("LoadingScene");  // ·Îµù¾À ·Îµå
     }
 
     void EnterOption()

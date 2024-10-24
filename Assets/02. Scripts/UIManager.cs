@@ -7,6 +7,7 @@ public class UIManager : MonoBehaviour
 {
     //메뉴창에 있는 기능
     public GameObject UIMenu;
+    public GameObject OptionMenu;
     public GameObject optionButton;
     public GameObject exitButton;
 
@@ -67,7 +68,8 @@ public class UIManager : MonoBehaviour
     }
     public void OptionButton()
     {
-
+        UIMenu.SetActive(false);
+        OptionMenu.SetActive(true);
     }
     public void ExitButton()
     {

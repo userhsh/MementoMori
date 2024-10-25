@@ -3,44 +3,69 @@ using UnityEngine;
 
 public class GameManager : MonoBehaviour
 {
-    private static GameManager instance; // 싱글톤 인스턴스
+    private static GameManager instance;
     private string saveFilePath;
+    public bool isContinueAvailable;
 
     void Awake()
     {
-        // 이미 인스턴스가 있다면 자신을 파괴
         if (instance != null)
         {
             Destroy(gameObject);
             return;
         }
-        instance = this; // 인스턴스 설정
-        DontDestroyOnLoad(gameObject); // 씬 전환 시 파괴되지 않도록 설정
+        instance = this;
+        DontDestroyOnLoad(gameObject);
     }
 
     void Start()
     {
         saveFilePath = Path.Combine(Application.persistentDataPath, "gameData.json");
+        Debug.Log("Persistent data path: " + Application.persistentDataPath);
+
+        GameData loadedData = LoadGameData();
+
+        if (loadedData != null) // 데이터가 존재하면
+        {
+            isContinueAvailable = loadedData.isContinueAvailable; // 저장된 이어하기 가능 여부 불러오기
+            Debug.Log("Loaded isContinueAvailable: " + loadedData.isContinueAvailable);
+
+            // MainmenuButtons의 UpdateContinueButton 호출
+            MainmenuButtons mainmenuButtons = FindObjectOfType<MainmenuButtons>();
+            if (mainmenuButtons != null)
+            {
+                mainmenuButtons.UpdateContinueButton(isContinueAvailable);
+            }
+
+        }
+        else
+        {
+            isContinueAvailable = false; // 저장된 데이터가 없으면 이어하기 불가능
+        }
     }
 
     public void StartNewGame()
     {
-        // 초기 위치를 설정
-        Vector3 initialPosition = new Vector3(8.65f, 0.759f, -6.64f); // 시작 위치를 설정 (필요에 따라 수정)
+        Vector3 initialPosition = new Vector3(8.65f, 0.759f, -6.64f);
+        GameData gameData = new GameData { playerPosition = initialPosition, isContinueAvailable = true };
+        SaveGameData(gameData);
 
-        // 새 게임 데이터를 초기화
-        GameData gameData = new GameData { playerPosition = initialPosition };
-
-        // JSON으로 저장
-        string json = JsonUtility.ToJson(gameData);
-        File.WriteAllText(saveFilePath, json);
-
+        isContinueAvailable = true;
         Debug.Log("새 게임이 시작되었습니다.");
     }
 
     public void SaveGameData(Vector3 playerPosition)
     {
-        GameData gameData = new GameData { playerPosition = playerPosition };
+        GameData gameData = new GameData
+        {
+            playerPosition = playerPosition,
+            isContinueAvailable = this.isContinueAvailable // 이어하기 가능 상태도 저장
+        };
+        SaveGameData(gameData);
+    }
+
+    private void SaveGameData(GameData gameData)
+    {
         string json = JsonUtility.ToJson(gameData);
         File.WriteAllText(saveFilePath, json);
     }
@@ -52,12 +77,11 @@ public class GameManager : MonoBehaviour
             string json = File.ReadAllText(saveFilePath);
             return JsonUtility.FromJson<GameData>(json);
         }
-        return new GameData { playerPosition = Vector3.zero }; // 기본값으로 (0, 0, 0) 반환
+        return null;
     }
 
     private void OnApplicationQuit()
     {
-        // 애플리케이션이 종료될 때 플레이어 데이터를 저장
         PlayerController playerController = FindObjectOfType<PlayerController>();
         if (playerController != null)
         {
@@ -65,7 +89,7 @@ public class GameManager : MonoBehaviour
         }
     }
 
-    public static GameManager GetInstance() // 인스턴스 접근을 위한 정적 메서드
+    public static GameManager GetInstance()
     {
         return instance;
     }

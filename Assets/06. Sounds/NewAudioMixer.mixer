@@ -9,8 +9,7 @@ AudioMixerGroupController:
   m_Name: BGM
   m_AudioMixer: {fileID: 24100000}
   m_GroupID: cc1f36492853ecd4daa9ab255a57753d
-  m_Children:
-  - {fileID: 9017925431412108034}
+  m_Children: []
   m_Volume: 21481d3ff5b96944f8075df078cb541e
   m_Pitch: a3b1def0fd1ecf8418bf786504b5dad4
   m_Send: 00000000000000000000000000000000
@@ -51,9 +50,9 @@ AudioMixerController:
   m_UpdateMode: 0
   m_ExposedParameters:
   - guid: 21481d3ff5b96944f8075df078cb541e
-    name: Master
-  - guid: b79873854e6088f4e81405df94e82833
     name: BGM
+  - guid: b79873854e6088f4e81405df94e82833
+    name: Master
   - guid: c5a82c92a990abe40ba0e95a3bfb7c7f
     name: SFX
   m_AudioMixerGroupViews:
@@ -75,6 +74,7 @@ AudioMixerGroupController:
   m_GroupID: 6728d974b07b05b4eb1b2c67f2f45796
   m_Children:
   - {fileID: -7335424062458552934}
+  - {fileID: 9017925431412108034}
   m_Volume: b79873854e6088f4e81405df94e82833
   m_Pitch: dd0b0edcb7e61bb4899f85879eb51bae
   m_Send: 00000000000000000000000000000000

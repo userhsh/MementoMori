@@ -52,14 +52,14 @@ public class DoorScript : MonoBehaviour
         if (!isOpen)
         {
             isOpen = true;
-            animator.SetBool("isOpen", true);
+            animator.SetBool("IsOpen", true);
             audioSource.clip = openSound;
             audioSource.PlayDelayed(0.55f);
         }
         else
         {
             isOpen = false;
-            animator.SetBool("isOpen", false);
+            animator.SetBool("IsOpen", false);
             audioSource.clip = closeSound;
             audioSource.PlayDelayed(0.4f);
         }

@@ -48,18 +48,27 @@ public class GameManager : MonoBehaviour
     public void StartNewGame()
     {
         Vector3 initialPosition = new Vector3(8.65f, 0.759f, -6.64f); // 초기 플레이어 위치 설정
-        GameData gameData = new GameData { playerPosition = initialPosition, isContinueAvailable = true }; // 새 게임 데이터 설정
+        Vector3 initialRotation = new Vector3(0, 185f, 0); // Y 로테이션을 180도로 설정
+
+        GameData gameData = new GameData 
+        {
+            playerPosition = initialPosition, // 초기 플레이어 위치
+            playerRotation = initialRotation, // 초기 플레이어 회전 (Y: 180도)
+            isContinueAvailable = true // 이어하기 가능 상태
+        }; // 새 게임 데이터 설정
+
         SaveGameData(gameData); // 데이터 저장
 
         isContinueAvailable = true; // 이어하기 가능 상태로 변경
     }
 
-    // 게임 데이터를 저장하는 메서드 (플레이어 위치를 인자로 받아 저장)
-    public void SaveGameData(Vector3 playerPosition)
+    // 게임 데이터를 저장하는 메서드 (플레이어 위치 및 회전값을 인자로 받아 저장)
+    public void SaveGameData(Vector3 playerPosition, Vector3 playerRotation)
     {
         GameData gameData = new GameData
         {
             playerPosition = playerPosition, // 현재 플레이어 위치 저장
+            playerRotation = playerRotation, // 현재 플레이어 회전 저장
             isContinueAvailable = this.isContinueAvailable // 현재 이어하기 가능 상태 저장
         };
         SaveGameData(gameData); // 실제 데이터 저장 메서드 호출
@@ -98,13 +107,13 @@ public class GameManager : MonoBehaviour
         return null; // 파일이 없으면 null 반환
     }
 
-    // 게임 종료 시 호출되는 메서드로 현재 플레이어 위치를 저장
+    // 게임 종료 시 호출되는 메서드로 현재 플레이어 위치와 회전값을 저장
     private void OnApplicationQuit()
     {
         PlayerController playerController = FindObjectOfType<PlayerController>(); // 현재 씬에서 플레이어 객체를 찾음
         if (playerController != null)
         {
-            SaveGameData(playerController.transform.position); // 플레이어 위치를 저장
+            SaveGameData(playerController.transform.position, playerController.transform.rotation.eulerAngles); // 플레이어 위치와 회전 저장
         }
         else
         {

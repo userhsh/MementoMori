@@ -95,8 +95,12 @@ public class MainmenuButtons : MonoBehaviour
 
         if (playerController != null && gameManager != null)
         {
-            gameManager.SaveGameData(playerController.transform.position); // 플레이어 위치 저장
-            Debug.Log("플레이어 위치가 저장되었습니다: " + playerController.transform.position);
+            // 플레이어의 위치와 회전값을 저장
+            Vector3 playerPosition = playerController.transform.position; // 플레이어 위치
+            Vector3 playerRotation = playerController.transform.rotation.eulerAngles; // 플레이어 회전값
+
+            gameManager.SaveGameData(playerPosition, playerRotation); // 플레이어 위치와 회전값 저장
+            Debug.Log("플레이어 위치와 회전값이 저장되었습니다: " + playerPosition + ", " + playerRotation);
         }
 
 #if UNITY_EDITOR    // 유니티 에디터에서 실행 중일 때

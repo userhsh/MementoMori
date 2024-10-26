@@ -75,7 +75,20 @@ public class UIManager : MonoBehaviour
         if (gameManager != null)
         {
             // Exit 버튼을 클릭했을 때 수행할 작업
-            gameManager.SaveGameData(transform.position); // 현재 위치 저장
+            PlayerController playerController = FindObjectOfType<PlayerController>(); // 현재 씬에서 플레이어 객체를 찾음
+            if (playerController != null)
+            {
+                // 플레이어의 위치와 회전값을 저장
+                Vector3 playerPosition = playerController.transform.position; // 플레이어 위치
+                Vector3 playerRotation = playerController.transform.rotation.eulerAngles; // 플레이어 회전값
+
+                gameManager.SaveGameData(playerPosition, playerRotation); // 플레이어 위치와 회전값 저장
+                Debug.Log("플레이어 위치와 회전값이 저장되었습니다: " + playerPosition + ", " + playerRotation);
+            }
+            else
+            {
+                Debug.Log("PlayerController not found in ExitButton!");
+            }
         }
         else
         {

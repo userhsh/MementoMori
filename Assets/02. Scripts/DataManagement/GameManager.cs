@@ -3,92 +3,116 @@ using UnityEngine;
 
 public class GameManager : MonoBehaviour
 {
-    private static GameManager instance;
-    private string saveFilePath;
-    public bool isContinueAvailable;
+    private static GameManager instance; // 싱글톤 인스턴스를 보관하는 변수
+    private string saveFilePath; // 데이터 저장 파일 경로
+    public bool isContinueAvailable; // 이어하기 가능 여부를 나타내는 변수
 
     void Awake()
     {
-        if (instance != null)
+        // 싱글톤 패턴을 통해 GameManager 인스턴스를 하나만 유지
+        if (instance != null) // 인스턴스가 이미 존재하면
         {
-            Destroy(gameObject);
+            Destroy(gameObject); // 새로운 인스턴스를 파괴
             return;
         }
-        instance = this;
-        DontDestroyOnLoad(gameObject);
+        instance = this; // 인스턴스를 설정
+        DontDestroyOnLoad(gameObject); // 씬 전환 시 파괴되지 않도록 설정
     }
 
     void Start()
     {
+        // 데이터 파일 경로 설정 (파일은 앱의 지속성 데이터 경로에 저장됨)
         saveFilePath = Path.Combine(Application.persistentDataPath, "gameData.json");
-        Debug.Log("Persistent data path: " + Application.persistentDataPath);
 
+        // 게임 데이터 로드 시도
         GameData loadedData = LoadGameData();
 
-        if (loadedData != null) // 데이터가 존재하면
+        if (loadedData != null) // 저장된 데이터가 있으면
         {
-            isContinueAvailable = loadedData.isContinueAvailable; // 저장된 이어하기 가능 여부 불러오기
-            Debug.Log("Loaded isContinueAvailable: " + loadedData.isContinueAvailable);
+            isContinueAvailable = loadedData.isContinueAvailable; // 저장된 이어하기 가능 여부 설정
 
-            // MainmenuButtons의 UpdateContinueButton 호출
+            // MainmenuButtons 스크립트를 찾아서 이어하기 버튼 상태 업데이트
             MainmenuButtons mainmenuButtons = FindObjectOfType<MainmenuButtons>();
             if (mainmenuButtons != null)
             {
-                mainmenuButtons.UpdateContinueButton(isContinueAvailable);
+                mainmenuButtons.UpdateContinueButton(isContinueAvailable); // 이어하기 버튼 업데이트
             }
-
         }
         else
         {
-            isContinueAvailable = false; // 저장된 데이터가 없으면 이어하기 불가능
+            isContinueAvailable = false; // 데이터가 없으면 이어하기 불가능
         }
     }
 
+    // 새로운 게임 시작 시 초기화 데이터 저장
     public void StartNewGame()
     {
-        Vector3 initialPosition = new Vector3(8.65f, 0.759f, -6.64f);
-        GameData gameData = new GameData { playerPosition = initialPosition, isContinueAvailable = true };
-        SaveGameData(gameData);
+        Vector3 initialPosition = new Vector3(8.65f, 0.759f, -6.64f); // 초기 플레이어 위치 설정
+        GameData gameData = new GameData { playerPosition = initialPosition, isContinueAvailable = true }; // 새 게임 데이터 설정
+        SaveGameData(gameData); // 데이터 저장
 
-        isContinueAvailable = true;
-        Debug.Log("새 게임이 시작되었습니다.");
+        isContinueAvailable = true; // 이어하기 가능 상태로 변경
     }
 
+    // 게임 데이터를 저장하는 메서드 (플레이어 위치를 인자로 받아 저장)
     public void SaveGameData(Vector3 playerPosition)
     {
         GameData gameData = new GameData
         {
-            playerPosition = playerPosition,
-            isContinueAvailable = this.isContinueAvailable // 이어하기 가능 상태도 저장
+            playerPosition = playerPosition, // 현재 플레이어 위치 저장
+            isContinueAvailable = this.isContinueAvailable // 현재 이어하기 가능 상태 저장
         };
-        SaveGameData(gameData);
+        SaveGameData(gameData); // 실제 데이터 저장 메서드 호출
     }
 
+    // 게임 데이터를 파일에 저장하는 메서드
     private void SaveGameData(GameData gameData)
     {
-        string json = JsonUtility.ToJson(gameData);
-        File.WriteAllText(saveFilePath, json);
+        string json = JsonUtility.ToJson(gameData); // GameData 객체를 JSON 형식으로 변환
+        try
+        {
+            File.WriteAllText(saveFilePath, json); // JSON 문자열을 파일에 기록
+        }
+        catch (IOException e) // 파일 쓰기 중 발생할 수 있는 예외 처리
+        {
+            Debug.Log($"Failed to save game data: {e.Message}"); // 로그 출력
+        }
     }
 
+    // 게임 데이터를 파일에서 로드하는 메서드
     public GameData LoadGameData()
     {
-        if (File.Exists(saveFilePath))
+        if (File.Exists(saveFilePath)) // 파일이 존재하면
         {
-            string json = File.ReadAllText(saveFilePath);
-            return JsonUtility.FromJson<GameData>(json);
+            string json;
+            try
+            {
+                json = File.ReadAllText(saveFilePath); // 파일 내용을 읽어 JSON 문자열로 가져옴
+                return JsonUtility.FromJson<GameData>(json); // JSON 문자열을 GameData 객체로 변환하여 반환
+            }
+            catch (IOException e) // 파일 읽기 중 발생할 수 있는 예외 처리
+            {
+                Debug.Log($"Failed to load game data: {e.Message}"); // 로그 출력
+            }
         }
-        return null;
+        return null; // 파일이 없으면 null 반환
     }
 
+    // 게임 종료 시 호출되는 메서드로 현재 플레이어 위치를 저장
     private void OnApplicationQuit()
     {
-        PlayerController playerController = FindObjectOfType<PlayerController>();
+        PlayerController playerController = FindObjectOfType<PlayerController>(); // 현재 씬에서 플레이어 객체를 찾음
         if (playerController != null)
         {
-            SaveGameData(playerController.transform.position);
+            SaveGameData(playerController.transform.position); // 플레이어 위치를 저장
+        }
+        else
+        {
+            Debug.Log("PlayerController not found during application quit."); // 로그 추가
         }
     }
 
+    // 싱글톤 인스턴스를 반환하는 메서드
     public static GameManager GetInstance()
     {
         return instance;

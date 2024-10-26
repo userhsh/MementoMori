@@ -53,8 +53,6 @@ public class VolumeController : MonoBehaviour
     // 슬라이더 값이 변경될 때 호출될 함수
     public void SetBGMVolume(float sliderValue)
     {
-        Debug.Log("BGM Volume Set to: " + sliderValue); // 디버그 출력
-
         // 슬라이더 값이 0일 경우 음소거 상태로 설정
         if (sliderValue <= 0.0001f) // 0에 너무 가까운 값을 방지하기 위해 작은 값을 설정
         {
@@ -73,8 +71,6 @@ public class VolumeController : MonoBehaviour
 
     public void SetMasterVolume(float sliderValue)
     {
-        Debug.Log("Master Volume Set to: " + sliderValue); // 디버그 출력
-
         if (sliderValue <= 0.0001f)
         {
             audioMixer.SetFloat("Master", -80f); // 최소 볼륨
@@ -94,8 +90,6 @@ public class VolumeController : MonoBehaviour
     // 효과음(SFX) 볼륨 조정
     public void SetSFXVolume(float sliderValue)
     {
-        Debug.Log("SFX Volume Set to: " + sliderValue); // 디버그 출력
-
         if (sliderValue <= 0.0001f)
         {
             audioMixer.SetFloat("SFX", -80f);   // 최소 볼륨
@@ -113,7 +107,6 @@ public class VolumeController : MonoBehaviour
 
     private void SaveVolumeData()
     {
-        Debug.Log("Saving volume data to: " + saveFilePath); // 파일 경로 확인
         VolumeData volumeData = new VolumeData
         {
             bgmVolume = bgmVolumeSlider.value,
@@ -130,7 +123,6 @@ public class VolumeController : MonoBehaviour
         if (File.Exists(saveFilePath))
         {
             string json = File.ReadAllText(saveFilePath);
-            Debug.Log("Loaded volume data: " + json); // JSON 내용 확인
 
             VolumeData volumeData = JsonUtility.FromJson<VolumeData>(json);
 

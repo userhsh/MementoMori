@@ -47,8 +47,8 @@ public class GameManager : MonoBehaviour
     // 새로운 게임 시작 시 초기화 데이터 저장
     public void StartNewGame()
     {
-        Vector3 initialPosition = new Vector3(8.65f, 0.759f, -6.64f); // 초기 플레이어 위치 설정
-        Vector3 initialRotation = new Vector3(0, 185f, 0); // Y 로테이션을 180도로 설정
+        Vector3 initialPosition = new Vector3(8.75f, 0.36f, -5.96f); // 초기 플레이어 위치 설정
+        Vector3 initialRotation = new Vector3(0, 183f, 0); // Y 로테이션을 180도로 설정
 
         GameData gameData = new GameData 
         {

@@ -15,7 +15,7 @@ public class DoorScript : MonoBehaviour
     private XRGrabInteractable grabInteractable;
 
     public bool isLocked = false;    // 문이 잠겨있는 상태 (기본값: 잠기지 않음)
-    bool isOpen = false;
+    public bool isOpen = false;
     Animator animator;
 
     public LockIcon lockIcon;
@@ -70,5 +70,27 @@ public class DoorScript : MonoBehaviour
     {
         isLocked = false;  // 잠금 해제
         Debug.Log("문이 잠금 해제되었습니다.");
+    }
+
+    public void UpdateDoorState()
+    {
+        // 잠금 상태가 해제된 경우 잠금 아이콘 숨기기
+        if (!isLocked)
+        {
+            lockIcon?.gameObject.SetActive(false);
+        }
+
+        // 열림/닫힘 상태에 따라 애니메이션 설정
+        animator.SetBool("IsOpen", isOpen);
+        if (isOpen)
+        {
+            audioSource.clip = openSound;
+            audioSource.PlayDelayed(0.55f);
+        }
+        else
+        {
+            audioSource.clip = closeSound;
+            audioSource.PlayDelayed(0.4f);
+        }
     }
 }

@@ -1,6 +1,6 @@
 using System.IO;
 using UnityEngine;
-
+using System.Collections.Generic;
 public class GameManager : MonoBehaviour
 {
     private static GameManager instance; // 싱글톤 인스턴스를 보관하는 변수
@@ -50,7 +50,7 @@ public class GameManager : MonoBehaviour
         Vector3 initialPosition = new Vector3(8.75f, 0.36f, -5.96f); // 초기 플레이어 위치 설정
         Vector3 initialRotation = new Vector3(0, 183f, 0); // Y 로테이션을 180도로 설정
 
-        GameData gameData = new GameData 
+        GameData gameData = new GameData
         {
             playerPosition = initialPosition, // 초기 플레이어 위치
             playerRotation = initialRotation, // 초기 플레이어 회전 (Y: 180도)
@@ -69,9 +69,22 @@ public class GameManager : MonoBehaviour
         {
             playerPosition = playerPosition, // 현재 플레이어 위치 저장
             playerRotation = playerRotation, // 현재 플레이어 회전 저장
-            isContinueAvailable = this.isContinueAvailable // 현재 이어하기 가능 상태 저장
+            isContinueAvailable = this.isContinueAvailable, // 현재 이어하기 가능 상태 저장
+            doorLockStates = new List<bool>(),
+            doorOpenStates = new List<bool>()
         };
-        SaveGameData(gameData); // 실제 데이터 저장 메서드 호출
+
+        // 씬의 모든 DoorScript 컴포넌트를 찾아서 상태 저장
+        DoorScript[] doors = FindObjectsOfType<DoorScript>();
+        foreach (DoorScript door in doors)
+        {
+            gameData.doorLockStates.Add(door.isLocked);  // 잠금 상태 저장
+            gameData.doorOpenStates.Add(door.isOpen);     // 열림 상태 저장
+        }
+
+        // JSON 변환 후 파일에 쓰기
+        string json = JsonUtility.ToJson(gameData);
+        File.WriteAllText(saveFilePath, json);
     }
 
     // 게임 데이터를 파일에 저장하는 메서드
@@ -89,22 +102,25 @@ public class GameManager : MonoBehaviour
     }
 
     // 게임 데이터를 파일에서 로드하는 메서드
-    public GameData LoadGameData()
+    public GameData LoadGameData() // 반환값을 GameData 타입으로 지정하여 불러온 데이터를 리턴
     {
-        if (File.Exists(saveFilePath)) // 파일이 존재하면
+        if (File.Exists(saveFilePath))
         {
-            string json;
-            try
+            string json = File.ReadAllText(saveFilePath);
+            GameData loadedData = JsonUtility.FromJson<GameData>(json);
+
+            // 문 상태 복원
+            DoorScript[] doors = FindObjectsOfType<DoorScript>();
+            for (int i = 0; i < doors.Length; i++)
             {
-                json = File.ReadAllText(saveFilePath); // 파일 내용을 읽어 JSON 문자열로 가져옴
-                return JsonUtility.FromJson<GameData>(json); // JSON 문자열을 GameData 객체로 변환하여 반환
+                doors[i].isLocked = loadedData.doorLockStates[i];
+                doors[i].isOpen = loadedData.doorOpenStates[i];
+                doors[i].UpdateDoorState();  // 문 상태 업데이트
             }
-            catch (IOException e) // 파일 읽기 중 발생할 수 있는 예외 처리
-            {
-                Debug.Log($"Failed to load game data: {e.Message}"); // 로그 출력
-            }
+
+            return loadedData; // 로드된 GameData 객체 반환
         }
-        return null; // 파일이 없으면 null 반환
+        return null; // 파일이 없거나 로드에 실패했을 경우 null 반환
     }
 
     // 게임 종료 시 호출되는 메서드로 현재 플레이어 위치와 회전값을 저장

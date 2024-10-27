@@ -83,7 +83,6 @@ public class UIManager : MonoBehaviour
                 Vector3 playerRotation = playerController.transform.rotation.eulerAngles; // 플레이어 회전값
 
                 gameManager.SaveGameData(playerPosition, playerRotation); // 플레이어 위치와 회전값 저장
-                Debug.Log("플레이어 위치와 회전값이 저장되었습니다: " + playerPosition + ", " + playerRotation);
             }
             else
             {

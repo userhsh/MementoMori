@@ -8,9 +8,4 @@ public class Key : MonoBehaviour
 {
     protected AudioClip unlockSound;
     protected AudioSource audioSource;
-
-    public void UnLockSound()
-    {
-        audioSource.PlayOneShot(unlockSound);
-    }
 }

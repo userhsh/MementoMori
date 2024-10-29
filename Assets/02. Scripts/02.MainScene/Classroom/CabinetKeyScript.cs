@@ -65,7 +65,6 @@ public class CabinetKeyScript : MonoBehaviour
     {
         if (animator != null)
         {
-            Debug.Log("오브젝트가 그랩되었습니다. 애니메이션을 비활성화합니다.");
             animator.enabled = false;  // Animator 비활성화
             
         }

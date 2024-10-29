@@ -57,7 +57,7 @@ public class GameManager : MonoBehaviour
             isContinueAvailable = true // 이어하기 가능 상태
         }; // 새 게임 데이터 설정
 
-        SaveGameData(gameData); // 데이터 저장
+        SaveGameData(initialPosition, initialRotation); // 데이터 저장
 
         isContinueAvailable = true; // 이어하기 가능 상태로 변경
     }
@@ -71,7 +71,8 @@ public class GameManager : MonoBehaviour
             playerRotation = playerRotation, // 현재 플레이어 회전 저장
             isContinueAvailable = this.isContinueAvailable, // 현재 이어하기 가능 상태 저장
             doorLockStates = new List<bool>(),
-            doorOpenStates = new List<bool>()
+            doorOpenStates = new List<bool>(),
+            tapOnState = false // 기본값 설정
         };
 
         // 씬의 모든 DoorScript 컴포넌트를 찾아서 상태 저장
@@ -82,23 +83,16 @@ public class GameManager : MonoBehaviour
             gameData.doorOpenStates.Add(door.isOpen);     // 열림 상태 저장
         }
 
+        // 씬의 TapScript 컴포넌트를 찾아서 상태 저장
+        TapScript tap = FindObjectOfType<TapScript>();
+        if (tap != null)
+        {
+            gameData.tapOnState = tap.isTurnOn; // isTurnOn 상태 저장
+        }
+
         // JSON 변환 후 파일에 쓰기
         string json = JsonUtility.ToJson(gameData);
         File.WriteAllText(saveFilePath, json);
-    }
-
-    // 게임 데이터를 파일에 저장하는 메서드
-    private void SaveGameData(GameData gameData)
-    {
-        string json = JsonUtility.ToJson(gameData); // GameData 객체를 JSON 형식으로 변환
-        try
-        {
-            File.WriteAllText(saveFilePath, json); // JSON 문자열을 파일에 기록
-        }
-        catch (IOException e) // 파일 쓰기 중 발생할 수 있는 예외 처리
-        {
-            Debug.Log($"Failed to save game data: {e.Message}"); // 로그 출력
-        }
     }
 
     // 게임 데이터를 파일에서 로드하는 메서드
@@ -113,9 +107,23 @@ public class GameManager : MonoBehaviour
             DoorScript[] doors = FindObjectsOfType<DoorScript>();
             for (int i = 0; i < doors.Length; i++)
             {
-                doors[i].isLocked = loadedData.doorLockStates[i];
-                doors[i].isOpen = loadedData.doorOpenStates[i];
-                doors[i].UpdateDoorState();  // 문 상태 업데이트
+                if (i < loadedData.doorLockStates.Count && i < loadedData.doorOpenStates.Count)
+                {
+                    doors[i].isLocked = loadedData.doorLockStates[i]; // 잠금 상태 복원
+                    doors[i].isOpen = loadedData.doorOpenStates[i];   // 열림 상태 복원
+                    doors[i].UpdateDoorState();  // 문 상태 업데이트
+                }
+            }
+
+            // TapScript 상태 복원
+            TapScript tap = FindObjectOfType<TapScript>();
+            if (tap != null) // TapScript가 존재하는 경우
+            {
+                tap.isTurnOn = loadedData.tapOnState; // 단일 변수로 상태 복원
+                if (tap.isTurnOn)
+                {
+                    tap.TurnOnWater(null); // 상태가 켜져 있으면 물을 틉니다.
+                }
             }
 
             return loadedData; // 로드된 GameData 객체 반환

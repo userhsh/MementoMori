@@ -47,20 +47,13 @@ public class NumberInput : MonoBehaviour
     {
         if (firstInputNumber == firstNumber && secondInputNumber == secondNumber)
         {
-            Debug.Log("정답입니다!");
             CorrectAnswerAction();  // 정답일 때 실행할 함수
-        }
-        else
-        {
-            Debug.Log("틀린 답입니다. 다시 시도하세요.");
         }
     }
 
     // 정답을 맞췄을 때 실행할 함수
     private void CorrectAnswerAction()
     {
-        Debug.Log("정답을 맞췄습니다! Password 오브젝트를 활성화합니다.");
-
         if (passwordObject != null)
         {
             // Password 오브젝트 활성화

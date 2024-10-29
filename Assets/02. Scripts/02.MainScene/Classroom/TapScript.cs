@@ -6,12 +6,10 @@ using UnityEngine.XR.Interaction.Toolkit;
 public class TapScript : MonoBehaviour
 {
     private AudioClip waterSound;
-
     private AudioSource audioSource;  // 오디오 소스
     private XRGrabInteractable grabInteractable;
-
-    bool isTurnOn = false;
-    Animator animator;
+    public bool isTurnOn = false;
+    private Animator animator;
 
     private void Awake()
     {
@@ -29,12 +27,18 @@ public class TapScript : MonoBehaviour
 
     public void TurnOnWater(SelectEnterEventArgs args)
     {
-        Debug.Log("수도꼭지 틀기");
+        isTurnOn = true; // 상태를 true로 설정
         animator.SetBool("isTurnOn", true);
 
         audioSource.clip = waterSound;
         audioSource.Play();
         // 현재 오디오 시스템 시간에 2초 후에 종료하도록 예약
         audioSource.SetScheduledEndTime(AudioSettings.dspTime + 2.5f);
+
+        // 게임 데이터 저장
+        GameManager.GetInstance().SaveGameData(
+            FindObjectOfType<PlayerController>().transform.position,
+            FindAnyObjectByType<PlayerController>().transform.rotation.eulerAngles
+            );
     }
 }

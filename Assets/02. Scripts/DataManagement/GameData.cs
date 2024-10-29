@@ -9,6 +9,7 @@ public class GameData
     public bool isContinueAvailable; // 이어하기 가능 여부를 저장하는 변수
     public List<bool> doorLockStates; // 문 잠금 상태 리스트
     public List<bool> doorOpenStates; // 문 열림 상태 리스트
+    public bool tapOnState; // TapScript의 상태를 저장하는 변수 (true : 켜짐 , false : 꺼짐)
 }
 
 [System.Serializable]

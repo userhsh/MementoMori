@@ -13,11 +13,13 @@ public class MorgueDoor : Door
 
     private void Update()
     {
-        if (anotherDoor.isLocked == false)
+        // 다른 문이 잠금 해제 상태인 경우 현재 문 잠금을 해제
+        if (anotherDoor != null && !anotherDoor.isLocked)
         {
             this.isLocked = false;
         }
-        else if (this.isLocked == false)
+        // 현재 문이 잠금 해제 상태일 경우 다른 문도 잠금 해제
+        else if (this.isLocked == false && anotherDoor != null)
         {
             anotherDoor.isLocked = false;
         }

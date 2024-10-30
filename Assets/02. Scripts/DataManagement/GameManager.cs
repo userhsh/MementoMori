@@ -70,17 +70,25 @@ public class GameManager : MonoBehaviour
             playerPosition = playerPosition, // 현재 플레이어 위치 저장
             playerRotation = playerRotation, // 현재 플레이어 회전 저장
             isContinueAvailable = this.isContinueAvailable, // 현재 이어하기 가능 상태 저장
-            doorLockStates = new List<bool>(),
-            doorOpenStates = new List<bool>(),
+            morgueBoxDoorOpenStates = new List<bool>(),
+            classroomdoorLockStates = new List<bool>(),
+            classroomdoorOpenStates = new List<bool>(),
             tapOnState = false // 기본값 설정
         };
 
-        // 씬의 모든 DoorScript 컴포넌트를 찾아서 상태 저장
-        DoorScript[] doors = FindObjectsOfType<DoorScript>();
-        foreach (DoorScript door in doors)
+        // 씬의 모든 MorgueBoxDoor 컴포넌트를 찾아서 상태 저장
+        MorgueBoxDoor[] morgueBoxDoors = FindObjectsOfType<MorgueBoxDoor>();
+        foreach (MorgueBoxDoor door in morgueBoxDoors)
         {
-            gameData.doorLockStates.Add(door.isLocked);  // 잠금 상태 저장
-            gameData.doorOpenStates.Add(door.isOpen);     // 열림 상태 저장
+            gameData.morgueBoxDoorOpenStates.Add(door.DoorOpen);
+        }
+
+        // 씬의 모든 DoorScript 컴포넌트를 찾아서 상태 저장
+        DoorScript[] classroomdoors = FindObjectsOfType<DoorScript>();
+        foreach (DoorScript door in classroomdoors)
+        {
+            gameData.classroomdoorLockStates.Add(door.isLocked);  // 잠금 상태 저장
+            gameData.classroomdoorOpenStates.Add(door.isOpen);     // 열림 상태 저장
         }
 
         // 씬의 TapScript 컴포넌트를 찾아서 상태 저장
@@ -103,15 +111,26 @@ public class GameManager : MonoBehaviour
             string json = File.ReadAllText(saveFilePath);
             GameData loadedData = JsonUtility.FromJson<GameData>(json);
 
-            // 문 상태 복원
-            DoorScript[] doors = FindObjectsOfType<DoorScript>();
-            for (int i = 0; i < doors.Length; i++)
+            //시체안치실 상자 문 상태 복원
+            MorgueBoxDoor[] morgueBoxDoors = FindObjectsOfType<MorgueBoxDoor>();
+            for (int i = 0; i < morgueBoxDoors.Length; i++)
             {
-                if (i < loadedData.doorLockStates.Count && i < loadedData.doorOpenStates.Count)
+                if (i < loadedData.morgueBoxDoorOpenStates.Count)
                 {
-                    doors[i].isLocked = loadedData.doorLockStates[i]; // 잠금 상태 복원
-                    doors[i].isOpen = loadedData.doorOpenStates[i];   // 열림 상태 복원
-                    doors[i].UpdateDoorState();  // 문 상태 업데이트
+                    morgueBoxDoors[i].DoorOpen = loadedData.morgueBoxDoorOpenStates[i]; // 열림 상태 복원
+                    morgueBoxDoors[i].UpdateMorgueBoxDoorState();
+                }
+            }
+
+            // 교실 문 상태 복원
+            DoorScript[] classroomdoors = FindObjectsOfType<DoorScript>();
+            for (int i = 0; i < classroomdoors.Length; i++)
+            {
+                if (i < loadedData.classroomdoorLockStates.Count && i < loadedData.classroomdoorOpenStates.Count)
+                {
+                    classroomdoors[i].isLocked = loadedData.classroomdoorLockStates[i]; // 잠금 상태 복원
+                    classroomdoors[i].isOpen = loadedData.classroomdoorOpenStates[i];   // 열림 상태 복원
+                    classroomdoors[i].UpdateClassroomDoorState();  // 문 상태 업데이트
                 }
             }
 

@@ -2381,9 +2381,9 @@ Rigidbody:
   m_Drag: 0
   m_AngularDrag: 0.05
   m_UseGravity: 0
-  m_IsKinematic: 1
+  m_IsKinematic: 0
   m_Interpolate: 0
-  m_Constraints: 0
+  m_Constraints: 112
   m_CollisionDetection: 0
 --- !u!114 &695078862
 MonoBehaviour:
@@ -2410,7 +2410,7 @@ Animator:
   m_Controller: {fileID: 9100000, guid: 87784e0d8b8905749b02d3b833386368, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
-  m_ApplyRootMotion: 0
+  m_ApplyRootMotion: 1
   m_LinearVelocityBlending: 0
   m_StabilizeFeet: 0
   m_WarningMessage: 
@@ -15607,7 +15607,7 @@ Animator:
   m_Controller: {fileID: 9100000, guid: 9531b8b138620be4a891a860232e653b, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
-  m_ApplyRootMotion: 0
+  m_ApplyRootMotion: 1
   m_LinearVelocityBlending: 0
   m_StabilizeFeet: 0
   m_WarningMessage: 
@@ -15950,9 +15950,9 @@ Rigidbody:
   m_Drag: 0
   m_AngularDrag: 0.05
   m_UseGravity: 0
-  m_IsKinematic: 1
+  m_IsKinematic: 0
   m_Interpolate: 0
-  m_Constraints: 126
+  m_Constraints: 112
   m_CollisionDetection: 0
 --- !u!1 &1547555064645886357
 GameObject:
@@ -16043,7 +16043,7 @@ Animator:
   m_Controller: {fileID: 9100000, guid: e8247b42289ded041a8ec914179ff486, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
-  m_ApplyRootMotion: 0
+  m_ApplyRootMotion: 1
   m_LinearVelocityBlending: 0
   m_StabilizeFeet: 0
   m_WarningMessage: 
@@ -16174,7 +16174,7 @@ Animator:
   m_Controller: {fileID: 9100000, guid: 2bee98660ad255f48b8e78b123b602fd, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
-  m_ApplyRootMotion: 0
+  m_ApplyRootMotion: 1
   m_LinearVelocityBlending: 0
   m_StabilizeFeet: 0
   m_WarningMessage: 
@@ -16393,9 +16393,9 @@ Rigidbody:
   m_Drag: 0
   m_AngularDrag: 0.05
   m_UseGravity: 0
-  m_IsKinematic: 1
+  m_IsKinematic: 0
   m_Interpolate: 0
-  m_Constraints: 126
+  m_Constraints: 112
   m_CollisionDetection: 0
 --- !u!65 &1547555064645886397
 BoxCollider:
@@ -17125,9 +17125,9 @@ Rigidbody:
   m_Drag: 0
   m_AngularDrag: 0.05
   m_UseGravity: 0
-  m_IsKinematic: 1
+  m_IsKinematic: 0
   m_Interpolate: 0
-  m_Constraints: 0
+  m_Constraints: 112
   m_CollisionDetection: 0
 --- !u!114 &1547555064647892809
 MonoBehaviour:
@@ -17154,7 +17154,7 @@ Animator:
   m_Controller: {fileID: 9100000, guid: 3985a3a3231837148be7573183753a2d, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
-  m_ApplyRootMotion: 0
+  m_ApplyRootMotion: 1
   m_LinearVelocityBlending: 0
   m_StabilizeFeet: 0
   m_WarningMessage: 
@@ -17403,9 +17403,9 @@ Rigidbody:
   m_Drag: 0
   m_AngularDrag: 0.05
   m_UseGravity: 0
-  m_IsKinematic: 1
+  m_IsKinematic: 0
   m_Interpolate: 0
-  m_Constraints: 0
+  m_Constraints: 112
   m_CollisionDetection: 0
 --- !u!114 &1547555064647892815
 MonoBehaviour:
@@ -17432,7 +17432,7 @@ Animator:
   m_Controller: {fileID: 9100000, guid: 5ee052b75530ef341876b7eb357b0606, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
-  m_ApplyRootMotion: 0
+  m_ApplyRootMotion: 1
   m_LinearVelocityBlending: 0
   m_StabilizeFeet: 0
   m_WarningMessage: 
@@ -17945,9 +17945,9 @@ Rigidbody:
   m_Drag: 0
   m_AngularDrag: 0.05
   m_UseGravity: 0
-  m_IsKinematic: 1
+  m_IsKinematic: 0
   m_Interpolate: 0
-  m_Constraints: 0
+  m_Constraints: 112
   m_CollisionDetection: 0
 --- !u!23 &1547555064647892829
 MeshRenderer:
@@ -18058,7 +18058,7 @@ Animator:
   m_Controller: {fileID: 9100000, guid: 83302a7f5c1761a4fa695a2c1fe53187, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
-  m_ApplyRootMotion: 0
+  m_ApplyRootMotion: 1
   m_LinearVelocityBlending: 0
   m_StabilizeFeet: 0
   m_WarningMessage: 
@@ -34877,6 +34877,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 47c2ce2dc0ecedf408802bcc4c9d063e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  DoorOpen: 0
 --- !u!114 &4260763333610984516
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -35701,6 +35702,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 47c2ce2dc0ecedf408802bcc4c9d063e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  DoorOpen: 0
 --- !u!23 &4261042096016572176
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -36024,6 +36026,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 47c2ce2dc0ecedf408802bcc4c9d063e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  DoorOpen: 0
 --- !u!114 &4261076221838021926
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -36135,6 +36138,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 47c2ce2dc0ecedf408802bcc4c9d063e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  DoorOpen: 0
 --- !u!114 &4261091399824137412
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -36491,6 +36495,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 47c2ce2dc0ecedf408802bcc4c9d063e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  DoorOpen: 0
 --- !u!23 &4261182104514068900
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -37288,6 +37293,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 47c2ce2dc0ecedf408802bcc4c9d063e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  DoorOpen: 0
 --- !u!114 &4261378541769698926
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -37679,6 +37685,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 47c2ce2dc0ecedf408802bcc4c9d063e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  DoorOpen: 0
 --- !u!114 &4261446973646952914
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -38228,6 +38235,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 47c2ce2dc0ecedf408802bcc4c9d063e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  DoorOpen: 0
 --- !u!23 &4261463050740035500
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -38635,6 +38643,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 47c2ce2dc0ecedf408802bcc4c9d063e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  DoorOpen: 0
 --- !u!114 &4261506202760515102
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -39274,6 +39283,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 47c2ce2dc0ecedf408802bcc4c9d063e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  DoorOpen: 0
 --- !u!114 &4261577385098308326
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -39588,6 +39598,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 47c2ce2dc0ecedf408802bcc4c9d063e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  DoorOpen: 0
 --- !u!23 &4261621253624397044
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -40086,6 +40097,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 47c2ce2dc0ecedf408802bcc4c9d063e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  DoorOpen: 0
 --- !u!23 &4261800262740589596
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -59388,7 +59400,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6786342443651528866}
   m_LocalRotation: {x: 0, y: 1, z: 0, w: 0}
-  m_LocalPosition: {x: -8.82, y: 0.759, z: -9.22}
+  m_LocalPosition: {x: 8.442, y: 0.759, z: -7.198}
   m_LocalScale: {x: 0.59, y: 0.6, z: 0.59}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -64099,9 +64111,9 @@ Rigidbody:
   m_Drag: 0
   m_AngularDrag: 0.05
   m_UseGravity: 0
-  m_IsKinematic: 1
+  m_IsKinematic: 0
   m_Interpolate: 0
-  m_Constraints: 0
+  m_Constraints: 112
   m_CollisionDetection: 0
 --- !u!114 &7027664090973282704
 MonoBehaviour:
@@ -64128,7 +64140,7 @@ Animator:
   m_Controller: {fileID: 9100000, guid: 6d235e4453b2d394c9ae68f3ebd4b854, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
-  m_ApplyRootMotion: 0
+  m_ApplyRootMotion: 1
   m_LinearVelocityBlending: 0
   m_StabilizeFeet: 0
   m_WarningMessage: 
@@ -64933,6 +64945,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7027664091356472770}
+  - component: {fileID: 7027664091356472771}
   m_Layer: 0
   m_Name: Other
   m_TagString: Untagged
@@ -64965,6 +64978,18 @@ Transform:
   m_Father: {fileID: 1547555064645991859}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &7027664091356472771
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7027664091356472769}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 729d36de227ce664dacb322148e20db5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &7027664091382279392
 GameObject:
   m_ObjectHideFlags: 0
@@ -65849,9 +65874,9 @@ Rigidbody:
   m_Drag: 0
   m_AngularDrag: 0.05
   m_UseGravity: 0
-  m_IsKinematic: 1
+  m_IsKinematic: 0
   m_Interpolate: 0
-  m_Constraints: 0
+  m_Constraints: 112
   m_CollisionDetection: 0
 --- !u!114 &7027664091548930072
 MonoBehaviour:
@@ -65878,7 +65903,7 @@ Animator:
   m_Controller: {fileID: 9100000, guid: 6047b62c872adf84f9f80b8b4d525628, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
-  m_ApplyRootMotion: 0
+  m_ApplyRootMotion: 1
   m_LinearVelocityBlending: 0
   m_StabilizeFeet: 0
   m_WarningMessage: 
@@ -66328,9 +66353,9 @@ Rigidbody:
   m_Drag: 0
   m_AngularDrag: 0.05
   m_UseGravity: 0
-  m_IsKinematic: 1
+  m_IsKinematic: 0
   m_Interpolate: 0
-  m_Constraints: 0
+  m_Constraints: 112
   m_CollisionDetection: 0
 --- !u!114 &7027664091607922519
 MonoBehaviour:
@@ -66357,7 +66382,7 @@ Animator:
   m_Controller: {fileID: 9100000, guid: 32e345dd3c47c994491d7950f58babab, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
-  m_ApplyRootMotion: 0
+  m_ApplyRootMotion: 1
   m_LinearVelocityBlending: 0
   m_StabilizeFeet: 0
   m_WarningMessage: 
@@ -66824,9 +66849,9 @@ Rigidbody:
   m_Drag: 0
   m_AngularDrag: 0.05
   m_UseGravity: 0
-  m_IsKinematic: 1
+  m_IsKinematic: 0
   m_Interpolate: 0
-  m_Constraints: 126
+  m_Constraints: 112
   m_CollisionDetection: 0
 --- !u!82 &7027664091833500703
 AudioSource:

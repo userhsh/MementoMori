@@ -7,15 +7,15 @@ using UnityEngine.InputSystem;
 public class Door : MonoBehaviour, IInteractable
 {
     // 문 잠금 여부 판별 변수
-    protected bool isLocked;
+    public bool isLocked;
     // 문 잠금 해제 가능 여부 판별 변수
     protected bool isUnLockable = false;
     // 문 열림 상태 확인 변수
-    protected bool isOpen = false;
+    public bool isOpen = false;
     // 문 열쇠 이름
     protected string doorKey;
     // 문 애니메이터
-    protected Animator doorAnimator = null;
+    public Animator doorAnimator = null;
     // 문 애니메이션 파라미터
     protected string doorOpenParameter = "IsOpen";
     // 문 오디오 소스

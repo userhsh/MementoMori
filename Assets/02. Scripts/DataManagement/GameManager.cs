@@ -70,13 +70,25 @@ public class GameManager : MonoBehaviour
             playerPosition = playerPosition, // 현재 플레이어 위치 저장
             playerRotation = playerRotation, // 현재 플레이어 회전 저장
             isContinueAvailable = this.isContinueAvailable, // 현재 이어하기 가능 상태 저장
+
+            morgueDoorOpenStates = new List<bool>(),
+            morgueDoorLockStates = new List<bool>(),
             morgueBoxDoorOpenStates = new List<bool>(),
             medRackDoorLockStates = new List<bool>(),
             medRackDoorOpenStates = new List<bool>(),
+
             classroomdoorLockStates = new List<bool>(),
             classroomdoorOpenStates = new List<bool>(),
             tapOnState = false // 기본값 설정
         };
+
+        // 씬의 MorgueDoor 컴포넌트를 찾아서 상태 저장
+        MorgueDoor[] morgueDoors = FindObjectsOfType<MorgueDoor>();
+        foreach (MorgueDoor door in morgueDoors)
+        {
+            gameData.morgueDoorOpenStates.Add(door.isOpen);
+            gameData.morgueDoorLockStates.Add(door.isLocked);
+        }
 
         // 씬의 모든 MorgueBoxDoor 컴포넌트를 찾아서 상태 저장
         MorgueBoxDoor[] morgueBoxDoors = FindObjectsOfType<MorgueBoxDoor>();
@@ -89,16 +101,16 @@ public class GameManager : MonoBehaviour
         MedRackDoor[] MedRackDoors = FindObjectsOfType<MedRackDoor>();
         foreach (MedRackDoor door in MedRackDoors)
         {
-            gameData.medRackDoorLockStates.Add(door.MedRackDoorLock); // 잠금 상태 저장
             gameData.medRackDoorOpenStates.Add(door.DoorOpen); // 열림 상태 저장
+            gameData.medRackDoorLockStates.Add(door.MedRackDoorLock); // 잠금 상태 저장
         }
 
         // 씬의 모든 DoorScript 컴포넌트를 찾아서 상태 저장
         DoorScript[] classroomdoors = FindObjectsOfType<DoorScript>();
         foreach (DoorScript door in classroomdoors)
         {
-            gameData.classroomdoorLockStates.Add(door.isLocked);  // 잠금 상태 저장
             gameData.classroomdoorOpenStates.Add(door.isOpen);     // 열림 상태 저장
+            gameData.classroomdoorLockStates.Add(door.isLocked);  // 잠금 상태 저장
         }
 
         // 씬의 TapScript 컴포넌트를 찾아서 상태 저장
@@ -121,6 +133,18 @@ public class GameManager : MonoBehaviour
             string json = File.ReadAllText(saveFilePath);
             GameData loadedData = JsonUtility.FromJson<GameData>(json);
 
+            //시체안치실 MorgueDoor 상태 복원
+            MorgueDoor[] morgueDoors = FindObjectsOfType<MorgueDoor>();
+            for (int i = 0; i < morgueDoors.Length; i++)
+            {
+                if (i < loadedData.morgueDoorOpenStates.Count)
+                {
+                    morgueDoors[i].isOpen = loadedData.morgueDoorOpenStates[i];
+                    morgueDoors[i].isLocked = loadedData.morgueDoorLockStates[i];
+                    morgueDoors[i].UpdateMorgueDoorState();
+                }
+            }
+
             //시체안치실 MorgueBoxDoor 상태 복원
             MorgueBoxDoor[] morgueBoxDoors = FindObjectsOfType<MorgueBoxDoor>();
             for (int i = 0; i < morgueBoxDoors.Length; i++)
@@ -138,8 +162,8 @@ public class GameManager : MonoBehaviour
             {
                 if (i < loadedData.medRackDoorLockStates.Count && i < loadedData.medRackDoorOpenStates.Count)
                 {
-                    medRackDoors[i].MedRackDoorLock = loadedData.medRackDoorLockStates[i]; // 잠금 상태 복원
                     medRackDoors[i].DoorOpen = loadedData.medRackDoorOpenStates[i]; // 열림 상태 복원
+                    medRackDoors[i].MedRackDoorLock = loadedData.medRackDoorLockStates[i]; // 잠금 상태 복원
                     medRackDoors[i].UpdateMedRackDoorState(); // 문 상태 업데이트
                 }
             }
@@ -150,8 +174,8 @@ public class GameManager : MonoBehaviour
             {
                 if (i < loadedData.classroomdoorLockStates.Count && i < loadedData.classroomdoorOpenStates.Count)
                 {
-                    classroomdoors[i].isLocked = loadedData.classroomdoorLockStates[i]; // 잠금 상태 복원
                     classroomdoors[i].isOpen = loadedData.classroomdoorOpenStates[i];   // 열림 상태 복원
+                    classroomdoors[i].isLocked = loadedData.classroomdoorLockStates[i]; // 잠금 상태 복원
                     classroomdoors[i].UpdateClassroomDoorState();  // 문 상태 업데이트
                 }
             }

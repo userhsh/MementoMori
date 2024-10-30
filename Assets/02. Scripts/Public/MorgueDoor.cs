@@ -42,4 +42,16 @@ public class MorgueDoor : Door
         doorOpenSound = Resources.Load<AudioClip>("DoorSound/doorOpen");
         doorCloseSound = Resources.Load<AudioClip>("DoorSound/doorClose");
     }
+
+    public void UpdateMorgueDoorState()
+    {
+        // 잠금 상태가 해제된 경우 잠금 아이콘 숨기기
+        if (!isLocked)
+        {
+            lockIcon?.gameObject.SetActive(false);
+        }
+
+        // 열림/닫힘 상태에 따라 애니메이션 설정
+        doorAnimator.SetBool("IsOpen", isOpen);
+    }
 }

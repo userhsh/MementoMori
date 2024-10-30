@@ -42,7 +42,7 @@ public class Door : MonoBehaviour, IInteractable
         }
     }
 
-    protected void OnCollisionExit(Collision collision) 
+    protected void OnCollisionExit(Collision collision)
     {
         if (collision.collider.gameObject.name == doorKey)
         {
@@ -53,7 +53,13 @@ public class Door : MonoBehaviour, IInteractable
 
     public void Interact()
     {
-        DoorOpen();
+        // 문을 열기 전에 키를 비활성화합니다.
+        if (isUnLockable)
+        {
+            keyCollider?.gameObject.SetActive(false); // 키를 비활성화
+        }
+
+        DoorOpen(); // 문을 열도록 호출
     }
 
     // 문 열고 닫는 메서드
@@ -66,8 +72,6 @@ public class Door : MonoBehaviour, IInteractable
         }
         else
         {
-            // 열쇠 삭제
-            Destroy(keyCollider?.gameObject);
             // 문 열림 상태 변경
             isOpen = !isOpen;
             // 문 애니메이션 재생
@@ -84,7 +88,7 @@ public class Door : MonoBehaviour, IInteractable
                     audioSource.PlayOneShot(doorCloseSound);
                 }
             }
-            
+
         }
     }
 

@@ -4756,7 +4756,7 @@ GameObject:
   - component: {fileID: 1693126646}
   - component: {fileID: 1693126645}
   m_Layer: 0
-  m_Name: MedRackDoor_L (1)
+  m_Name: MedRackDoor_L
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -4770,12 +4770,12 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1693126643}
   m_LocalRotation: {x: 1, y: -0, z: -1.6817752e-20, w: 0.000000075500154}
-  m_LocalPosition: {x: 0.727, y: 1.25225, z: -0.138}
+  m_LocalPosition: {x: -0.625245, y: 1.25225, z: -0.13799241}
   m_LocalScale: {x: -0.009681667, y: -0.009681667, z: -0.009681667}
   m_ConstrainProportionsScale: 1
   m_Children: []
-  m_Father: {fileID: 4287265000078582470}
-  m_RootOrder: 3
+  m_Father: {fileID: 4278498436338918062}
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1693126645
 MonoBehaviour:
@@ -33478,7 +33478,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   medRackDoorlock:
-  - {fileID: 0}
+  - {fileID: 1693126647}
   - {fileID: 4261227174612579484}
   - {fileID: 4261519273131252328}
   - {fileID: 4261440766508191940}
@@ -40420,6 +40420,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 4287408844906878120}
+  - {fileID: 1693126644}
   - {fileID: 4287161079145224232}
   m_Father: {fileID: 4287349329943718450}
   m_RootOrder: 14
@@ -41948,7 +41949,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 4278498436338918062}
-  m_RootOrder: 1
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &4287171997299524644
 Transform:
@@ -42056,7 +42057,6 @@ Transform:
   - {fileID: 4287139181598553858}
   - {fileID: 4278533159642293788}
   - {fileID: 4278477899470988680}
-  - {fileID: 1693126644}
   m_Father: {fileID: 4287349329943718450}
   m_RootOrder: 15
   m_LocalEulerAnglesHint: {x: 0, y: 180.00002, z: 0}
@@ -57777,6 +57777,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 56267baace9370c429e849dadb97916c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  isTurnOn: 0
 --- !u!95 &6698379312689855516
 Animator:
   serializedVersion: 5
@@ -59387,7 +59388,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6786342443651528866}
   m_LocalRotation: {x: 0, y: 1, z: 0, w: 0}
-  m_LocalPosition: {x: 8.671, y: 0.759, z: -6.949}
+  m_LocalPosition: {x: -8.82, y: 0.759, z: -9.22}
   m_LocalScale: {x: 0.59, y: 0.6, z: 0.59}
   m_ConstrainProportionsScale: 0
   m_Children:

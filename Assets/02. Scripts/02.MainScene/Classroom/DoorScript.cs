@@ -26,7 +26,6 @@ public class DoorScript : MonoBehaviour
         audioSource = GetComponent<AudioSource>();
         animator = GetComponent<Animator>();
         grabInteractable = GetComponent<XRGrabInteractable>();
-        objectCollider = GetComponent<Collider>();
     }
 
     private void Start()
@@ -55,6 +54,8 @@ public class DoorScript : MonoBehaviour
             animator.SetBool("IsOpen", true);
             audioSource.clip = openSound;
             audioSource.PlayDelayed(0.55f);
+            Animationing(); // 애니메이션 시작 시 콜라이더 비활성화
+            StartCoroutine(EnableColliderAfterDelay(1f)); // 1초 후 콜라이더 활성화
         }
         else
         {
@@ -62,6 +63,8 @@ public class DoorScript : MonoBehaviour
             animator.SetBool("IsOpen", false);
             audioSource.clip = closeSound;
             audioSource.PlayDelayed(0.4f);
+            Animationing(); // 애니메이션 시작 시 콜라이더 비활성화
+            StartCoroutine(EnableColliderAfterDelay(1f)); // 1초 후 콜라이더 활성화
         }
     }
 
@@ -92,5 +95,21 @@ public class DoorScript : MonoBehaviour
             audioSource.clip = closeSound;
             audioSource.PlayDelayed(0.4f);
         }
+    }
+
+    public void Animationing()
+    {
+        this.gameObject.GetComponent<Collider>().enabled = false;
+    }
+    public void AnimationEnd()
+    {
+        this.gameObject.GetComponent<Collider>().enabled = true;
+    }
+
+    // 콜라이더를 일정 시간 후에 활성화하는 코루틴
+    private IEnumerator EnableColliderAfterDelay(float delay)
+    {
+        yield return new WaitForSeconds(delay);
+        AnimationEnd(); // 일정 시간 후 콜라이더 활성화
     }
 }

@@ -6,10 +6,18 @@ using UnityEngine.XR.Interaction.Toolkit;
 
 public class ItemCrowBar : MonoBehaviour
 {
-   public bool use = false;
+    public bool use = false;
 
     public GameObject strangeTile;
     public GameObject switchButton;
+
+    private GameManager gameManager;
+
+    private void Start()
+    {
+        // GameManager 싱글톤 인스턴스 가져오기
+        gameManager = GameManager.GetInstance();
+    }
 
     private void OnTriggerEnter(Collider other)
     {
@@ -26,7 +34,7 @@ public class ItemCrowBar : MonoBehaviour
         }
     }
 
-   public void Use()
+    public void Use()
     {
         if (use == true)
         {
@@ -34,6 +42,9 @@ public class ItemCrowBar : MonoBehaviour
             strangeTile.gameObject.SetActive(false);
             this.gameObject.SetActive(false);
             switchButton.GetComponent<BoxCollider>().enabled = true;
-        }      
+
+            gameManager.crowbarActive = false; // GameManager의 crowbarActive 상태 업데이트
+            gameManager.SaveGameData(transform.position, transform.rotation.eulerAngles); // 데이터 저장
+        }
     }
 }

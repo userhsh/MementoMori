@@ -6883,7 +6883,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1627498207130461}
   m_LocalRotation: {x: 0.5, y: 0.5, z: 0.5, w: -0.5}
-  m_LocalPosition: {x: 5, y: 1.62, z: -4.86}
+  m_LocalPosition: {x: 4.95, y: 1.62, z: -4.86}
   m_LocalScale: {x: 3, y: 3, z: 3}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -6898,7 +6898,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1880974927048605}
   m_LocalRotation: {x: 0.5216602, y: 0.5216602, z: 0.47735795, w: -0.47735795}
-  m_LocalPosition: {x: 5, y: 1.436, z: -1.787}
+  m_LocalPosition: {x: 4.95, y: 1.436, z: -1.787}
   m_LocalScale: {x: 3, y: 3, z: 3}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -7123,7 +7123,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1947637000391863}
   m_LocalRotation: {x: 0.5, y: 0.5, z: 0.5, w: -0.5}
-  m_LocalPosition: {x: 5, y: 1.62, z: 1.62}
+  m_LocalPosition: {x: 4.95, y: 1.62, z: 1.62}
   m_LocalScale: {x: 3, y: 3, z: 3}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -8746,7 +8746,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 160295685829908193}
   m_LocalRotation: {x: -0.5, y: 0.5, z: 0.5, w: 0.5}
-  m_LocalPosition: {x: -5, y: 1.17, z: -4.86}
+  m_LocalPosition: {x: -4.95, y: 1.17, z: -4.86}
   m_LocalScale: {x: 3, y: 3, z: 3}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -21486,7 +21486,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1781607892750991690}
   m_LocalRotation: {x: -0.5385869, y: 0.5385869, z: 0.45817482, w: 0.45817482}
-  m_LocalPosition: {x: -5, y: 1.62, z: -1.32}
+  m_LocalPosition: {x: -4.95, y: 1.62, z: -1.32}
   m_LocalScale: {x: 3, y: 3, z: 3}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -55856,7 +55856,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6331515641297497037}
   m_LocalRotation: {x: -0.4089292, y: 0.4089292, z: 0.57686824, w: 0.57686824}
-  m_LocalPosition: {x: -5, y: 0.92, z: 1.62}
+  m_LocalPosition: {x: -4.95, y: 0.92, z: 1.62}
   m_LocalScale: {x: 3, y: 3, z: 3}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -57777,6 +57777,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 56267baace9370c429e849dadb97916c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  isTurnOn: 0
 --- !u!95 &6698379312689855516
 Animator:
   serializedVersion: 5

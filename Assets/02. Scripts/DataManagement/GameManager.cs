@@ -1,11 +1,13 @@
 using System.IO;
 using UnityEngine;
 using System.Collections.Generic;
+using UnityEngine.Playables;
 public class GameManager : MonoBehaviour
 {
     private static GameManager instance; // 싱글톤 인스턴스를 보관하는 변수
     private string saveFilePath; // 데이터 저장 파일 경로
     public bool isContinueAvailable; // 이어하기 가능 여부를 나타내는 변수
+    public bool crowbarActive;
 
     void Awake()
     {
@@ -50,6 +52,17 @@ public class GameManager : MonoBehaviour
         Vector3 initialPosition = new Vector3(8.75f, 0.36f, -5.96f); // 초기 플레이어 위치 설정
         Vector3 initialRotation = new Vector3(0, 183f, 0); // Y 로테이션을 180도로 설정
 
+        // 크로우바 초기화 및 활성화
+        ItemCrowBar crowbar = FindObjectOfType<ItemCrowBar>();
+        if (crowbar != null)
+        {
+            crowbar.gameObject.SetActive(true); // 크로우바를 활성화
+            crowbar.use = false; // 크로우바의 사용 상태를 초기화
+        }
+
+        // 초기화 할 crowbarActive 값을 true로 설정
+        crowbarActive = true; // 새로운 게임 시작 시 크로우바 활성화
+
         GameData gameData = new GameData
         {
             playerPosition = initialPosition, // 초기 플레이어 위치
@@ -58,7 +71,6 @@ public class GameManager : MonoBehaviour
         }; // 새 게임 데이터 설정
 
         SaveGameData(initialPosition, initialRotation); // 데이터 저장
-
         isContinueAvailable = true; // 이어하기 가능 상태로 변경
     }
 
@@ -67,19 +79,23 @@ public class GameManager : MonoBehaviour
     {
         GameData gameData = new GameData
         {
+            // 0.플레이어 위치,회전 및 이어하기 여부
             playerPosition = playerPosition, // 현재 플레이어 위치 저장
             playerRotation = playerRotation, // 현재 플레이어 회전 저장
             isContinueAvailable = this.isContinueAvailable, // 현재 이어하기 가능 상태 저장
 
+            // 1. 시체안치실 
             morgueDoorOpenStates = new List<bool>(),
             morgueDoorLockStates = new List<bool>(),
             morgueBoxDoorOpenStates = new List<bool>(),
             medRackDoorLockStates = new List<bool>(),
             medRackDoorOpenStates = new List<bool>(),
+            crowbarActive = this.crowbarActive,
 
+            // 2. 교실
             classroomdoorLockStates = new List<bool>(),
             classroomdoorOpenStates = new List<bool>(),
-            tapOnState = false // 기본값 설정
+            tapOnState = false, // 기본값 설정
         };
 
         // 씬의 MorgueDoor 컴포넌트를 찾아서 상태 저장
@@ -103,6 +119,12 @@ public class GameManager : MonoBehaviour
         {
             gameData.medRackDoorOpenStates.Add(door.DoorOpen); // 열림 상태 저장
             gameData.medRackDoorLockStates.Add(door.MedRackDoorLock); // 잠금 상태 저장
+        }
+
+        ItemCrowBar crowbar = FindObjectOfType<ItemCrowBar>();
+        if (crowbar != null)
+        {
+            gameData.crowbarActive = crowbar.gameObject.activeSelf; // 활성화 상태 저장
         }
 
         // 씬의 모든 DoorScript 컴포넌트를 찾아서 상태 저장
@@ -166,6 +188,13 @@ public class GameManager : MonoBehaviour
                     medRackDoors[i].MedRackDoorLock = loadedData.medRackDoorLockStates[i]; // 잠금 상태 복원
                     medRackDoors[i].UpdateMedRackDoorState(); // 문 상태 업데이트
                 }
+            }
+
+            // 크로우바 상태 복원
+            ItemCrowBar crowbar = FindObjectOfType<ItemCrowBar>();
+            if (crowbar != null)
+            {
+                crowbar.gameObject.SetActive(loadedData.crowbarActive); // 활성화 상태 복원
             }
 
             // 교실 문 상태 복원

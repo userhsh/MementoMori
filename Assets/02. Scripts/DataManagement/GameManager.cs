@@ -71,6 +71,8 @@ public class GameManager : MonoBehaviour
             playerRotation = playerRotation, // 현재 플레이어 회전 저장
             isContinueAvailable = this.isContinueAvailable, // 현재 이어하기 가능 상태 저장
             morgueBoxDoorOpenStates = new List<bool>(),
+            medRackDoorLockStates = new List<bool>(),
+            medRackDoorOpenStates = new List<bool>(),
             classroomdoorLockStates = new List<bool>(),
             classroomdoorOpenStates = new List<bool>(),
             tapOnState = false // 기본값 설정
@@ -81,6 +83,14 @@ public class GameManager : MonoBehaviour
         foreach (MorgueBoxDoor door in morgueBoxDoors)
         {
             gameData.morgueBoxDoorOpenStates.Add(door.DoorOpen);
+        }
+
+        //씬의 모든 MedRackDoor 컴포넌트를 찾아서 상태 저장
+        MedRackDoor[] MedRackDoors = FindObjectsOfType<MedRackDoor>();
+        foreach (MedRackDoor door in MedRackDoors)
+        {
+            gameData.medRackDoorLockStates.Add(door.MedRackDoorLock); // 잠금 상태 저장
+            gameData.medRackDoorOpenStates.Add(door.DoorOpen); // 열림 상태 저장
         }
 
         // 씬의 모든 DoorScript 컴포넌트를 찾아서 상태 저장
@@ -111,7 +121,7 @@ public class GameManager : MonoBehaviour
             string json = File.ReadAllText(saveFilePath);
             GameData loadedData = JsonUtility.FromJson<GameData>(json);
 
-            //시체안치실 상자 문 상태 복원
+            //시체안치실 MorgueBoxDoor 상태 복원
             MorgueBoxDoor[] morgueBoxDoors = FindObjectsOfType<MorgueBoxDoor>();
             for (int i = 0; i < morgueBoxDoors.Length; i++)
             {
@@ -119,6 +129,18 @@ public class GameManager : MonoBehaviour
                 {
                     morgueBoxDoors[i].DoorOpen = loadedData.morgueBoxDoorOpenStates[i]; // 열림 상태 복원
                     morgueBoxDoors[i].UpdateMorgueBoxDoorState();
+                }
+            }
+
+            //시체안치실 MedRackDoor 상태 복원
+            MedRackDoor[] medRackDoors = FindObjectsOfType<MedRackDoor>();
+            for (int i = 0; i < medRackDoors.Length; i++)
+            {
+                if (i < loadedData.medRackDoorLockStates.Count && i < loadedData.medRackDoorOpenStates.Count)
+                {
+                    medRackDoors[i].MedRackDoorLock = loadedData.medRackDoorLockStates[i]; // 잠금 상태 복원
+                    medRackDoors[i].DoorOpen = loadedData.medRackDoorOpenStates[i]; // 열림 상태 복원
+                    medRackDoors[i].UpdateMedRackDoorState(); // 문 상태 업데이트
                 }
             }
 

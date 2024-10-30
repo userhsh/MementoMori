@@ -1,12 +1,13 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting.Antlr3.Runtime;
 using UnityEngine;
 
 public class MedRackDoor : MonoBehaviour
 {
     Animator animator;
     public bool MedRackDoorLock = true; //문 잠김 활성
-    bool DoorOpen = false;
+    public bool DoorOpen = false;
     public GameObject lockIcon;
 
     private void Awake()
@@ -40,6 +41,18 @@ public class MedRackDoor : MonoBehaviour
 
     }
 
+    public void UpdateMedRackDoorState()
+    {
+        // 잠금 상태가 해제된 경우 잠금 아이콘 숨기기
+        if (!MedRackDoorLock)
+        {
+            lockIcon?.gameObject.SetActive(false);
+        }
+
+        // 열림/닫힘 상태에 따라 애니메이션 설정
+        animator.SetBool("DoorOpen", DoorOpen);
+    }
+
     public void Animationing()
     {
         this.gameObject.GetComponent<Collider>().enabled = false;
@@ -48,5 +61,4 @@ public class MedRackDoor : MonoBehaviour
     {
         this.gameObject.GetComponent<Collider>().enabled = true;
     }
-
 }

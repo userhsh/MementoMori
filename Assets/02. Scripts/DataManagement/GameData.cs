@@ -7,8 +7,9 @@ public class GameData
     public Vector3 playerPosition; // 플레이어의 현재 위치를 저장하는 변수
     public Vector3 playerRotation; // 플레이어의 현재 회전값을 저장하는 변수
     public bool isContinueAvailable; // 이어하기 가능 여부를 저장하는 변수
-    public List<bool> doorLockStates; // 문 잠금 상태 리스트
-    public List<bool> doorOpenStates; // 문 열림 상태 리스트
+    public List<bool> morgueBoxDoorOpenStates; // 시체안치실 문 열림 상태 리스트
+    public List<bool> classroomdoorLockStates; // 교실 문 잠금 상태 리스트
+    public List<bool> classroomdoorOpenStates; // 교실 문 열림 상태 리스트
     public bool tapOnState; // TapScript의 상태를 저장하는 변수 (true : 켜짐 , false : 꺼짐)
 }
 

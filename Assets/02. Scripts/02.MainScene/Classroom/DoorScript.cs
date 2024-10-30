@@ -75,7 +75,7 @@ public class DoorScript : MonoBehaviour
         Debug.Log("문이 잠금 해제되었습니다.");
     }
 
-    public void UpdateDoorState()
+    public void UpdateClassroomDoorState()
     {
         // 잠금 상태가 해제된 경우 잠금 아이콘 숨기기
         if (!isLocked)

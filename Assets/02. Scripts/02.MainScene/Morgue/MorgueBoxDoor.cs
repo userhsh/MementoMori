@@ -1,18 +1,17 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting.Antlr3.Runtime;
 using UnityEngine;
 
 public class MorgueBoxDoor : MonoBehaviour
 {
     Animator animator;
-    bool DoorOpen = false;
-
-
+    public bool DoorOpen = false;
 
     private void Awake()
     {
         this.animator = GetComponent<Animator>();
-        this.animator.SetBool("DoorOpen", false);     
+        this.animator.SetBool("DoorOpen", false);
     }
 
     public void MogueBoxDoorOpenClose() //시체보관문 애니메이션으로 열고닫는 메서드
@@ -30,7 +29,7 @@ public class MorgueBoxDoor : MonoBehaviour
             DoorOpen = false;
         }
     }
-   
+
     public void Animationing()
     {
         this.gameObject.GetComponent<Collider>().enabled = false;
@@ -45,4 +44,9 @@ public class MorgueBoxDoor : MonoBehaviour
         GetComponentInChildren<GameObject>().SetActive(true);
     }
 
+    public void UpdateMorgueBoxDoorState()
+    {
+        // 열림/닫힘 상태에 따라 애니메이션 설정
+        animator.SetBool("DoorOpen", DoorOpen);
+    }
 }

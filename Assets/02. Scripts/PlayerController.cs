@@ -6,6 +6,8 @@ public class PlayerController : MonoBehaviour
 {
     private GameManager gameManager; // GameManager를 참조하는 변수
 
+    private IEffectable effectable;
+
     void Awake()
     {
         // 씬에서 GameManager를 찾고 gameManager 변수에 할당
@@ -32,5 +34,12 @@ public class PlayerController : MonoBehaviour
             Debug.Log("Loaded data is null or player position is not set. Setting player to default position.");
             // 필요 시 기본값으로 설정
         }
+    }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        effectable = other.GetComponent<IEffectable>();
+
+        effectable?.TriggerEffect();
     }
 }

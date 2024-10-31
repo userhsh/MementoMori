@@ -108,6 +108,10 @@ public class TLeftController : XRRayInteractor
                     UIItem.SetActive(true);
                     UIItemText.text = "아이템: 장전 된 권총";
                     break;
+                case "PoilceKey":
+                    UIItem.SetActive(true);
+                    UIItemText.text = "아이템: 문 열쇠";
+                    break;
                 default:
                     break;
             }

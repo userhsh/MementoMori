@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
+using UnityEngine.XR.Interaction.Toolkit;
 
 public class TUIManager : MonoBehaviour
 {
@@ -57,7 +58,8 @@ public class TUIManager : MonoBehaviour
     {
 
         if (_collectionNuber == 0)
-        { 
+        {   
+           
             collectionLockImg.gameObject.SetActive(false);
             collectionImg.gameObject.SetActive(true);
         }

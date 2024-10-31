@@ -30,6 +30,7 @@ public class SelectButton : MonoBehaviour
 
     void Yes()
     {
+        mainmenuButtons.continueButton.interactable = true; // 새 게임이 저장되었으므로 이어하기 버튼 활성화
         GameManager.Instance.isTutorial = true;
         SceneManager.LoadScene("LoadingScene");
     }

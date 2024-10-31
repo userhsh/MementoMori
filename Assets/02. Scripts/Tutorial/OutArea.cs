@@ -50,7 +50,7 @@ public class OutArea : MonoBehaviour
             condition1 = false;
             condition2 = false;
             notAmmo = false;
-            GameObject.Find("Player").GetComponent<ActionBasedContinuousMoveProvider>().enabled = false;
+            //GameObject.Find("Player").GetComponent<ActionBasedContinuousMoveProvider>().enabled = false;
             StartCoroutine(tUITalk.OutAreaTalk());
         }
         else if(condition2 == true && notAmmo == true)

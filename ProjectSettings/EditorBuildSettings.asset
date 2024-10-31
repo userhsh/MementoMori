@@ -20,6 +20,9 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/01. Scenes/LoadingScene.unity
     guid: afef5551c1847d249a933812186d1717
+  - enabled: 1
+    path: Assets/01. Scenes/TTScene.unity
+    guid: 3b942e908f8a50247a715aa7b21fda64
   m_configObjects:
     Unity.XR.Oculus.Settings: {fileID: 11400000, guid: cd60551a3415f874f969e1facc84d18e, type: 2}
     com.unity.xr.management.loader_settings: {fileID: 11400000, guid: 9eda4db83af3a374ab5eb8c0d8830792, type: 2}

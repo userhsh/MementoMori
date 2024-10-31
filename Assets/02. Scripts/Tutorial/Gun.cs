@@ -4,18 +4,18 @@ using UnityEngine;
 
 public class Gun : MonoBehaviour
 {
-    public TUITalk tUITalk;
-
-    public bool foolAmmo = false;
+   public bool foolAmmo = false;
 
    public void DontShot()
     {
         if(foolAmmo == true)
         {
-            StartCoroutine(tUITalk.DontShotTalk());
+            //"¾ÆÁ÷Àº ½ò¼ö ¾ø´Ù.." ´ë»ç ÀÛ¿ë
+            print("¾ÆÁ÷Àº ¸ø½ð´Ù.");
         }
         else
         {
+            //ºó ÅºÃ¢ »ç¿ë È¿°úÀ½("Ã¶ÄÀ!") Àû¿ë
             print("Ã¶ÄÀ!");
         }
     }

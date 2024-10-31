@@ -33,7 +33,6 @@ public class PoliceKey : MonoBehaviour
         if(use == true)
         {
             GameObject.Find("PoliceDoor").GetComponent<PoliceDoor>().policeDoorLock = false;
-            this.gameObject.SetActive(false);
         }
     }
 }

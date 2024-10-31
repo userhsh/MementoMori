@@ -6,30 +6,17 @@ using UnityEngine.UI;
 
 public class LoadingManager : MonoBehaviour
 {
-    string nextSceneName = null;
+    string nextSceneName = "MainScene";
 
     public Image loadingBar;
-
 
     public void Start()
     {
         loadingBar.fillAmount = 0;
 
-        CheckNextScene();
+        GetNextSceneName();
 
         StartCoroutine(LoadingScene());
-    }
-
-    private void CheckNextScene()
-    {
-        if (GameManager.Instance.isTutorial)
-        {
-            nextSceneName = "TTScene";
-        }
-        else
-        {
-            nextSceneName = "MainScene";
-        }
     }
 
     IEnumerator LoadingScene()
@@ -72,6 +59,6 @@ public class LoadingManager : MonoBehaviour
 
     private void GetNextSceneName()
     {
-
+        
     }
 }

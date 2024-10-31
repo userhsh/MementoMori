@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Flashlight : MonoBehaviour
 {
-    IInteractable interactable = null;
+    //IInteractable interactable = null;
 
     Light flashLight = null;
 

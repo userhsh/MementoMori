@@ -4,11 +4,15 @@ using System.Collections.Generic;
 using UnityEngine.Playables;
 public class GameManager : MonoBehaviour
 {
-    private static GameManager instance; // 싱글톤 인스턴스를 보관하는 변수
+    public static GameManager instance; // 싱글톤 인스턴스를 보관하는 변수
+    public static GameManager Instance { get { return instance; } }
+    public bool isTutorial { get; set; }
+
     private string saveFilePath; // 데이터 저장 파일 경로
     public bool isContinueAvailable; // 이어하기 가능 여부를 나타내는 변수
     public bool crowbarActive;
 
+    public
     void Awake()
     {
         // 싱글톤 패턴을 통해 GameManager 인스턴스를 하나만 유지

@@ -5202,6 +5202,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6ddf5cc72022df34891e2a70a4b12ed4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  MainmenuButtons: {fileID: 6579388796140751627, guid: b470c2d5a7d07cc4cabe206e24157f80, type: 3}
 --- !u!1 &1068621580
 GameObject:
   m_ObjectHideFlags: 0
@@ -8452,6 +8453,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   condition1: 0
   condition2: 0
+  notAmmo: 0
   tUITalk: {fileID: 884522189249126599}
 --- !u!65 &1617322781
 BoxCollider:

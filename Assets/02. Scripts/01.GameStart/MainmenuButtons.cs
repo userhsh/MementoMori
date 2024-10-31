@@ -7,10 +7,11 @@ using UnityEngine.UI;
 public class MainmenuButtons : MonoBehaviour
 {
     Button[] buttons = null; // 버튼 배열
-    private GameObject Mainmenu; // 메인 메뉴 게임 오브젝트
-    private GameObject Optionmenu; // 옵션 메뉴 게임 오브젝트
 
-    private Button continueButton; // 이어하기 버튼 참조 추가
+    public GameObject Mainmenu; // 메인 메뉴 게임 오브젝트
+    public GameObject Optionmenu; // 옵션 메뉴 게임 오브젝트
+    public GameObject TutorialMenu;
+    public Button continueButton; // 이어하기 버튼 참조 추가
 
     private const int NewGameButtonIndex = 0; // 새 게임 버튼 인덱스
     private const int ContinueButtonIndex = 1; // 이어하기 버튼 인덱스
@@ -19,10 +20,6 @@ public class MainmenuButtons : MonoBehaviour
 
     private void Awake()
     {
-        // 메인 메뉴와 옵션 메뉴 게임 오브젝트 찾기
-        Mainmenu = GameObject.Find("Main menu");
-        Optionmenu = GameObject.Find("Option menu");
-
         // 현재 오브젝트의 자식에서 버튼 컴포넌트를 가져와 배열에 저장
         buttons = GetComponentsInChildren<Button>();
 
@@ -39,8 +36,6 @@ public class MainmenuButtons : MonoBehaviour
 
     private void Start()
     {
-        Optionmenu.SetActive(false); // 옵션 메뉴 비활성화
-
         // 각 버튼에 클릭 이벤트 리스너 추가
         buttons[NewGameButtonIndex].onClick.AddListener(NewGame);  // 새 게임 버튼
         buttons[ContinueButtonIndex].onClick.AddListener(Continue);  // 이어하기 버튼
@@ -63,21 +58,14 @@ public class MainmenuButtons : MonoBehaviour
 
     void NewGame() // 새 게임 시작
     {
-        GameManager gameManager = FindObjectOfType<GameManager>();
-        if (gameManager != null)
-        {
-            gameManager.StartNewGame(); // 새 게임 시작 메소드 호출
-            continueButton.interactable = true; // 새 게임이 저장되었으므로 이어하기 버튼 활성화
-            SceneManager.LoadScene("LoadingScene"); // 로딩 씬으로 전환
-        }
-        else
-        {
-            Debug.LogError("GameManager를 찾을 수 없습니다!"); // GameManager가 없을 경우 에러 로그 출력
-        }
+        TutorialMenu.SetActive(true);
+        Mainmenu.SetActive(false);
     }
 
     void Continue()  // 이어하기
     {
+        GameManager.Instance.isTutorial = false;
+
         SceneManager.LoadScene("LoadingScene");  // 로딩 씬 로드
     }
 

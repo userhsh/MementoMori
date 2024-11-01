@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.008974545, g: 0.013061082, b: 0.020447692, a: 1}
+  m_IndirectSpecularColor: {r: 0, g: 0, b: 0, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -2212,8 +2212,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1272266932}
-  - component: {fileID: 1272266934}
   - component: {fileID: 1272266933}
+  - component: {fileID: 1272266934}
   m_Layer: 0
   m_Name: AudioManager
   m_TagString: Untagged

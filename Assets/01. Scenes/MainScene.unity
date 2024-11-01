@@ -1046,6 +1046,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 52a28e753f384c5438ec6ea3ce5e1a18, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  particle: {fileID: 2509158393339021700}
 --- !u!1 &306832030
 GameObject:
   m_ObjectHideFlags: 0
@@ -4051,7 +4052,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1121952197}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -8.54, y: 0, z: -7.2}
+  m_LocalPosition: {x: -8.54, y: 0.039, z: -7.2}
   m_LocalScale: {x: 0.5, y: 0.1, z: 0.5}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -5293,14 +5294,14 @@ AudioSource:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1436091264}
-  m_Enabled: 0
+  m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: -7335424062458552934, guid: 92e4153804180cb4ba1904ec21870c4d, type: 2}
-  m_audioClip: {fileID: 8300000, guid: 7e7cfefe75c87a74f86741f831476580, type: 3}
+  m_audioClip: {fileID: 8300000, guid: dab19fe2f0eab6a4e801f21fa153ab83, type: 3}
   m_PlayOnAwake: 1
   m_Volume: 0.2
   m_Pitch: 1
-  Loop: 0
+  Loop: 1
   Mute: 0
   Spatialize: 0
   SpatializePostEffects: 0

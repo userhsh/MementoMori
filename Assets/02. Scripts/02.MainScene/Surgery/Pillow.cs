@@ -9,8 +9,14 @@ public class Pillow : MonoBehaviour, IInteractable
 
     bool isInteractable = false;
 
+    AudioSource audioSource;
+    [SerializeField]
+    AudioClip clip;
+
     private void Awake()
     {
+        audioSource = GetComponent<AudioSource>();
+
         fabric.gameObject.SetActive(false);
     }
 
@@ -34,6 +40,7 @@ public class Pillow : MonoBehaviour, IInteractable
     {
         if (!isInteractable) return;
 
+        audioSource.PlayOneShot(clip);
         // 玫 积己
         fabric.gameObject.SetActive(true);
         // 海俺 力芭

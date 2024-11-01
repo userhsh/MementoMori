@@ -4,13 +4,13 @@ using UnityEngine;
 
 public class ParticleEffect : MonoBehaviour, IEffectable
 {
+    [SerializeField]
     private GameObject particle = null;
 
     int triggerCount = 0;
 
     private void Awake()
     {
-        particle = GetComponentInChildren<Transform>().gameObject;
         particle.SetActive(false);
     }
 

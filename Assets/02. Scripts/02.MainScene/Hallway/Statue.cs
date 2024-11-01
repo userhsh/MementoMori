@@ -20,6 +20,12 @@ public class Statue : MonoBehaviour, IInteractable
     // 퀴즈의 정답을 맞췄는지 확인할 변수 선언
     bool isQuizClear = false;
 
+    AudioSource audioSource = null;
+    [SerializeField]
+    AudioClip correctclip = null;
+    [SerializeField]
+    AudioClip unCorrectclip = null;
+
     private void Awake()
     {
         StatueInit();
@@ -44,6 +50,8 @@ public class Statue : MonoBehaviour, IInteractable
         answerInputText = GetComponentInChildren<AnswerInputText>();
 
         quizButtons = GetComponentsInChildren<Button>();
+
+        audioSource = GetComponent<AudioSource>();
 
         ButtonsInit();
 
@@ -87,11 +95,13 @@ public class Statue : MonoBehaviour, IInteractable
         if (answerInputText.CorrectAnswer.ToString() == answerInputText.NowAnswer)
         {
             // 클리어 성공
+            audioSource.PlayOneShot(correctclip);
             isQuizClear = true;
         }
         else
         {
             // 클리어 실패
+            audioSource.PlayOneShot(unCorrectclip);
             isQuizClear = false;
             answerInputText.NowAnswer = "";
         }
@@ -125,6 +135,8 @@ public class Statue : MonoBehaviour, IInteractable
         // 정답을 맞췄다면
         // 퀴즈창 닫기
         statueQuizCanvas.gameObject.SetActive(false);
+
+        
         // 상자 오픈
         hallwayBox.HallwayBoxAnimator.SetTrigger("IsOpen");
     }

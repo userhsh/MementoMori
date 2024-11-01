@@ -16,6 +16,10 @@ public class Mirror : MonoBehaviour, IInteractable
 
     public MedicineFabric medicineFabric = null;
 
+    AudioSource audioSource = null;
+    [SerializeField]
+    AudioClip clip = null;
+
     private void Awake()
     {
         MirrorInit();
@@ -27,6 +31,8 @@ public class Mirror : MonoBehaviour, IInteractable
         mirrorCanvas = GetComponentInChildren<Canvas>();
         mirrorStain = GetComponentInChildren<MirrorStain>();
         stainAnimator = mirrorStain.gameObject.GetComponent<Animator>();
+
+        audioSource = GetComponent<AudioSource>();
 
         mirrorCanvas.gameObject.SetActive(false);
     }
@@ -61,6 +67,8 @@ public class Mirror : MonoBehaviour, IInteractable
         stainAnimator.SetTrigger("IsRemoveStain");
         // 약 묻은 천 제거
         Destroy(medicineFabric);
+
+        audioSource.PlayOneShot(clip);
         // 애니메이션 재생 시간 보장
         yield return new WaitForSeconds(1f);
         // 거울 캔버스 켜기

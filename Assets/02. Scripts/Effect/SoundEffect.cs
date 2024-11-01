@@ -17,10 +17,9 @@ public class SoundEffect : MonoBehaviour, IEffectable
 
     public void TriggerEffect()
     {
-        if (triggerCount % 3 == 0)
-        {
-            audioSource.PlayOneShot(clip);
-        }
+        if (triggerCount != 0) return;
+
+        audioSource.PlayOneShot(clip);
 
         triggerCount++;
     }

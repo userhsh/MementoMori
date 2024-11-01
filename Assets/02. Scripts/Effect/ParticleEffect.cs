@@ -16,11 +16,9 @@ public class ParticleEffect : MonoBehaviour, IEffectable
 
     public void TriggerEffect()
     {
-        if (triggerCount % 4 == 0) 
+        if (triggerCount % 3 == 0) 
         {
             particle.gameObject.SetActive(true);
-
-            Invoke("EffectOff", 2f);
         }
 
         triggerCount++;

@@ -9,15 +9,22 @@ public class SurgeryShutterButton : MonoBehaviour, IInteractable
 
     Animator animator;
 
+    AudioSource audioSource;
+    [SerializeField]
+    AudioClip clip;
+
     private void Awake()
     {
         animator = GetComponent<Animator>();
+        audioSource = GetComponent<AudioSource>();
     }
 
     public void Interact()
     {
         // 애니메이션 실행
         animator.SetTrigger("IsPush");
+
+        audioSource.PlayOneShot(clip);
         // 셔터 제거 메서드 실행
         shutter.gameObject.SetActive(false);
     }

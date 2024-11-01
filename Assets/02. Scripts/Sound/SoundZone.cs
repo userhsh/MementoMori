@@ -2,30 +2,24 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class SoundZone : MonoBehaviour
+public class SoundZone : MonoBehaviour, IEffectable
 {
     private AudioSource audioSource; // 소리를 재생할 AudioSource
     public float fadeDuration = 1.0f; // 소리 페이드 아웃 시간
 
     private void Start()
     {
-        audioSource = GetComponent<AudioSource>();  
-    }
-
-    private void OnTriggerEnter(Collider other)
-    {
-        if (other.CompareTag("PLAYER"))
-        {
-            audioSource.Play(); // 플레이어가 영역에 들어왔을 때
-        }
+        audioSource = GetComponent<AudioSource>();
     }
 
     private void OnTriggerExit(Collider other)
     {
-        if(other.CompareTag("PLAYER"))
-        {
-            StartCoroutine(FadeOut(audioSource, fadeDuration)); // 플레이어가 영역을 벗어났을 때
-        }        
+        
+    }
+
+    public void TriggerEffect()
+    {
+        audioSource.PlayOneShot(audioSource.clip); // 플레이어가 영역에 들어왔을 때
     }
 
     private IEnumerator FadeOut(AudioSource audioSource, float duration)
@@ -38,5 +32,10 @@ public class SoundZone : MonoBehaviour
         }
         audioSource.Stop(); // 볼륨이 0이 되면 소리 정지
         audioSource.volume = startVolume; // 볼륨을 초기값으로 복원
+    }
+
+    public void FadeOutRainSound()
+    {
+        StartCoroutine(FadeOut(audioSource, fadeDuration));
     }
 }

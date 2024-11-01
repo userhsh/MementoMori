@@ -30,7 +30,7 @@ public class CabinetKeyScript : MonoBehaviour
         unlockSound = Resources.Load<AudioClip>("UnlockSound/unlockSound");
     }
 
-    private void Update()
+    public void UnLockCabinetDoor()
     {
         // ø≠ºË æ’¬ ¿∏∑Œ Raycast ΩÓ±‚
         RaycastHit hit;

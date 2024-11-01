@@ -1,15 +1,25 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class SafeLockerCardLeader : MonoBehaviour
 {
-
-    MeshRenderer cardMechineRenderer;
+    private MeshRenderer cardMechineRenderer;
+    private AudioSource audioSource;
+    private AudioClip Unlock;
+    private AudioClip SafeOpen;
 
     private void Awake()
     {
+        audioSource = GetComponent<AudioSource>();
         cardMechineRenderer = GetComponent<MeshRenderer>();
+    }
+
+    private void Start()
+    {
+        Unlock = Resources.Load<AudioClip>("SafeLockerSound/Unlock"); // UnlockIndex
+        SafeOpen = Resources.Load<AudioClip>("SafeLockerSound/SafeOpen"); // SafeOpenIndex
     }
 
     private void OnCollisionEnter(Collision collision)
@@ -18,6 +28,7 @@ public class SafeLockerCardLeader : MonoBehaviour
         {
             LockOn();
             GameObject.Find("SafeLockerDoor").GetComponent<Animator>().enabled = true;
+            audioSource.PlayOneShot(Unlock);
         }
 
     }
@@ -25,5 +36,7 @@ public class SafeLockerCardLeader : MonoBehaviour
     public void LockOn()
     {
         cardMechineRenderer.material.SetColor("_EmissionColor", Color.green);
+        audioSource.clip = SafeOpen;
+        audioSource.PlayDelayed(2f);
     }
 }

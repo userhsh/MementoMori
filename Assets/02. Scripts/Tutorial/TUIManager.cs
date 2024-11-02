@@ -9,6 +9,7 @@ public class TUIManager : MonoBehaviour
 {
     //메뉴창에 있는 기능
     public GameObject UIMenu;
+    public GameObject UIMenuerPaper;
     public GameObject OptionMenu;
     public GameObject optionButton;
     public GameObject exitButton;
@@ -43,6 +44,14 @@ public class TUIManager : MonoBehaviour
     {
         UIMenu.SetActive(false);
     }
+
+    public void MenuerButton() //메뉴얼 버튼 누를 시 조작관련 UI 생성
+    {
+       UIMenuerPaper.SetActive(true);
+        UIMenu.SetActive(false);
+
+    }
+
     public void OptionButton()
     {
         UIMenu.SetActive(false);

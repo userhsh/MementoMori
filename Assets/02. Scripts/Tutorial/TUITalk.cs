@@ -33,7 +33,7 @@ public class TUITalk : MonoBehaviour
         yield return new WaitForSeconds(2f);
         UITalk.SetActive(false);
         fadeOut.SetActive(true);
-      //  GameObject.Find("Player").GetComponent<ActionBasedContinuousMoveProvider>().enabled = true;
+        GameObject.Find("Player").GetComponent<ActionBasedContinuousMoveProvider>().enabled = true;
         yield break;
     }
 

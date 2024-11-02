@@ -53,6 +53,7 @@ public class OutArea : MonoBehaviour
             GameObject.Find("Player").GetComponent<ActionBasedContinuousMoveProvider>().enabled = false;
             GameObject.Find("Player").GetComponent<PlayerFootsteps>().enabled = false;
             GameObject.Find("Player").GetComponent<AudioSource>().enabled = false;
+            tUITalk.StopAllCoroutines();
             StartCoroutine(tUITalk.OutAreaTalk());
         }
         else if(condition2 == true && notAmmo == true)

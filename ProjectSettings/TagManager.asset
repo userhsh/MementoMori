@@ -9,6 +9,9 @@ TagManager:
   - STARTPOSITION
   - CABINET
   - OFFICEDOOR
+  - RANGE
+  - MorgueKey
+  - Body
   layers:
   - Default
   - TransparentFX

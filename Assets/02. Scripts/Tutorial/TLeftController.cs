@@ -11,6 +11,7 @@ public class TLeftController : XRRayInteractor
     public InputActionReference collectionOn; //수집품 UI 켜는 키
     public InputActionReference collectionOff; //수집품 UI 끄는 키
     public GameObject UImenu; //메뉴 UI 오브젝트
+    public GameObject[] onUIReset;
     public GameObject UIcollection; //수집품 UI 오브젝트
 
     public GameObject LeftHandRender; //왼쪽 손 랜더러
@@ -39,6 +40,11 @@ public class TLeftController : XRRayInteractor
 
     void MenuOn(InputAction.CallbackContext context) //메뉴 키 누를 시
     {
+        for (int i = 0; i < onUIReset.Length; i++) // 이전에 켜놨던 UI 초기화 
+        {
+            onUIReset[i].SetActive(false);
+        }
+
         UImenu?.SetActive(true);
     }
 

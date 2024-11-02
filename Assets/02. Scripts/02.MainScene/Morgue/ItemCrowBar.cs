@@ -10,13 +10,24 @@ public class ItemCrowBar : MonoBehaviour
 
     public GameObject strangeTile;
     public GameObject switchButton;
-
+    private AudioSource audioSource;
+    private AudioClip crawbarSound;
+    private MeshRenderer childmeshRenderer;
+    private Collider collider;
     private GameManager gameManager;
+
+    private void Awake()
+    {
+        audioSource = GetComponent<AudioSource>();
+        childmeshRenderer = GetComponentInChildren<MeshRenderer>();
+        collider = GetComponent<Collider>();
+    }
 
     private void Start()
     {
         // GameManager 싱글톤 인스턴스 가져오기
         gameManager = GameManager.GetInstance();
+        crawbarSound = Resources.Load<AudioClip>("CrawbarSound/crawbarSound");
     }
 
     private void OnTriggerEnter(Collider other)
@@ -40,7 +51,9 @@ public class ItemCrowBar : MonoBehaviour
         {
             print("크로우바 사용");
             strangeTile.gameObject.SetActive(false);
-            this.gameObject.SetActive(false);
+            audioSource.PlayOneShot(crawbarSound);
+            childmeshRenderer.enabled = false;
+            collider.enabled = false;
             switchButton.GetComponent<BoxCollider>().enabled = true;
 
             gameManager.crowbarActive = false; // GameManager의 crowbarActive 상태 업데이트

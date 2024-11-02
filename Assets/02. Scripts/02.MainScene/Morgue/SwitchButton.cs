@@ -5,6 +5,18 @@ using UnityEngine;
 public class SwitchButton : MonoBehaviour
 {
     public MedRackDoor[] medRackDoorlock;
+    private AudioSource audioSource;
+    private AudioClip MedRackDoorUnlock;
+
+    private void Awake()
+    {
+        audioSource = GetComponent<AudioSource>();
+    }
+
+    private void Start()
+    {
+        MedRackDoorUnlock = Resources.Load<AudioClip>("DoorSound/MedRackDoorUnlock");
+    }
 
     public void MedRackDoorLock()
     {
@@ -13,5 +25,7 @@ public class SwitchButton : MonoBehaviour
         {
             medRackDoorlock[i].MedRackDoorLock = false;
         }
+
+        audioSource.PlayOneShot(MedRackDoorUnlock);
     }
 }

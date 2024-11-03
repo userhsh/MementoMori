@@ -21,8 +21,8 @@ public class MorgueBoxDoor : MonoBehaviour
 
     private void Start()
     {
-        BoxDoorOpen = Resources.Load<AudioClip>("DoorSound/BoxDoorOpen");
-        BoxDoorClose = Resources.Load<AudioClip>("DoorSound/BoxDoorClose");
+        BoxDoorOpen = Resources.Load<AudioClip>("MorgueSFX/DoorSound/BoxDoorOpen");
+        BoxDoorClose = Resources.Load<AudioClip>("MorgueSFX/DoorSound/BoxDoorClose");
     }
 
     public void MogueBoxDoorOpenClose() //시체보관문 애니메이션으로 열고닫는 메서드

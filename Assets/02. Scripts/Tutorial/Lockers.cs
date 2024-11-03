@@ -19,8 +19,8 @@ public class Lockers : MonoBehaviour
 
     private void Start()
     {
-        FileCabinetOpen = Resources.Load<AudioClip>("FileCabinetSound/FileCabinetOpen");
-        FileCabinetClose = Resources.Load<AudioClip>("FileCabinetSound/FileCabinetClose");
+        FileCabinetOpen = Resources.Load<AudioClip>("TutorialSFX/FileCabinetSound/FileCabinetOpen");
+        FileCabinetClose = Resources.Load<AudioClip>("TutorialSFX/FileCabinetSound/FileCabinetClose");
     }
 
     public void LockerOpenClose() //시체보관문 애니메이션으로 열고닫는 메서드

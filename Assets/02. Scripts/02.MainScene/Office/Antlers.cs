@@ -7,6 +7,18 @@ public class Antlers : MonoBehaviour, IInteractable
 {
     int interactionCount = 0;
     public int InteractionCount { get { return interactionCount; } }
+    private AudioSource audioSource;
+    private AudioClip AntlersSFX;
+
+    private void Awake()
+    {
+        audioSource = GetComponent<AudioSource>();
+    }
+
+    private void Start()
+    {
+        AntlersSFX = Resources.Load<AudioClip>("OfficeSFX/AntlersSFX");
+    }
 
     private void OnTriggerEnter(Collider other)
     {
@@ -20,6 +32,7 @@ public class Antlers : MonoBehaviour, IInteractable
     public void Interact()
     {
         transform.Rotate(0, 0, 90);
+        audioSource.PlayOneShot(AntlersSFX);
         interactionCount++;
     }
 }

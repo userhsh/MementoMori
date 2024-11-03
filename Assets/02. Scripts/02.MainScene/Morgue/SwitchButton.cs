@@ -15,7 +15,7 @@ public class SwitchButton : MonoBehaviour
 
     private void Start()
     {
-        MedRackDoorUnlock = Resources.Load<AudioClip>("DoorSound/MedRackDoorUnlock");
+        MedRackDoorUnlock = Resources.Load<AudioClip>("MorgueSFX/DoorSound/MedRackDoorUnlock");
     }
 
     public void MedRackDoorLock()

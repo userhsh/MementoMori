@@ -19,8 +19,8 @@ public class Drawer : MonoBehaviour
 
     private void Start()
     {
-        TableOpen = Resources.Load<AudioClip>("TableSound/TableOpen");
-        TableClose = Resources.Load<AudioClip>("TableSound/TableClose");
+        TableOpen = Resources.Load<AudioClip>("TutorialSFX/TableSound/TableOpen");
+        TableClose = Resources.Load<AudioClip>("TutorialSFX/TableSound/TableClose");
     }
 
     public void DrawerOpenClose() //시체보관문 애니메이션으로 열고닫는 메서드

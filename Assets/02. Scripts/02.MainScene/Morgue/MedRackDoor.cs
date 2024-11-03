@@ -22,8 +22,8 @@ public class MedRackDoor : MonoBehaviour
 
     private void Start()
     {
-        MedRackDoorOpen = Resources.Load<AudioClip>("DoorSound/MedRackDoorOpen");
-        MedRackDoorClose = Resources.Load<AudioClip>("DoorSound/MedRackDoorClose");
+        MedRackDoorOpen = Resources.Load<AudioClip>("MorgueSFX/DoorSound/MedRackDoorOpen");
+        MedRackDoorClose = Resources.Load<AudioClip>("MorgueSFX/DoorSound/MedRackDoorClose");
     }
 
     public void MedRackDoorOpenClose() //약품선반문 애니메이션으로 열고닫는 메서드

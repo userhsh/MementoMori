@@ -20,7 +20,7 @@ public class FadeLogoEvent : MonoBehaviour
 
     private void Start()
     {
-        strongWind = Resources.Load<AudioClip>("WindSound/strongWind");
+        strongWind = Resources.Load<AudioClip>("TutorialSFX/WindSound/strongWind");
     }
 
     public void Warp() //임시적으로 클리어공간 이동, 컨트롤러 표시X

@@ -37,10 +37,10 @@ public class MorgueDoor : Door
         lockIcon?.gameObject.SetActive(false);
 
         audioSource = GetComponent<AudioSource>();
-        unlockSound = Resources.Load<AudioClip>("UnlockSound/unlockSound");
+        unlockSound = Resources.Load<AudioClip>("HallwaySFX/UnlockSound/unlockSound");
 
-        doorOpenSound = Resources.Load<AudioClip>("DoorSound/doorOpen");
-        doorCloseSound = Resources.Load<AudioClip>("DoorSound/doorClose");
+        doorOpenSound = Resources.Load<AudioClip>("HallwaySFX/DoorSound/doorOpen");
+        doorCloseSound = Resources.Load<AudioClip>("HallwaySFX/DoorSound/doorClose");
     }
 
     public void UpdateMorgueDoorState()

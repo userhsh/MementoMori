@@ -28,10 +28,10 @@ public class GunKeypad : MonoBehaviour
 
     private void Start()
     {
-        ClickSound = Resources.Load<AudioClip>("ClickSound/ClickSound");
-        CorrectSound = Resources.Load<AudioClip>("ClickSound/CorrectSound");
-        BlipSound = Resources.Load<AudioClip>("ClickSound/BlipSound");
-        GlassSound = Resources.Load<AudioClip>("GlassSound/GlassSound");
+        ClickSound = Resources.Load<AudioClip>("TutorialSFX/ClickSound/ClickSound");
+        CorrectSound = Resources.Load<AudioClip>("TutorialSFX/ClickSound/CorrectSound");
+        BlipSound = Resources.Load<AudioClip>("TutorialSFX/ClickSound/BlipSound");
+        GlassSound = Resources.Load<AudioClip>("TutorialSFX/GlassSound/GlassSound");
     }
 
     public void KeyNumber(int _number)

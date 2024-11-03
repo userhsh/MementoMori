@@ -23,8 +23,8 @@ public class PoliceDoor : MonoBehaviour
 
     private void Start()
     {
-        doorOpen = Resources.Load<AudioClip>("DoorSound/doorOpen");
-        doorClose = Resources.Load<AudioClip>("DoorSound/doorClose");
+        doorOpen = Resources.Load<AudioClip>("TutorialSFX/DoorSound/doorOpen");
+        doorClose = Resources.Load<AudioClip>("TutorialSFX/DoorSound/doorClose");
     }
 
     public void PoliceDoorOpenClose() //약품선반문 애니메이션으로 열고닫는 메서드

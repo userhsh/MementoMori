@@ -27,7 +27,7 @@ public class CabinetKeyScript : MonoBehaviour
         grabInteractable.selectEntered.AddListener(OnGrabbed);
         grabInteractable.selectExited.AddListener(OnRelease);
 
-        unlockSound = Resources.Load<AudioClip>("UnlockSound/unlockSound");
+        unlockSound = Resources.Load<AudioClip>("ClassroomSFX/UnlockSound/unlockSound");
     }
 
     public void UnLockCabinetDoor()

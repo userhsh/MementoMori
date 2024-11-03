@@ -20,7 +20,7 @@ public class ChildPalmPrint : MonoBehaviour
 
     private void Start()
     {
-        collectionSound = Resources.Load<AudioClip>("CollectionSound/collectionSound");
+        collectionSound = Resources.Load<AudioClip>("ClassroomSFX/CollectionSound/collectionSound");
 
         //물체를 잡을 때 호출되는 이벤트 연결
         grabInteractable.selectEntered.AddListener(OnGrabbed);

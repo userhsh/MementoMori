@@ -36,7 +36,7 @@ public class OutArea : MonoBehaviour
         if (other.gameObject.name == "Body")
         {
             condition2 = false;
-        } 
+        }
         if (other.gameObject.name == "Gun")
         {
             notAmmo = false;
@@ -53,10 +53,12 @@ public class OutArea : MonoBehaviour
             GameObject.Find("Player").GetComponent<ActionBasedContinuousMoveProvider>().enabled = false;
             GameObject.Find("Player").GetComponent<PlayerFootsteps>().enabled = false;
             GameObject.Find("Player").GetComponent<AudioSource>().enabled = false;
+            GameObject.Find("GunAmmo").GetComponent<Gun>().dontText = true;
             tUITalk.StopAllCoroutines();
+            tUITalk.UITalk.SetActive(false);
             StartCoroutine(tUITalk.OutAreaTalk());
         }
-        else if(condition2 == true && notAmmo == true)
+        else if (condition2 == true && notAmmo == true)
         {
             condition1 = false;
             condition2 = false;
@@ -71,7 +73,7 @@ public class OutArea : MonoBehaviour
             StartCoroutine(tUITalk.NotOutAreaTalk());
         }
 
-        
+
     }
 
 }

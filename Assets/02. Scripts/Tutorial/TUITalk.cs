@@ -7,7 +7,9 @@ using UnityEngine.XR.Interaction.Toolkit;
 public class TUITalk : MonoBehaviour
 {
     public GameObject UITalk;
+    public GameObject UINextTalk;
     public Text talk;
+    public Text Nexttalk;
 
     public GameObject fadeOut;
 
@@ -23,15 +25,15 @@ public class TUITalk : MonoBehaviour
     }
     public IEnumerator OutAreaTalk() //ÃÑÀ» Ã¬°Ü³ª¿À°í ¼º°ø ½Ã
     {
-        UITalk.SetActive(true);
-        talk.text = "";
+        UINextTalk.SetActive(true);
+        Nexttalk.text = "";
         for (int i = 0; i < SuccessTalk.Length; i++)
         {
-            talk.text += SuccessTalk[i];
+            Nexttalk.text += SuccessTalk[i];
             yield return new WaitForSeconds(0.2f);
         }
         yield return new WaitForSeconds(2f);
-        UITalk.SetActive(false);
+        UINextTalk.SetActive(false);
         fadeOut.SetActive(true);
         GameObject.Find("Player").GetComponent<ActionBasedContinuousMoveProvider>().enabled = true;
         yield break;

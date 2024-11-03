@@ -5,7 +5,9 @@ using UnityEngine;
 public class Gun : MonoBehaviour
 {
     public TUITalk tUITalk;
-    public bool foolAmmo = false;
+    public bool foolAmmo = false; //ÃÑ¾ËÀÌ Ã¤¿öÁ³À» ¶§
+    public bool dontText = false; //±¸¿ª¿¡ µé¾î°¬À» ‹š
+
     private AudioSource audioSource;
     private Ammo ammo;
 
@@ -17,18 +19,22 @@ public class Gun : MonoBehaviour
 
     public void DontShot()
     {
-        if (foolAmmo == true)
+        if (dontText == false)
         {
-            StartCoroutine(tUITalk.DontShotTalk());
-            AudioClip ReloadSound = ammo.GetReloadSound();
-            if (!audioSource.isPlaying)
+            if (foolAmmo == true)
             {
-                audioSource.PlayOneShot(ReloadSound);
+                StartCoroutine(tUITalk.DontShotTalk());
+                AudioClip ReloadSound = ammo.GetReloadSound();
+                if (!audioSource.isPlaying)
+                {
+                    audioSource.PlayOneShot(ReloadSound);
+                }
+            }
+            else
+            {
+                print("Ã¶ÄÀ!");
             }
         }
-        else
-        {
-            print("Ã¶ÄÀ!");
-        }
+
     }
 }

@@ -18,7 +18,7 @@ public class Memories : MonoBehaviour
 
     private void Start()
     {
-        collectionSound = Resources.Load<AudioClip>("CollectionSound/collectionSound");
+        collectionSound = Resources.Load<AudioClip>("TutorialSFX/CollectionSound/collectionSound");
     }
 
     public void Collection0Get()

@@ -18,8 +18,8 @@ public class SafeLockerCardLeader : MonoBehaviour
 
     private void Start()
     {
-        Unlock = Resources.Load<AudioClip>("SafeLockerSound/Unlock"); // UnlockIndex
-        SafeOpen = Resources.Load<AudioClip>("SafeLockerSound/SafeOpen"); // SafeOpenIndex
+        Unlock = Resources.Load<AudioClip>("TutorialSFX/SafeLockerSound/Unlock"); // UnlockIndex
+        SafeOpen = Resources.Load<AudioClip>("TutorialSFX/SafeLockerSound/SafeOpen"); // SafeOpenIndex
     }
 
     private void OnCollisionEnter(Collision collision)
@@ -29,6 +29,7 @@ public class SafeLockerCardLeader : MonoBehaviour
             LockOn();
             GameObject.Find("SafeLockerDoor").GetComponent<Animator>().enabled = true;
             audioSource.PlayOneShot(Unlock);
+            collision.gameObject.SetActive(false);
         }
 
     }

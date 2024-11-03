@@ -21,7 +21,7 @@ public class PoliceKey : MonoBehaviour
 
     private void Start()
     {
-        unlockSound = Resources.Load<AudioClip>("UnlockSound/unlockSound");
+        unlockSound = Resources.Load<AudioClip>("TutorialSFX/UnlockSound/unlockSound");
     }
 
     public void FirstGripKey()

@@ -27,7 +27,7 @@ public class ItemCrowBar : MonoBehaviour
     {
         // GameManager 싱글톤 인스턴스 가져오기
         gameManager = GameManager.GetInstance();
-        crawbarSound = Resources.Load<AudioClip>("CrawbarSound/crawbarSound");
+        crawbarSound = Resources.Load<AudioClip>("MorgueSFX/CrawbarSound/crawbarSound");
     }
 
     private void OnCollisionEnter(Collision collision)

@@ -30,8 +30,8 @@ public class DoorScript : MonoBehaviour
 
     private void Start()
     {
-        openSound = Resources.Load<AudioClip>("DoorSound/doorOpen");
-        closeSound = Resources.Load<AudioClip>("DoorSound/doorClose");
+        openSound = Resources.Load<AudioClip>("ClassroomSFX/DoorSound/doorOpen");
+        closeSound = Resources.Load<AudioClip>("ClassroomSFX/DoorSound/doorClose");
 
         lockIcon?.gameObject.SetActive(false);
 

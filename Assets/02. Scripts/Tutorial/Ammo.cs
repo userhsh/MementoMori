@@ -16,7 +16,7 @@ public class Ammo : MonoBehaviour
 
     private void Start()
     {
-        ReloadSound = Resources.Load<AudioClip>("ReloadSound/ReloadSound");
+        ReloadSound = Resources.Load<AudioClip>("TutorialSFX/ReloadSound/ReloadSound");
     }
 
     private void OnCollisionEnter(Collision collision)

@@ -14,7 +14,7 @@ public class KeyPad : MonoBehaviour
 
     private void Start()
     {
-        SelectSound = Resources.Load<AudioClip>("ClickSound/SelectSound");
+        SelectSound = Resources.Load<AudioClip>("TutorialSFX/ClickSound/SelectSound");
     }
 
     public GameObject keypadUI;

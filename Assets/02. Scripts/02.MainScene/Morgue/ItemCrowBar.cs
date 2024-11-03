@@ -30,20 +30,24 @@ public class ItemCrowBar : MonoBehaviour
         crawbarSound = Resources.Load<AudioClip>("CrawbarSound/crawbarSound");
     }
 
-    private void OnTriggerEnter(Collider other)
+    private void OnCollisionEnter(Collision collision)
     {
-        if (other.gameObject.name == "StrangeTile")
+        if (collision.gameObject.name == "StrangeTile")
         {
             use = true;
         }
     }
-    private void OnTriggerExit(Collider other)
+
+    private void OnCollisionExit(Collision collision)
     {
-        if (other.gameObject.name == "StrangeTile")
+        
+        if (collision.gameObject.name == "StrangeTile")
         {
             use = false;
         }
     }
+
+ 
 
     public void Use()
     {

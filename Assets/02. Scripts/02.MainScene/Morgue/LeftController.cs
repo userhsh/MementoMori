@@ -83,15 +83,14 @@ public class LeftController : XRRayInteractor
             default:
                 break;
         }
-
-        isGrip = false;
+        isGrip = false; //그립 시 레이가 상호작용 X
         UIItem.transform.GetChild(1).gameObject.SetActive(false);
     }
 
     protected override void OnSelectExited(XRBaseInteractable interactable)
     {
         isGrip = true; //그립 해제 시 레이 상호작용 O
-        UIItem.transform.GetChild(1).gameObject.SetActive(true);
+        UIItem.transform.GetChild(1).gameObject.SetActive(false);
     }
 
     protected override void OnHoverEntered(XRBaseInteractable interactable)
@@ -99,6 +98,8 @@ public class LeftController : XRRayInteractor
 
         if (isGrip)
         {
+            UIItem.transform.GetChild(1).gameObject.SetActive(true);
+
             switch (interactable.name)
             {
                 case "Doll":
@@ -175,6 +176,11 @@ public class LeftController : XRRayInteractor
                     UIItem.transform.GetChild(1).gameObject.SetActive(false);
                     UIItemText.text = "무언가 적혔던 흔적이 있다.";
                     break;
+                case "StrangeTile":
+                    UIItem.SetActive(true);
+                    UIItem.transform.GetChild(1).gameObject.SetActive(false);
+                    UIItemText.text = "수상한 타일이다. \n철제 같은걸로 \n떼어낼 수 있을 것 같다.";
+                    break;
                 default:
                     break;
             }
@@ -200,6 +206,7 @@ public class LeftController : XRRayInteractor
                 default:
                     break;
             }
+
         }
     }
 

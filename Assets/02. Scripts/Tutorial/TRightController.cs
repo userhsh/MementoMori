@@ -21,7 +21,7 @@ public class TRightController : XRRayInteractor
     }
 
     public void RightHandRenderGripping()
-    {
+    {       
         RightHandRender?.SetActive(false);
     }
 

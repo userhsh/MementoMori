@@ -1334,9 +1334,9 @@ GameObject:
   - component: {fileID: 270185608}
   - component: {fileID: 270185607}
   - component: {fileID: 270185606}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: DoorD_Right
-  m_TagString: Untagged
+  m_TagString: WALL
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1683,7 +1683,7 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 0.94861424, y: 2.098418, z: 0.15871105}
+  m_Size: {x: 0.94861424, y: 2.098418, z: 0.3}
   m_Center: {x: 0.4727881, y: -0.90949404, z: -0.028384076}
 --- !u!95 &270185612
 Animator:
@@ -2167,6 +2167,7 @@ Transform:
   - {fileID: 1121952198}
   - {fileID: 241931909}
   - {fileID: 298943581}
+  - {fileID: 961039295}
   m_Father: {fileID: 0}
   m_RootOrder: 10
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -5980,6 +5981,65 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 907788781}
   m_CullTransparentMesh: 1
+--- !u!1 &961039294
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 961039295}
+  - component: {fileID: 961039297}
+  - component: {fileID: 961039296}
+  m_Layer: 0
+  m_Name: TriggerEffectObject
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &961039295
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 961039294}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0.02, y: 0.12, z: 2.46}
+  m_LocalScale: {x: 0.5, y: 0.1, z: 0.5}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 320485668}
+  m_RootOrder: 7
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &961039296
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 961039294}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: aff22d1c5ab55064da65c35fbce2f44f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  triggerObject: {fileID: 5142446463981163433}
+--- !u!65 &961039297
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 961039294}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1.8900604, y: 1, z: 3.190661}
+  m_Center: {x: 0.80075276, y: 0, z: -0.5130789}
 --- !u!82 &970036528
 AudioSource:
   m_ObjectHideFlags: 0
@@ -7494,9 +7554,9 @@ GameObject:
   - component: {fileID: 1250737858}
   - component: {fileID: 1250737865}
   - component: {fileID: 1250737860}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: Door
-  m_TagString: Untagged
+  m_TagString: WALL
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -7586,7 +7646,7 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 1.0569311, y: 2.098418, z: 0.15871002}
+  m_Size: {x: 1.0569311, y: 2.098418, z: 0.3}
   m_Center: {x: -0.52694565, y: -0.90949404, z: 0.028383574}
 --- !u!23 &1250737862
 MeshRenderer:
@@ -9171,9 +9231,9 @@ GameObject:
   - component: {fileID: 1508436925}
   - component: {fileID: 1508436924}
   - component: {fileID: 1508436923}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: ShutterBack
-  m_TagString: Untagged
+  m_TagString: WALL
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -9373,7 +9433,6 @@ Transform:
   - {fileID: 739465321}
   - {fileID: 1274763772}
   - {fileID: 543450653580600129}
-  - {fileID: 5482696575748655379}
   - {fileID: 6181135657725473476}
   - {fileID: 6181135657467075131}
   - {fileID: 6181135658074526007}
@@ -9384,6 +9443,7 @@ Transform:
   - {fileID: 3104795862757004271}
   - {fileID: 7602095231330000797}
   - {fileID: 7949113394145935679}
+  - {fileID: 5482696575748655379}
   m_Father: {fileID: 8601660337250447277}
   m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -11617,8 +11677,8 @@ BoxCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 0.9700168, y: 1, z: 1}
-  m_Center: {x: -0.0006468637, y: 0, z: 0}
+  m_Size: {x: 0.8828876, y: 1, z: 1}
+  m_Center: {x: 0.042920165, y: 0, z: 0}
 --- !u!114 &1887820354
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -15835,7 +15895,7 @@ Rigidbody:
   m_UseGravity: 0
   m_IsKinematic: 0
   m_Interpolate: 0
-  m_Constraints: 0
+  m_Constraints: 118
   m_CollisionDetection: 0
 --- !u!4 &141080566452343774
 Transform:
@@ -18055,7 +18115,7 @@ Rigidbody:
   m_UseGravity: 0
   m_IsKinematic: 0
   m_Interpolate: 0
-  m_Constraints: 0
+  m_Constraints: 118
   m_CollisionDetection: 0
 --- !u!222 &455349173781868131
 CanvasRenderer:
@@ -18149,9 +18209,9 @@ GameObject:
   - component: {fileID: 4606097697053518774}
   - component: {fileID: 4606097697053518775}
   - component: {fileID: 4606097697053518776}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: DoorHollWall
-  m_TagString: Untagged
+  m_TagString: WALL
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -18459,7 +18519,7 @@ Rigidbody:
   m_UseGravity: 0
   m_IsKinematic: 0
   m_Interpolate: 0
-  m_Constraints: 0
+  m_Constraints: 118
   m_CollisionDetection: 0
 --- !u!114 &671389972345975541
 MonoBehaviour:
@@ -20357,9 +20417,9 @@ GameObject:
   - component: {fileID: 144319575229365902}
   - component: {fileID: 8542679964273915663}
   - component: {fileID: 3859109338765191876}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: HP_Grating_Corridor_LOD0
-  m_TagString: Untagged
+  m_TagString: WALL
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -20375,9 +20435,9 @@ GameObject:
   - component: {fileID: 144319575874672242}
   - component: {fileID: 8542679964702466035}
   - component: {fileID: 3859109339460960824}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: HP_Grating_Corridor_LOD0
-  m_TagString: Untagged
+  m_TagString: WALL
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -21708,7 +21768,7 @@ Rigidbody:
   m_UseGravity: 0
   m_IsKinematic: 0
   m_Interpolate: 0
-  m_Constraints: 0
+  m_Constraints: 118
   m_CollisionDetection: 0
 --- !u!1 &1457664580755106794
 GameObject:
@@ -23371,7 +23431,7 @@ Rigidbody:
   m_UseGravity: 0
   m_IsKinematic: 0
   m_Interpolate: 0
-  m_Constraints: 0
+  m_Constraints: 118
   m_CollisionDetection: 0
 --- !u!23 &1531835119321526699
 MeshRenderer:
@@ -29968,9 +30028,9 @@ GameObject:
   m_Component:
   - component: {fileID: 2028215372913273426}
   - component: {fileID: 4178545477989336340}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: HP_Angle_Wall_01
-  m_TagString: Untagged
+  m_TagString: WALL
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -29985,9 +30045,9 @@ GameObject:
   m_Component:
   - component: {fileID: 2028215373773307565}
   - component: {fileID: 4178545478882529771}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: HP_Angle_Wall_01 (1)
-  m_TagString: Untagged
+  m_TagString: WALL
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -31307,9 +31367,9 @@ GameObject:
   - component: {fileID: 4072491263380247311}
   - component: {fileID: 7891499981583046190}
   - component: {fileID: 9201063303355886262}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: HP_Angle_Wall_01
-  m_TagString: Untagged
+  m_TagString: WALL
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -31326,9 +31386,9 @@ GameObject:
   - component: {fileID: 4072491264701646832}
   - component: {fileID: 7891499982543864529}
   - component: {fileID: 9201063304417377865}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: HP_Angle_Wall_01
-  m_TagString: Untagged
+  m_TagString: WALL
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -38312,7 +38372,7 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 0.94861424, y: 2.098418, z: 0.15871105}
+  m_Size: {x: 0.94861424, y: 2.098418, z: 0.3}
   m_Center: {x: 0.47278762, y: -0.9094939, z: -0.028385507}
 --- !u!95 &2522046799816570117
 Animator:
@@ -38698,7 +38758,7 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 0.94861436, y: 2.098418, z: 0.15871105}
+  m_Size: {x: 0.94861436, y: 2.098418, z: 0.3}
   m_Center: {x: 0.47278816, y: -0.90949416, z: -0.028387414}
 --- !u!95 &2523912022948116901
 Animator:
@@ -38881,9 +38941,9 @@ GameObject:
   - component: {fileID: 2522046799816570113}
   - component: {fileID: 2522046799816570174}
   - component: {fileID: 2548059099778629374}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: DoorD_Left
-  m_TagString: Untagged
+  m_TagString: WALL
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -38953,9 +39013,9 @@ GameObject:
   - component: {fileID: 2523912022948116897}
   - component: {fileID: 2523912022948116574}
   - component: {fileID: 2545769848461081630}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: DoorD_Right
-  m_TagString: Untagged
+  m_TagString: WALL
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -40167,7 +40227,7 @@ Rigidbody:
   m_UseGravity: 0
   m_IsKinematic: 0
   m_Interpolate: 0
-  m_Constraints: 0
+  m_Constraints: 118
   m_CollisionDetection: 0
 --- !u!33 &2611727177539112219
 MeshFilter:
@@ -40462,7 +40522,7 @@ Rigidbody:
   m_UseGravity: 0
   m_IsKinematic: 0
   m_Interpolate: 0
-  m_Constraints: 0
+  m_Constraints: 118
   m_CollisionDetection: 0
 --- !u!33 &2681116699178951357
 MeshFilter:
@@ -41030,7 +41090,7 @@ Rigidbody:
   m_UseGravity: 0
   m_IsKinematic: 0
   m_Interpolate: 0
-  m_Constraints: 0
+  m_Constraints: 118
   m_CollisionDetection: 0
 --- !u!1 &2818839270168087224
 GameObject:
@@ -42283,7 +42343,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1543083605}
-  m_RootOrder: 17
+  m_RootOrder: 16
   m_LocalEulerAnglesHint: {x: 0, y: -96.577, z: 0}
 --- !u!54 &3110817461158193876
 Rigidbody:
@@ -43459,9 +43519,9 @@ GameObject:
   - component: {fileID: 3101268575121177489}
   - component: {fileID: 2118561225532416095}
   - component: {fileID: 8720457345643213577}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: HP_Wall_4x4m_01
-  m_TagString: Untagged
+  m_TagString: WALL
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -43479,9 +43539,9 @@ GameObject:
   - component: {fileID: 3101268574157778436}
   - component: {fileID: 2118561226495292874}
   - component: {fileID: 8720457344618473116}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: HP_Wall_4x4m_01 (1)
-  m_TagString: Untagged
+  m_TagString: WALL
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -43499,9 +43559,9 @@ GameObject:
   - component: {fileID: 3101268574109341490}
   - component: {fileID: 2118561226546334972}
   - component: {fileID: 8720457344668999594}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: HP_Wall_4x4m_01 (2)
-  m_TagString: Untagged
+  m_TagString: WALL
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -49207,9 +49267,9 @@ GameObject:
   m_Component:
   - component: {fileID: 3120467591980850741}
   - component: {fileID: 2239911773878151170}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: HP_Grating_Corridor_Collider
-  m_TagString: Untagged
+  m_TagString: WALL
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -49224,9 +49284,9 @@ GameObject:
   m_Component:
   - component: {fileID: 3120467591570159305}
   - component: {fileID: 2239911774305616126}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: HP_Grating_Corridor_Collider
-  m_TagString: Untagged
+  m_TagString: WALL
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -49574,9 +49634,9 @@ GameObject:
   - component: {fileID: 1536254752438561416}
   - component: {fileID: 526257551960709506}
   - component: {fileID: 4795228381669415916}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: HP_Grating_Corridor_LOD1
-  m_TagString: Untagged
+  m_TagString: WALL
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -49592,9 +49652,9 @@ GameObject:
   - component: {fileID: 1536254753083769460}
   - component: {fileID: 526257552371446142}
   - component: {fileID: 4795228382366118672}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: HP_Grating_Corridor_LOD1
-  m_TagString: Untagged
+  m_TagString: WALL
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -50047,7 +50107,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1543083605}
-  m_RootOrder: 13
+  m_RootOrder: 12
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &3968468982359727220
 Transform:
@@ -50062,7 +50122,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1543083605}
-  m_RootOrder: 14
+  m_RootOrder: 13
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!65 &3972443642253520774
 BoxCollider:
@@ -50658,7 +50718,7 @@ Rigidbody:
   m_UseGravity: 0
   m_IsKinematic: 0
   m_Interpolate: 0
-  m_Constraints: 0
+  m_Constraints: 118
   m_CollisionDetection: 0
 --- !u!23 &4086984785132229759
 MeshRenderer:
@@ -53101,7 +53161,7 @@ Rigidbody:
   m_UseGravity: 0
   m_IsKinematic: 0
   m_Interpolate: 0
-  m_Constraints: 0
+  m_Constraints: 118
   m_CollisionDetection: 0
 --- !u!205 &4207731581836927425
 LODGroup:
@@ -63300,7 +63360,7 @@ Rigidbody:
   m_UseGravity: 0
   m_IsKinematic: 0
   m_Interpolate: 0
-  m_Constraints: 0
+  m_Constraints: 118
   m_CollisionDetection: 0
 --- !u!1 &4348512617090104791
 GameObject:
@@ -63993,7 +64053,7 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 0.94861424, y: 2.098418, z: 0.15871105}
+  m_Size: {x: 0.94861424, y: 2.098418, z: 0.3}
   m_Center: {x: 0.4727881, y: -0.90949404, z: -0.028384076}
 --- !u!114 &4574385240094307746
 MonoBehaviour:
@@ -64233,9 +64293,9 @@ GameObject:
   - component: {fileID: 4574385240094307746}
   - component: {fileID: 4574385240094307747}
   - component: {fileID: 4574385240094307759}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: DoorD_Left
-  m_TagString: Untagged
+  m_TagString: WALL
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -64419,8 +64479,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 0.25927138, y: 0.99999976, z: 0.99999976}
-  m_Center: {x: 0.37036476, y: 0.00000011920929, z: 2.5578589e-12}
+  m_Size: {x: 0.25927138, y: 0.99999976, z: 30}
+  m_Center: {x: 0.37036476, y: 0.00000011920929, z: 0}
 --- !u!65 &4606097697053518775
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -64432,7 +64492,7 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 0.50491494, y: 0.99999976, z: 0.99999976}
+  m_Size: {x: 0.50491494, y: 0.99999976, z: 30}
   m_Center: {x: -0.0859066, y: 1.1369652e-22, z: -1.6940659e-20}
 --- !u!65 &4606097697053518776
 BoxCollider:
@@ -64445,7 +64505,7 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 0.07746947, y: 0.99999976, z: 0.99999976}
+  m_Size: {x: 0.07746947, y: 0.99999976, z: 30}
   m_Center: {x: -0.46263084, y: 0.00000011920929, z: 2.5578589e-12}
 --- !u!1 &4614155799591084347
 GameObject:
@@ -75231,7 +75291,7 @@ GameObject:
   - component: {fileID: 2823332502457594148}
   - component: {fileID: 387553741219062669}
   m_Layer: 0
-  m_Name: HP_Negatoscope_03
+  m_Name: Negatoscope
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -75875,7 +75935,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1543083605}
-  m_RootOrder: 9
+  m_RootOrder: 19
   m_LocalEulerAnglesHint: {x: 0, y: 135.862, z: 90}
 --- !u!23 &5485013328478275772
 MeshRenderer:
@@ -78883,7 +78943,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1543083605}
-  m_RootOrder: 15
+  m_RootOrder: 14
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &6101656282202780782
 Transform:
@@ -79116,7 +79176,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1543083605}
-  m_RootOrder: 16
+  m_RootOrder: 15
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &6181135657467075131
 Transform:
@@ -79131,7 +79191,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1543083605}
-  m_RootOrder: 11
+  m_RootOrder: 10
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &6181135657725473476
 Transform:
@@ -79146,7 +79206,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1543083605}
-  m_RootOrder: 10
+  m_RootOrder: 9
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &6181135658074526007
 Transform:
@@ -79161,7 +79221,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1543083605}
-  m_RootOrder: 12
+  m_RootOrder: 11
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!23 &6182147431060281052
 MeshRenderer:
@@ -81534,9 +81594,9 @@ GameObject:
   - component: {fileID: 85183669771428484}
   - component: {fileID: 2167712189418863428}
   - component: {fileID: 2326977909984615279}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: HP_Angle_Wall_Floor
-  m_TagString: Untagged
+  m_TagString: WALL
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -81553,9 +81613,9 @@ GameObject:
   - component: {fileID: 85183670799234683}
   - component: {fileID: 2167712188559355835}
   - component: {fileID: 2326977910895103888}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: HP_Angle_Wall_Floor
-  m_TagString: Untagged
+  m_TagString: WALL
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -81690,6 +81750,7 @@ MeshRenderer:
   m_RendererPriority: 0
   m_Materials:
   - {fileID: 2100000, guid: 16821d30616ac824497b6ed209833db8, type: 2}
+  - {fileID: 2100000, guid: b000619fac5ddf14f921f6719ea42367, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -81721,9 +81782,9 @@ GameObject:
   m_Component:
   - component: {fileID: 6275206835631762429}
   - component: {fileID: 1246403047314267276}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: HP_Grating_Corridor (1)
-  m_TagString: Untagged
+  m_TagString: WALL
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -81738,9 +81799,9 @@ GameObject:
   m_Component:
   - component: {fileID: 6275206836008534785}
   - component: {fileID: 1246403048011134064}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: HP_Grating_Corridor
-  m_TagString: Untagged
+  m_TagString: WALL
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -83987,9 +84048,9 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6786342443750810067}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalRotation: {x: -0, y: -0, z: 0.0000000018626451, w: 1}
+  m_LocalPosition: {x: 0, y: -0.00000009694653, z: 0}
+  m_LocalScale: {x: 1, y: 0.99999994, z: 0.9999998}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 4471686290339304057}
@@ -95273,7 +95334,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1543083605}
-  m_RootOrder: 18
+  m_RootOrder: 17
   m_LocalEulerAnglesHint: {x: 0, y: 90, z: -90}
 --- !u!23 &7624123385149214375
 MeshRenderer:
@@ -96714,8 +96775,8 @@ BoxCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 12.8, y: 5.43, z: 7.35}
-  m_Center: {x: -0.7, y: 0, z: -3.29}
+  m_Size: {x: 12.8, y: 5.43, z: 6.3215485}
+  m_Center: {x: -0.7000001, y: 7.722109e-22, z: -2.7757733}
 --- !u!114 &7878948821386866145
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -97141,7 +97202,7 @@ Transform:
   - {fileID: 6275206836008534785}
   - {fileID: 6275206835631762429}
   m_Father: {fileID: 1543083605}
-  m_RootOrder: 19
+  m_RootOrder: 18
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &7962840058046981256
 GameObject:
@@ -105343,9 +105404,9 @@ GameObject:
   - component: {fileID: 8347209591378055798}
   - component: {fileID: 4808459307838623269}
   - component: {fileID: 2972965125240304225}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: HP_Angle_Wall_Celling
-  m_TagString: Untagged
+  m_TagString: WALL
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -105362,9 +105423,9 @@ GameObject:
   - component: {fileID: 8347209590040397449}
   - component: {fileID: 4808459309159635674}
   - component: {fileID: 2972965126192735902}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: HP_Angle_Wall_Celling
-  m_TagString: Untagged
+  m_TagString: WALL
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -116172,9 +116233,9 @@ GameObject:
   - component: {fileID: 8601660337431115735}
   - component: {fileID: 8601660337431115734}
   - component: {fileID: 8601660337431115733}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: Wall (3)
-  m_TagString: Untagged
+  m_TagString: WALL
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -116190,7 +116251,7 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 1, y: 1, z: 1}
+  m_Size: {x: 1, y: 1, z: 30}
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!23 &8601660337431115734
 MeshRenderer:
@@ -119873,9 +119934,9 @@ GameObject:
   - component: {fileID: 8601660337977830209}
   - component: {fileID: 8601660337977830208}
   - component: {fileID: 8601660337977830223}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: Wall
-  m_TagString: Untagged
+  m_TagString: WALL
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -119891,7 +119952,7 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 1, y: 1, z: 1}
+  m_Size: {x: 1, y: 1, z: 30}
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &8601660337984567225
 GameObject:
@@ -120745,9 +120806,9 @@ GameObject:
   - component: {fileID: 8952902671986713322}
   - component: {fileID: 8952902671986713323}
   - component: {fileID: 8952902671986713324}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: DoorHollWall2
-  m_TagString: Untagged
+  m_TagString: WALL
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -123254,8 +123315,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 0.05739956, y: 0.9999994, z: 0.9999993}
-  m_Center: {x: -0.47130004, y: 0.00000031789145, z: -2.6529447e-12}
+  m_Size: {x: 0.05739956, y: 0.9999994, z: 30}
+  m_Center: {x: -0.47130004, y: 0.00000031789145, z: 0}
 --- !u!65 &8952902671986713323
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -123267,7 +123328,7 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 0.18700445, y: 0.9999994, z: 0.9999993}
+  m_Size: {x: 0.18700445, y: 0.9999994, z: 30}
   m_Center: {x: 0.40927997, y: 0.00000031789145, z: -2.6529447e-12}
 --- !u!65 &8952902671986713324
 BoxCollider:
@@ -123280,7 +123341,7 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 0.6744777, y: 0.9999994, z: 0.9999993}
+  m_Size: {x: 0.6744777, y: 0.9999994, z: 30}
   m_Center: {x: -0.063360296, y: 0.00000031789145, z: 1.892258e-13}
 --- !u!23 &8954067316991615580
 MeshRenderer:
@@ -123825,7 +123886,7 @@ SphereCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Radius: 0.09851068
+  m_Radius: 0.12
   m_Center: {x: -0.036228355, y: 0.024805719, z: 0.011124995}
 --- !u!33 &9163342963343347774
 MeshFilter:
@@ -123846,7 +123907,7 @@ SphereCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Radius: 0.09821288
+  m_Radius: 0.12
   m_Center: {x: 0.037922785, y: 0.023141226, z: 0.011204425}
 --- !u!205 &9180339994081953544
 LODGroup:

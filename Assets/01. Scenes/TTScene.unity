@@ -47595,7 +47595,7 @@ SphereCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Radius: 0.09851068
+  m_Radius: 0.12
   m_Center: {x: -0.036228355, y: 0.02480572, z: 0.011124995}
 --- !u!1 &5534469469569642383
 GameObject:
@@ -47627,7 +47627,7 @@ SphereCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Radius: 0.09821288
+  m_Radius: 0.12
   m_Center: {x: 0.037922785, y: 0.023141226, z: 0.011204425}
 --- !u!4 &5544328986007486241
 Transform:

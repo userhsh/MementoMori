@@ -30,14 +30,13 @@ public class Door : MonoBehaviour, IInteractable
     protected AudioClip unlockSound;
     // 문 오디오 소스 컴포넌트
     protected AudioSource audioSource;
-    // 충돌된 열쇠 확인용 콜라이더
-    Collider keyCollider = null;
+    // 열쇠 오브젝트
+    public GameObject correctKey;
 
     private void OnCollisionEnter(Collision collision)
     {
         if (collision.collider.gameObject.name == doorKey)
         {
-            keyCollider = collision.collider;
             isUnLockable = true;
         }
     }
@@ -47,18 +46,11 @@ public class Door : MonoBehaviour, IInteractable
         if (collision.collider.gameObject.name == doorKey)
         {
             isUnLockable = false;
-            keyCollider = null;
         }
     }
 
     public void Interact()
     {
-        // 문을 열기 전에 키를 비활성화합니다.
-        if (isUnLockable)
-        {
-            keyCollider?.gameObject.SetActive(false); // 키를 비활성화
-        }
-
         DoorOpen(); // 문을 열도록 호출
     }
 
@@ -99,6 +91,11 @@ public class Door : MonoBehaviour, IInteractable
 
         // 문 잠금을 해제 상태로 바꾸기
         isLocked = false;
+        // 열쇠제거
+        if (correctKey != null)
+        {
+            Destroy(correctKey.gameObject);
+        }
         // 잠금 해제 소리 재생
         DoorUnLockSound();
     }

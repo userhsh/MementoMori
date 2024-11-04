@@ -66,11 +66,13 @@ public class Mirror : MonoBehaviour, IInteractable
         // 때 제거 애니메이션 실행
         stainAnimator.SetTrigger("IsRemoveStain");
         // 약 묻은 천 제거
-        Destroy(medicineFabric);
-
+        Destroy(medicineFabric.gameObject);
+        // 거울 딲이는 사운드 재생
         audioSource.PlayOneShot(clip);
         // 애니메이션 재생 시간 보장
         yield return new WaitForSeconds(1f);
+        // 거울 이름 바꾸기
+        this.gameObject.name = "MirrorClear";
         // 거울 캔버스 켜기
         mirrorCanvas.gameObject.SetActive(true);
     }

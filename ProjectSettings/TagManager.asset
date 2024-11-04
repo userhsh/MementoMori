@@ -12,6 +12,7 @@ TagManager:
   - RANGE
   - MorgueKey
   - Body
+  - WALL
   layers:
   - Default
   - TransparentFX
@@ -24,7 +25,7 @@ TagManager:
   - INTERACTABLE
   - ITEM
   - PLAYER
-  - 
+  - WALL
   - 
   - 
   - 

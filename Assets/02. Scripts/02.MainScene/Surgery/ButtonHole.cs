@@ -16,28 +16,26 @@ public class ButtonHole : MonoBehaviour, IInteractable
         surgeryShutterButton.gameObject.SetActive(false);
     }
 
-    // 트리거 발동 시
-    private void OnTriggerEnter(Collider other)
+    private void OnCollisionEnter(Collision collision)
     {
         // 만약 충돌한 물체가 셔터 버튼이면
-        if (other.gameObject.name == "ShutterButton")
+        if (collision.collider.gameObject.name == "ShutterButton")
         {
             // 상호작용 가능
             isInteractable = true;
         }
     }
 
-    // 트리거가 끝났을 시
-    private void OnTriggerExit(Collider other)
+    private void OnCollisionExit(Collision collision)
     {
         // 만약 셔터 버튼과 충돌이 끝났다면
-        if (other.gameObject.name == "ShutterButton")
+        if (collision.collider.gameObject.name == "ShutterButton")
         {
             // 상호작용 불가능
             isInteractable = false;
         }
     }
-
+        
     public void Interact()
     {
         // 상호작용 가능한 상태가 아닐때 돌아가기

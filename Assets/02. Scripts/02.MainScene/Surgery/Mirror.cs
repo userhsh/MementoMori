@@ -69,10 +69,12 @@ public class Mirror : MonoBehaviour, IInteractable
         Destroy(medicineFabric.gameObject);
         // 거울 딲이는 사운드 재생
         audioSource.PlayOneShot(clip);
-        // 애니메이션 재생 시간 보장
-        yield return new WaitForSeconds(1f);
         // 거울 이름 바꾸기
         this.gameObject.name = "MirrorClear";
+        // 거울 트리거 끄기
+        this.gameObject.GetComponent<BoxCollider>().isTrigger = false;
+        // 애니메이션 재생 시간 보장
+        yield return new WaitForSeconds(1f);
         // 거울 캔버스 켜기
         mirrorCanvas.gameObject.SetActive(true);
     }

@@ -156,7 +156,8 @@ public class LeftController : XRRayInteractor
                     break;
                 case "Medicine":
                     UIItem.SetActive(true);
-                    UIItemText.text = "아이템: 약통";
+                    UIItem.transform.GetChild(1).gameObject.SetActive(false);
+                    UIItemText.text = "약통에 뭐라고 쓰여있다. \n\"묶은 때 제거\"";
                     break;
                 case "PillowFabic":
                     UIItem.SetActive(true);
@@ -180,6 +181,11 @@ public class LeftController : XRRayInteractor
                     UIItem.SetActive(true);
                     UIItem.transform.GetChild(1).gameObject.SetActive(false);
                     UIItemText.text = "수상한 타일이다. \n철제 같은걸로 \n떼어낼 수 있을 것 같다.";
+                    break;
+                case "ButtonHole":
+                    UIItem.SetActive(true);
+                    UIItem.transform.GetChild(1).gameObject.SetActive(false);
+                    UIItemText.text = "버튼이 있었던 흔적이다.";
                     break;
                 default:
                     break;

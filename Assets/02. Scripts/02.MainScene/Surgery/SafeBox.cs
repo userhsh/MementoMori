@@ -19,9 +19,20 @@ public class SafeBox : MonoBehaviour, IInteractable
 
     Collider doctorCard = null;
 
+    private AudioSource audioSource;
+    private AudioClip SafeUnlock;
+    private AudioClip SafeOpen;
+
     private void Awake()
     {
+        audioSource = GetComponent<AudioSource>();
         SafeBoxInit();
+    }
+
+    private void Start()
+    {
+        SafeUnlock = Resources.Load<AudioClip>("SurgerySFX/SafeUnlock");
+        SafeOpen = Resources.Load<AudioClip>("SurgerySFX/SafeOpen");
     }
 
     // 금고 Init 메서드
@@ -53,6 +64,8 @@ public class SafeBox : MonoBehaviour, IInteractable
 
         safeBoxCardMechine.ChangeColor();
 
+        audioSource.PlayOneShot(SafeUnlock);
+
         Invoke("DoorOpen", 1f);
 
         doctorCard?.gameObject.SetActive(false);
@@ -69,6 +82,7 @@ public class SafeBox : MonoBehaviour, IInteractable
             safeBoxDoor.SafeDoorAnimator.SetTrigger(parameterName);
             // isOpenable 상태 바꿔주기
             isOpenable = !isOpenable;
+            audioSource.PlayOneShot(SafeOpen);
         }
-    }    
+    }
 }

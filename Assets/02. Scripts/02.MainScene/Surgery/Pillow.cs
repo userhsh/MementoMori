@@ -16,7 +16,6 @@ public class Pillow : MonoBehaviour, IInteractable
     private void Awake()
     {
         audioSource = GetComponent<AudioSource>();
-
         fabric.gameObject.SetActive(false);
     }
 
@@ -25,6 +24,7 @@ public class Pillow : MonoBehaviour, IInteractable
         if (other.gameObject.name == "Scalpel")
         {
             isInteractable = true;
+
         }
     }
 
@@ -40,10 +40,14 @@ public class Pillow : MonoBehaviour, IInteractable
     {
         if (!isInteractable) return;
 
-        audioSource.PlayOneShot(clip);
+        if (isInteractable)
+        {
+            audioSource.PlayOneShot(clip);
+            isInteractable = false;
+        }
         // 玫 积己
         fabric.gameObject.SetActive(true);
         // 海俺 力芭
-        Destroy(gameObject);
+        Destroy(gameObject, clip.length);
     }
 }

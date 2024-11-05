@@ -8,10 +8,25 @@ public class PosterHuman : MonoBehaviour, IInteractable
     SlidePuzzle slidePuzzle = null;
     // 금고 담을 변수 선언
     public SafeBox safeBox = null;
+    private Collider collider;
+    private AudioSource audioSource;
+    private AudioClip PuzzleShuffleSound;
+    private AudioClip PuzzleMoveSound;
+    private AudioClip CorrectSound;
+    private bool puzzleClear = false;
 
     private void Awake()
     {
         PosterHumanInit();
+        audioSource = GetComponent<AudioSource>();
+        collider = GetComponent<Collider>();
+    }
+
+    private void Start()
+    {
+        PuzzleShuffleSound = Resources.Load<AudioClip>("SurgerySFX/PuzzleShuffleSound");
+        PuzzleMoveSound = Resources.Load<AudioClip>("SurgerySFX/PuzzleMoveSound");
+        CorrectSound = Resources.Load<AudioClip>("SurgerySFX/CorrectSound");
     }
 
     private void Update()
@@ -36,6 +51,8 @@ public class PosterHuman : MonoBehaviour, IInteractable
     {
         // Slide Puzzle 켜기
         slidePuzzle.gameObject.SetActive(true);
+        audioSource.PlayOneShot(PuzzleShuffleSound);
+        collider.enabled = false;
     }
 
     // 퍼즐 완료 시 인체모형도 제거 메서드
@@ -44,8 +61,14 @@ public class PosterHuman : MonoBehaviour, IInteractable
         // 퍼즐이 클리어 되었다면
         if (slidePuzzle.Board.IsPuzzleClear)
         {
+            if (!puzzleClear)
+            {
+                audioSource.volume = 0.25f;
+                audioSource.PlayOneShot(CorrectSound);
+            }
+            puzzleClear = true;
             // 인체모형도, 퍼즐 제거
-            Destroy(this.gameObject);
+            Destroy(this.gameObject, CorrectSound.length);
             // 금고 생성
             safeBox.gameObject.SetActive(true);
         }
@@ -55,5 +78,13 @@ public class PosterHuman : MonoBehaviour, IInteractable
     private void OffSlidePuzzle()
     {
         slidePuzzle?.gameObject.SetActive(false);
+    }
+
+    public void PlayPuzzleMoveSound()
+    {
+        if (!audioSource.isPlaying)
+        {
+            audioSource.PlayOneShot(PuzzleMoveSound);
+        }
     }
 }

@@ -9,6 +9,13 @@ public class Fabric : MonoBehaviour, IUseable
 
     private bool isUse = false;
 
+    private Scalpel scalpel;
+
+    private void Awake()
+    {
+        scalpel = GetComponent<Scalpel>();
+    }
+
     public void GetItem(Transform _pos)
     {
         transform.SetParent(_pos);
@@ -46,8 +53,6 @@ public class Fabric : MonoBehaviour, IUseable
             }
             // medicine이 존재한다면 Interact 실행
             medicine?.Interact();
-            // 천 없애 주기
-            Destroy(this.gameObject);
         }
     }
 }

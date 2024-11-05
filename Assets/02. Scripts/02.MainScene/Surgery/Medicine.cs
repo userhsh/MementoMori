@@ -7,25 +7,36 @@ public class Medicine : MonoBehaviour, IInteractable
 {
     public Fabric fabric;
     public MedicineFabric medicineFabric;
-
     bool isInteractable = false;
+    private AudioSource audioSource;
+    private AudioClip WetSound;
+    private MeshRenderer meshRenderer;
+    private Collider collider;
 
     private void Awake()
     {
         medicineFabric.gameObject.SetActive(false);
+        audioSource = GetComponent<AudioSource>();
+        meshRenderer = GetComponent<MeshRenderer>();
+        collider = GetComponent<Collider>();
+    }
+    private void Start()
+    {
+        WetSound = Resources.Load<AudioClip>("SurgerySFX/WetSound");
     }
 
-    private void OnCollisionEnter(Collision collision)
+
+    private void OnCollisionEnter(Collision other)
     {
-        if (collision.gameObject.name == "PillowFabic")
+        if (other.gameObject.name == "PillowFabic")
         {
             isInteractable = true;
         }
     }
 
-    private void OnCollisionExit(Collision collision)
+    private void OnCollisionExit(Collision other)
     {
-        if (collision.gameObject.name == "PillowFabic")
+        if (other.gameObject.name == "PillowFabic")
         {
             isInteractable = false;
         }
@@ -35,10 +46,12 @@ public class Medicine : MonoBehaviour, IInteractable
     {
         if (!isInteractable) return;
 
-        // 약 묻은 천 생성
-        medicineFabric.gameObject.SetActive(true);
+        audioSource.PlayOneShot(WetSound);
+        // 천 제거
         Destroy(fabric.gameObject);
-        // 약품 제거
-        Destroy(gameObject);
+        // 약품 안보이게
+        meshRenderer.enabled = false;
+        collider.enabled = false;
+        medicineFabric.gameObject.SetActive(true);
     }
 }

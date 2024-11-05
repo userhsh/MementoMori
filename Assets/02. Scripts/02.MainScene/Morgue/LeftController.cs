@@ -104,7 +104,7 @@ public class LeftController : XRRayInteractor
             {
                 case "Doll":
                     UIItem.SetActive(true);
-                    UIItemText.text = "아이템: 인형";
+                    UIItemText.text = "아이템: 인형\n안에서 바스락 거리는 소리가 난다.";
                     break;
                 case "Crowbar":
                     UIItem.SetActive(true);
@@ -140,7 +140,7 @@ public class LeftController : XRRayInteractor
                     break;
                 case "Paper_None":
                     UIItem.SetActive(true);
-                    UIItemText.text = "아이템: 빈(?)종이";
+                    UIItemText.text = "아이템: 종이";
                     break;
                 case "SurgeryKey":
                     UIItem.SetActive(true);
@@ -152,12 +152,12 @@ public class LeftController : XRRayInteractor
                     break;
                 case "PillowFabic_Medicine":
                     UIItem.SetActive(true);
-                    UIItemText.text = "아이템: 깨끗한 천";
+                    UIItemText.text = "아이템: 약 묻은 천";
                     break;
                 case "Medicine":
                     UIItem.SetActive(true);
                     UIItem.transform.GetChild(1).gameObject.SetActive(false);
-                    UIItemText.text = "약통에 뭐라고 쓰여있다. \n\"묶은 때 제거\"";
+                    UIItemText.text = "병에 뭐라고 쓰여있다. \n\"묵은 때 제거\"";
                     break;
                 case "PillowFabic":
                     UIItem.SetActive(true);
@@ -180,12 +180,17 @@ public class LeftController : XRRayInteractor
                 case "StrangeTile":
                     UIItem.SetActive(true);
                     UIItem.transform.GetChild(1).gameObject.SetActive(false);
-                    UIItemText.text = "수상한 타일이다. \n철제 같은걸로 \n떼어낼 수 있을 것 같다.";
+                    UIItemText.text = "수상한 타일이다. \n공구로 떼어낼 수 있을 것 같다.";
                     break;
                 case "ButtonHole":
                     UIItem.SetActive(true);
                     UIItem.transform.GetChild(1).gameObject.SetActive(false);
-                    UIItemText.text = "버튼이 있었던 흔적이다.";
+                    UIItemText.text = "버튼을 끼울 수 있을 것 같다.";
+                    break;
+                case "TV_Retro":
+                    UIItem.SetActive(true);
+                    UIItem.transform.GetChild(1).gameObject.SetActive(false);
+                    UIItemText.text = "리모컨으로 켤 수 있을 것 같다.";
                     break;
                 default:
                     break;

@@ -19,16 +19,19 @@ public class SlidePuzzleBoard : MonoBehaviour
     // isClearable의 프로퍼티 (get만 열어줌)
     public bool IsClearable { get { return isClearable; } }
     // 퍼즐을 클리어했는지 확인하는 변수 선언
-    private bool isPuzzleClear;
+    public bool isPuzzleClear;
     // isPuzzleClear의 프로퍼티
     public bool IsPuzzleClear { get { return isPuzzleClear; } }
 
     // 빈 타일의 위치를 담을 변수 선언
     private Vector3 emptyTilePosition = Vector3.zero;
 
+    private PosterHuman posterHuman;
+
     private void Awake()
     {
         SlidePuzzleBoardInit();
+        posterHuman = FindObjectOfType<PosterHuman>();
     }
 
     private void OnEnable()
@@ -54,7 +57,7 @@ public class SlidePuzzleBoard : MonoBehaviour
     private void TileInit()
     {
         // tiles 설정해주기
-        for (int i = 0; i < tiles.Length; i++) 
+        for (int i = 0; i < tiles.Length; i++)
         {
             // 타일의 값 설정
             tiles[i].TileValue = i;
@@ -108,10 +111,10 @@ public class SlidePuzzleBoard : MonoBehaviour
 
         // inversions 계산 
         // i는 0부터 끝까지
-        for (int i = 0;i < tiles.Length;i++) 
+        for (int i = 0; i < tiles.Length; i++)
         {
             // j는 i + 1부터 끝까지
-            for (int j = i + 1; j < tiles.Length; j++) 
+            for (int j = i + 1; j < tiles.Length; j++)
             {
                 // tiles[i].TileValue와 tiles[j].TileValue를 비교
                 // tiles[i].TileValue가 tiles[j].TileValue보다 클 경우(= 앞에 있는 수가 뒤에 있는 수보다 클 경우)
@@ -141,7 +144,7 @@ public class SlidePuzzleBoard : MonoBehaviour
     IEnumerator ReShuffleTile()
     {
         // 클리어가 불가능하다면
-        while (!isClearable) 
+        while (!isClearable)
         {
             // 타일 인덱스 랜덤으로 가져오기
             tileIndex = Random.Range(0, tiles.Length);
@@ -165,7 +168,7 @@ public class SlidePuzzleBoard : MonoBehaviour
         Vector3 selectTilePosition = _tile.GetComponent<RectTransform>().localPosition;
 
         // 빈 타일의 위치 가져오기
-        foreach (var tile in tiles) 
+        foreach (var tile in tiles)
         {
             if (tile.TileValue == 8)
             {
@@ -194,6 +197,8 @@ public class SlidePuzzleBoard : MonoBehaviour
             // 선택한 타일 위치 이동
             _tile.GetComponent<RectTransform>().localPosition = selectTilePosition;
         }
+
+        posterHuman.PlayPuzzleMoveSound();
     }
 
     // 퍼즐 클리어 확인 코루틴
@@ -206,7 +211,7 @@ public class SlidePuzzleBoard : MonoBehaviour
             int correctCount = 0;
 
             // 모든 타일에 대해서
-            foreach (var tile in tiles) 
+            foreach (var tile in tiles)
             {
                 // 현재 위치와 원래 위치가 같은지 확인
                 // 같은 경우

@@ -4,9 +4,28 @@ using UnityEngine;
 
 public class NewPaper : MonoBehaviour
 {
+    private MeshRenderer meshRenderer;
+    private Collider collider;
+    private AudioSource audioSource;
+    private AudioClip collectionSound;
+
+    private void Awake()
+    {
+        meshRenderer = GetComponent<MeshRenderer>();
+        audioSource = GetComponent<AudioSource>();
+        collider = GetComponent<Collider>();
+    }
+
+    private void Start()
+    {
+        collectionSound = Resources.Load<AudioClip>("SurgerySFX/collectionSound");
+    }
+
     public void GetCollection()
     {
         GameObject.Find("PlayerUI").GetComponent<UIManager>().collections[3] = true;
-        this.gameObject.SetActive(false);
+        audioSource.PlayOneShot(collectionSound);
+        meshRenderer.enabled = false;
+        collider.enabled = false;
     }
 }

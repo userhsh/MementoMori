@@ -5,13 +5,14 @@ using UnityEngine;
 public class Doll : MonoBehaviour
 {
     GameObject pictureDiary = null;
-
+    private Scalpel scalpel;
     bool isInteractable = false;
 
     private void Awake()
     {
         // pictureDiary를 Resources 폴더의 Collection3로 설정
         pictureDiary = Resources.Load("Prefabs/Collection3", typeof(GameObject)) as GameObject;
+        scalpel = FindObjectOfType<Scalpel>();
     }
 
     private void OnCollisionEnter(Collision collision)
@@ -35,8 +36,13 @@ public class Doll : MonoBehaviour
         if (!isInteractable) return;
 
         // 그림일기 생성
-        Instantiate(pictureDiary, this.transform.position, this.transform.rotation);
-        // 인형 삭제
-        Destroy(this.gameObject);
+        if (isInteractable)
+        {
+            scalpel.PlayDollSFX();
+            Instantiate(pictureDiary, this.transform.position, this.transform.rotation);
+            // 인형 삭제
+            Destroy(this.gameObject, scalpel.DollSFXLength());
+            isInteractable = false;
+        }
     }
 }

@@ -15,17 +15,17 @@ public class Medicine : MonoBehaviour, IInteractable
         medicineFabric.gameObject.SetActive(false);
     }
 
-    private void OnTriggerEnter(Collider other)
+    private void OnCollisionEnter(Collision collision)
     {
-        if (other.gameObject.name == "PillowFabic")
+        if (collision.gameObject.name == "PillowFabic")
         {
             isInteractable = true;
         }
     }
 
-    private void OnTriggerExit(Collider other)
+    private void OnCollisionExit(Collision collision)
     {
-        if (other.gameObject.name == "PillowFabic")
+        if (collision.gameObject.name == "PillowFabic")
         {
             isInteractable = false;
         }

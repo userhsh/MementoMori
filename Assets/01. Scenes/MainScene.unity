@@ -20713,7 +20713,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   MedRackDoorLock: 1
   DoorOpen: 0
-  lockIcon: {fileID: 1739039317839819015}
+  uITalk: {fileID: 8414364878899944280}
 --- !u!54 &1693126648
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -76585,7 +76585,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   MedRackDoorLock: 1
   DoorOpen: 0
-  lockIcon: {fileID: 1739039318773807920}
+  uITalk: {fileID: 8414364878899944280}
 --- !u!54 &4261227174612579485
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -77310,7 +77310,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   MedRackDoorLock: 1
   DoorOpen: 0
-  lockIcon: {fileID: 1739039317839819015}
+  uITalk: {fileID: 8414364878899944280}
 --- !u!54 &4261440766508191941
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -78390,7 +78390,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   MedRackDoorLock: 1
   DoorOpen: 0
-  lockIcon: {fileID: 1739039317839819015}
+  uITalk: {fileID: 8414364878899944280}
 --- !u!54 &4261519273131252329
 Rigidbody:
   m_ObjectHideFlags: 0

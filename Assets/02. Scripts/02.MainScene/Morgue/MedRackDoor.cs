@@ -11,7 +11,8 @@ public class MedRackDoor : MonoBehaviour
     Animator animator;
     public bool MedRackDoorLock = true; //문 잠김 활성
     public bool DoorOpen = false;
-    public GameObject lockIcon;
+
+    public UITalk uITalk;
 
     private void Awake()
     {
@@ -28,6 +29,8 @@ public class MedRackDoor : MonoBehaviour
 
     public void MedRackDoorOpenClose() //약품선반문 애니메이션으로 열고닫는 메서드
     {
+       
+
         if (MedRackDoorLock == false) //잠김이 풀렸을 때
         {
             if (DoorOpen == false) //문 닫혔을 때 상호작용 시
@@ -49,20 +52,13 @@ public class MedRackDoor : MonoBehaviour
         }
         else
         {
-            lockIcon.gameObject.SetActive(false);
-            lockIcon.gameObject.SetActive(true);
+            StartCoroutine(uITalk.InteractionTalk("잠겨있다..."));
         }
 
     }
 
     public void UpdateMedRackDoorState()
     {
-        // 잠금 상태가 해제된 경우 잠금 아이콘 숨기기
-        if (!MedRackDoorLock)
-        {
-            lockIcon?.gameObject.SetActive(false);
-        }
-
         // 열림/닫힘 상태에 따라 애니메이션 설정
         animator.SetBool("DoorOpen", DoorOpen);
     }

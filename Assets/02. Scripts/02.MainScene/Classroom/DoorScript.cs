@@ -69,7 +69,6 @@ public class DoorScript : MonoBehaviour
     public void UnlockDoor()
     {
         isLocked = false;  // 잠금 해제
-        Debug.Log("문이 잠금 해제되었습니다.");
     }
 
     public void UpdateClassroomDoorState()

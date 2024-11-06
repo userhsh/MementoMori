@@ -4,7 +4,12 @@ using UnityEngine;
 
 public class Fog : MonoBehaviour
 {
-    public NumberInput numberInput;
+    private Groove1 groove1;
+
+    private void Awake()
+    {
+        groove1 = FindObjectOfType<Groove1>();
+    }
 
     private void Start()
     {
@@ -13,7 +18,7 @@ public class Fog : MonoBehaviour
 
     IEnumerator FogOff()
     {
-        while (!numberInput.IsCorrect)
+        while (!groove1.isFog)
         {
             yield return null;
         }

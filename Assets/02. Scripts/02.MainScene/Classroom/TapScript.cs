@@ -10,12 +10,14 @@ public class TapScript : MonoBehaviour
     private XRGrabInteractable grabInteractable;
     public bool isTurnOn = false;
     private Animator animator;
+    private SpotLightController spotLightController;
 
     private void Awake()
     {
         audioSource = GetComponent<AudioSource>();
         grabInteractable = GetComponent<XRGrabInteractable>();
         animator = GetComponent<Animator>();
+        spotLightController = FindObjectOfType<SpotLightController>();
     }
 
     private void Start()
@@ -34,6 +36,8 @@ public class TapScript : MonoBehaviour
         audioSource.Play();
         // 현재 오디오 시스템 시간에 2초 후에 종료하도록 예약
         audioSource.SetScheduledEndTime(AudioSettings.dspTime + 2.5f);
+
+        spotLightController.StopBlinking();
 
         // 게임 데이터 저장
         GameManager.GetInstance().SaveGameData(

@@ -43,7 +43,7 @@ public class PlayerController : MonoBehaviour
         }
         else
         {
-            Debug.Log("Loaded data is null or player position is not set. Setting player to default position.");
+            //Debug.Log("Loaded data is null or player position is not set. Setting player to default position.");
             // 필요 시 기본값으로 설정
         }
     }

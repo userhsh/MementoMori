@@ -29,7 +29,6 @@ public class OfficeKeyScript : MonoBehaviour
                 {
                     // 문이 잠겨있으면 잠금 해제
                     doorScript.UnlockDoor();
-                    Debug.Log("Raycast를 통해 열쇠로 문을 열었습니다.");
                     // Unlock 사운드 재생 후 오브젝트 파괴
                     audioSource.PlayOneShot(unlockSound);
                     StartCoroutine(DestroyAfterSound());  // 사운드가 재생된 후 파괴

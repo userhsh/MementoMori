@@ -26,7 +26,7 @@ public class MainmenuButtons : MonoBehaviour
         // 버튼 개수가 부족할 경우 에러 로그 출력
         if (buttons.Length < 4)
         {
-            Debug.LogError("버튼 개수가 부족합니다. 현재 버튼 개수: " + buttons.Length);
+            //Debug.LogError("버튼 개수가 부족합니다. 현재 버튼 개수: " + buttons.Length);
             return;
         }
 
@@ -52,7 +52,7 @@ public class MainmenuButtons : MonoBehaviour
         else
         {
             continueButton.interactable = false; // GameManager가 없으면 비활성화
-            Debug.LogError("GameManager를 찾을 수 없습니다.");
+            //Debug.LogError("GameManager를 찾을 수 없습니다.");
         }
     }
 
@@ -88,7 +88,7 @@ public class MainmenuButtons : MonoBehaviour
             Vector3 playerRotation = playerController.transform.rotation.eulerAngles; // 플레이어 회전값
 
             gameManager.SaveGameData(playerPosition, playerRotation); // 플레이어 위치와 회전값 저장
-            Debug.Log("플레이어 위치와 회전값이 저장되었습니다: " + playerPosition + ", " + playerRotation);
+            //Debug.Log("플레이어 위치와 회전값이 저장되었습니다: " + playerPosition + ", " + playerRotation);
         }
 
 #if UNITY_EDITOR    // 유니티 에디터에서 실행 중일 때

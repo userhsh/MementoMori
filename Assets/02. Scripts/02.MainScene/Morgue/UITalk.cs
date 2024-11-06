@@ -12,6 +12,8 @@ public class UITalk : MonoBehaviour
     string talk1 = "여긴 어디지..?!";
     string talk2 = "아무것도 기억나지 않는다..";
 
+    bool isCoroutine = false;
+
     private void Start()
     {
         Invoke("StartTalkCount", 10f);
@@ -22,14 +24,14 @@ public class UITalk : MonoBehaviour
         StartCoroutine(StartTalk());
     }
 
-    public IEnumerator StartTalk() //총을 챙겨나오고 성공 시
+    public IEnumerator StartTalk() //시작할 때
     {
         uiTalk.SetActive(true);
         talk.text = "";
         for (int i = 0; i < talk1.Length; i++)
         {
             talk.text += talk1[i];
-            yield return new WaitForSeconds(0.2f);
+            yield return new WaitForSeconds(0.1f);
         }
         yield return new WaitForSeconds(2f);
 
@@ -37,7 +39,7 @@ public class UITalk : MonoBehaviour
         for (int i = 0; i < talk2.Length; i++)
         {
             talk.text += talk2[i];
-            yield return new WaitForSeconds(0.2f);
+            yield return new WaitForSeconds(0.1f);
         }
         yield return new WaitForSeconds(2f);
         uiTalk.SetActive(false);
@@ -45,4 +47,24 @@ public class UITalk : MonoBehaviour
         yield break;
     }
 
+    public IEnumerator InteractionTalk(string _txet)
+    {
+        if (isCoroutine) yield break;
+
+        isCoroutine = true;
+        uiTalk.SetActive(true);
+
+        talk.text = "";
+        for (int i = 0; i < _txet.Length; i++)
+        {
+            talk.text += _txet[i];
+            yield return new WaitForSeconds(0.1f);
+        }
+        yield return new WaitForSeconds(2f);
+
+        uiTalk.SetActive(false);
+        isCoroutine = false;
+
+        yield break;
+    }
 }

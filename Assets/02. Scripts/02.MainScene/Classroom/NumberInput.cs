@@ -18,6 +18,9 @@ public class NumberInput : MonoBehaviour
     private int firstNumber = 1;          // 정답 첫 번째 숫자
     private int secondNumber = 1;         // 정답 두 번째 숫자
 
+    private bool isCorrect = false;
+    public bool IsCorrect { get { return isCorrect; } }
+
     private void Start()
     {
         // Password 오브젝트 비활성화
@@ -59,6 +62,7 @@ public class NumberInput : MonoBehaviour
             // Password 오브젝트 활성화
             passwordObject.SetActive(true);
             successText.SetActive(true);
+            isCorrect = true;
         }
         else
         {

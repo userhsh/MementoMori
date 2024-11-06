@@ -26,6 +26,8 @@ public class Door : MonoBehaviour, IInteractable
     protected AudioClip doorCloseSound = null;
     // 문 잠금 아이콘
     public LockIcon lockIcon = null;
+    // 문 잠금 캔버스
+    public LockCanvas lockCanvas = null;
     // 문 잠금 해제 소리
     protected AudioClip unlockSound;
     // 문 오디오 소스 컴포넌트
@@ -59,8 +61,8 @@ public class Door : MonoBehaviour, IInteractable
     {
         if (isLocked)
         {
-            lockIcon?.gameObject.SetActive(false);
-            lockIcon?.gameObject.SetActive(true);
+            lockCanvas?.gameObject.SetActive(false);
+            lockCanvas?.gameObject.SetActive(true);
         }
         else
         {
@@ -91,6 +93,8 @@ public class Door : MonoBehaviour, IInteractable
 
         // 문 잠금을 해제 상태로 바꾸기
         isLocked = false;
+        // 잠금 아이콘 끄기
+        lockIcon?.gameObject.SetActive(false);
         // 열쇠제거
         if (correctKey != null)
         {

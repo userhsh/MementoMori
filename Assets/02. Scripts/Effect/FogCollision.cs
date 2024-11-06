@@ -5,24 +5,10 @@ using UnityEngine.UI;
 
 public class FogCollision : MonoBehaviour, IEffectable
 {
-    private Canvas canvas;
-
-    private void Awake()
-    {
-        canvas = GetComponentInChildren<Canvas>();
-
-        canvas.gameObject.SetActive(false);
-    }
+    public UITalk uiTalk;
 
     public void TriggerEffect()
     {
-        canvas.gameObject.SetActive(true);
-
-        Invoke("OffCanvas", 2f);
-    }
-
-    private void OffCanvas()
-    {
-        canvas.gameObject.SetActive(false);
+        StartCoroutine(uiTalk.InteractionTalk("아직 갈 수 없을 것 같다..."));
     }
 }

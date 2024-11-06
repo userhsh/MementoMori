@@ -66,6 +66,13 @@ public class PlayerController : MonoBehaviour
         }
     }
 
+    private void OnCollisionEnter(Collision collision)
+    {
+        effectable = collision.collider.gameObject.GetComponent<IEffectable>();
+
+        effectable?.TriggerEffect();
+    }
+
     private void StartShakeCamera()
     {
         StartCoroutine(ShakeCamera());

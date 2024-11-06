@@ -9,6 +9,7 @@ public class SafeLockerCardLeader : MonoBehaviour
     private AudioSource audioSource;
     private AudioClip Unlock;
     private AudioClip SafeOpen;
+    public GameObject paper4True;
 
     private void Awake()
     {
@@ -25,11 +26,13 @@ public class SafeLockerCardLeader : MonoBehaviour
     private void OnCollisionEnter(Collision collision)
     {
         if (collision.gameObject.name == "PoliceCard")
-        {
+        {  
+            paper4True.SetActive(true);
             LockOn();
             GameObject.Find("SafeLockerDoor").GetComponent<Animator>().enabled = true;
             audioSource.PlayOneShot(Unlock);
             collision.gameObject.SetActive(false);
+          
         }
 
     }

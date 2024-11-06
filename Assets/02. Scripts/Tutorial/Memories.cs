@@ -9,16 +9,28 @@ public class Memories : MonoBehaviour
     private SpriteRenderer spriteRenderer;
     private Collider collider;
 
+    public TMenuerGetText tmenuerGetText;
+    public int pageNumber;
+    public GameObject getPaperUI;
+    public GameObject menuerEscButton;
+    public GameObject truePaper;
+
+    private AudioClip PaperSFX;
+
     private void Awake()
     {
         audioSource = GetComponent<AudioSource>();
         spriteRenderer = GetComponent<SpriteRenderer>();
         collider = GetComponent<Collider>();
+
+        audioSource = GetComponent<AudioSource>();
     }
 
     private void Start()
     {
         collectionSound = Resources.Load<AudioClip>("TutorialSFX/CollectionSound/collectionSound");
+
+        PaperSFX = Resources.Load<AudioClip>("TutorialSFX/PaperSFX");
     }
 
     public void Collection0Get()
@@ -27,5 +39,37 @@ public class Memories : MonoBehaviour
         GameObject.Find("PlayerUI").GetComponent<TUIManager>().collections = true;
         spriteRenderer.enabled = false;
         collider.enabled = false;
+
+        StartCoroutine(Collection0GetTalk());
+
+    }
+
+    IEnumerator Collection0GetTalk()
+    {
+       yield return new WaitForSeconds(3.5f);
+       
+       StartCoroutine(GameObject.Find("PlayerUI").GetComponent<TUITalk>().GetCollection0Talk());
+
+        yield return new WaitForSeconds(5f);
+        GetNumberPaper();
+    }
+
+    public void GetNumberPaper()
+    {
+        getPaperUI.SetActive(true);
+        menuerEscButton.SetActive(true);
+
+        truePaper.SetActive(false); //메뉴얼 이 페이지 해금
+
+        tmenuerGetText.getSetPaperNumber = pageNumber; //페이지 넘버 T메뉴얼획득 텍스트 넘버링 보넴
+
+        audioSource.PlayOneShot(PaperSFX);
+        Invoke("Deactivate", PaperSFX.length);
+
+    }
+
+    private void Deactivate()
+    {
+        this.gameObject.SetActive(false);
     }
 }

@@ -23,16 +23,15 @@ public class Gun : MonoBehaviour
         {
             if (foolAmmo == true)
             {
-                StartCoroutine(tUITalk.DontShotTalk());
+                StartCoroutine(tUITalk.DontShotTalk());              
+            }
+            else
+            {  
                 AudioClip ReloadSound = ammo.GetReloadSound();
                 if (!audioSource.isPlaying)
                 {
                     audioSource.PlayOneShot(ReloadSound);
                 }
-            }
-            else
-            {
-                print("Ã¶ÄÀ!");
             }
         }
 

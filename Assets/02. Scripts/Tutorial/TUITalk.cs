@@ -16,7 +16,7 @@ public class TUITalk : MonoBehaviour
     string SuccessTalk = "기억해라..! \n결코 넌 죽어야만 하는것을!";
     string NotTalk = "중요한걸 챙겨야 한다.";
     string NotAmmoTalk = "총알이 필요하다..";
-    string dontShot = "아직은 쏠때가 아니다..";
+    string Collection0Talk = "그립구나.. 딸..";
 
     private void Awake()
     {
@@ -65,14 +65,29 @@ public class TUITalk : MonoBehaviour
         UITalk.SetActive(false);
     }
 
+    public IEnumerator GetCollection0Talk()
+    {
+        UITalk.SetActive(true);
+        talk.text = "";
+        for (int i = 0; i < Collection0Talk.Length; i++)
+        {
+            talk.text += Collection0Talk[i];
+            yield return new WaitForSeconds(0.15f);
+        }
+        yield return new WaitForSeconds(2f);
+        UITalk.SetActive(false);
+    }
+
     public IEnumerator DontShotTalk()
     {
         UITalk.SetActive(true);
-        talk.text = "아직은 쏠때가 아니다..";
+        talk.text = "아직은 쏠때가 아니다..\n나가자..!!";
 
 
         yield return new WaitForSeconds(2f);
         talk.text = "";
         UITalk.SetActive(false);
     }
+
+
 }

@@ -9,6 +9,7 @@ public class OutArea : MonoBehaviour
     public bool condition1 = false;
     public bool condition2 = false;
     public bool notAmmo = false;
+    public bool nextfullcheck = false;
     public TUITalk tUITalk;
 
     private void OnTriggerEnter(Collider other)
@@ -50,6 +51,7 @@ public class OutArea : MonoBehaviour
             condition1 = false;
             condition2 = false;
             notAmmo = false;
+            nextfullcheck = true;
             GameObject.Find("Player").GetComponent<ActionBasedContinuousMoveProvider>().enabled = false;
             GameObject.Find("Player").GetComponent<PlayerFootsteps>().enabled = false;
             GameObject.Find("Player").GetComponent<AudioSource>().enabled = false;
@@ -60,17 +62,25 @@ public class OutArea : MonoBehaviour
         }
         else if (condition2 == true && notAmmo == true)
         {
-            condition1 = false;
-            condition2 = false;
-            notAmmo = false;
-            StartCoroutine(tUITalk.NotAmmoOutAreaTalk());
+            if (nextfullcheck == false)
+            {
+                condition1 = false;
+                condition2 = false;
+                notAmmo = false;
+                StartCoroutine(tUITalk.NotAmmoOutAreaTalk());
+            }
+
         }
         else if (condition2 == true)
         {
-            condition1 = false;
-            condition2 = false;
-            notAmmo = false;
-            StartCoroutine(tUITalk.NotOutAreaTalk());
+            if (nextfullcheck == false)
+            {
+                condition1 = false;
+                condition2 = false;
+                notAmmo = false;
+                StartCoroutine(tUITalk.NotOutAreaTalk());
+            }
+
         }
 
 

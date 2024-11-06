@@ -1233,7 +1233,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &251184813
 Transform:
   m_ObjectHideFlags: 0
@@ -41064,7 +41064,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2598494184210875255}
   m_LocalRotation: {x: -0.5, y: -0.5, z: 0.5, w: -0.5}
-  m_LocalPosition: {x: 29.900848, y: 4.539901, z: -0.77578163}
+  m_LocalPosition: {x: 29.11, y: 4.539901, z: 1.18}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -87475,10 +87475,10 @@ GameObject:
   - component: {fileID: 6698379312689855514}
   - component: {fileID: 6698379312689855516}
   - component: {fileID: 6698379312689855517}
-  - component: {fileID: 6698379312689855515}
   - component: {fileID: 6698379312689855519}
   - component: {fileID: 6698379312689855518}
   - component: {fileID: 4676166693053159070}
+  - component: {fileID: 6698379312689855515}
   m_Layer: 0
   m_Name: Tap
   m_TagString: Untagged
@@ -89406,7 +89406,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6786342443651528866}
   m_LocalRotation: {x: 0, y: 1, z: 0, w: 0}
-  m_LocalPosition: {x: 6.98, y: 0.361, z: 7.7}
+  m_LocalPosition: {x: -6.45, y: 0.361, z: -3.32}
   m_LocalScale: {x: 0.59, y: 0.6, z: 0.59}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -90857,7 +90857,7 @@ MonoBehaviour:
   menu: {fileID: 2017205477834276982, guid: c348712bda248c246b8c49b3db54643f, type: 3}
   collectionOn: {fileID: 8386790884512916923, guid: c348712bda248c246b8c49b3db54643f, type: 3}
   collectionOff: {fileID: 5011118189533794264, guid: c348712bda248c246b8c49b3db54643f, type: 3}
-  UImenu: {fileID: 0}
+  UImenu: {fileID: 575443280}
   UIcollection: {fileID: 8414364879809221025}
   LeftHandRender: {fileID: 3768882665337409300}
   UIItem: {fileID: 3170349643497957654}

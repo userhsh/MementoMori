@@ -18,7 +18,8 @@ public class OfficeDoor : Door
 
         doorAnimator = GetComponent<Animator>();
 
-        lockIcon?.gameObject.SetActive(false);
+        lockIcon?.gameObject.SetActive(true);
+        lockCanvas?.gameObject.SetActive(false);
 
         audioSource = GetComponent<AudioSource>();
         unlockSound = Resources.Load<AudioClip>("HallwaySFX/UnlockSound/unlockSound");

@@ -9,7 +9,6 @@ public class DoorScript : MonoBehaviour
 {
     private AudioClip openSound;
     private AudioClip closeSound;
-    private Collider objectCollider;
 
     private AudioSource audioSource;  // 오디오 소스
     private XRGrabInteractable grabInteractable;
@@ -18,7 +17,7 @@ public class DoorScript : MonoBehaviour
     public bool isOpen = false;
     Animator animator;
 
-    public LockIcon lockIcon;
+    public UITalk uiTalk;
 
     private void Awake()
     {
@@ -33,8 +32,6 @@ public class DoorScript : MonoBehaviour
         openSound = Resources.Load<AudioClip>("ClassroomSFX/DoorSound/doorOpen");
         closeSound = Resources.Load<AudioClip>("ClassroomSFX/DoorSound/doorClose");
 
-        lockIcon?.gameObject.SetActive(false);
-
         // 물체를 잡을 때 호출되는 이벤트 연결
         grabInteractable.selectEntered.AddListener(OpenCaseDoor);
     }
@@ -44,7 +41,7 @@ public class DoorScript : MonoBehaviour
     {
         if (isLocked)
         {
-            lockIcon.gameObject.SetActive(true);
+            StartCoroutine(uiTalk.InteractionTalk("잠겨있다..."));
             return;  // 잠긴 상태일 때는 열리지 않음
         }
 
@@ -77,12 +74,6 @@ public class DoorScript : MonoBehaviour
 
     public void UpdateClassroomDoorState()
     {
-        // 잠금 상태가 해제된 경우 잠금 아이콘 숨기기
-        if (!isLocked)
-        {
-            lockIcon?.gameObject.SetActive(false);
-        }
-
         // 열림/닫힘 상태에 따라 애니메이션 설정
         animator.SetBool("IsOpen", isOpen);
         if (isOpen)

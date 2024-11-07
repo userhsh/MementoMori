@@ -24,22 +24,16 @@ public class EndingText : MonoBehaviour
         showEndingText = GetComponentInChildren<TextMeshProUGUI>();
         showEndingText.text = "";
 
-        //endingText = new string[]
-        //{
-        //    "결국 여기까지 왔군.",
-        //    "...",
-        //    "그 애가 싫어하겠지만...",
-        //    "난 이미 좋은 아빠가 아니라서.",
-        //    "...",
-        //    "...지옥에서 기다려라."
-        //};        
-
         endingText = new string[]
         {
+            "결국 여기까지 왔군.",
+            "...",
+            "그 애가 싫어하겠지만...",
+            "난 이미 좋은 아빠가 아니라서.",
+            "...",
+            "...지옥에서 기다려라."
+        };        
 
-            "..."
-
-        };
 
     }
 
@@ -47,8 +41,7 @@ public class EndingText : MonoBehaviour
     {
 
         StartCoroutine(ShowText());
-        //gunImage.gameObject.SetActive(true);
-        //showEndingText.gameObject.SetActive(true);
+
 
     }
 

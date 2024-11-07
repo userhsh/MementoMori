@@ -33,7 +33,7 @@ public class UIControl : MonoBehaviour
             gameoverCanvas.alpha = 1f;
             gameoverCanvas.interactable = true;
 
-            Invoke("BackToStart", 5f);
+            Invoke("BackToStart", 7f);
 
         }
     }

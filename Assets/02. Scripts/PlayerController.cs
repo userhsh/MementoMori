@@ -28,7 +28,7 @@ public class PlayerController : MonoBehaviour
         // 만약 GameManager가 씬에 존재하지 않는다면, 로그를 출력하고 더 이상 진행하지 않음
         if (gameManager == null)
         {
-            Debug.Log("GameManager not found in the scene!"); // 로그 추가
+            //Debug.Log("GameManager not found in the scene!"); // 로그 추가
             return; // GameManager가 없을 경우 메서드 종료
         }
 

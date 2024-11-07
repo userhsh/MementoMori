@@ -48,7 +48,7 @@ public class SelectButton : MonoBehaviour
         }
         else
         {
-            Debug.LogError("GameManager를 찾을 수 없습니다!"); // GameManager가 없을 경우 에러 로그 출력
+            //Debug.LogError("GameManager를 찾을 수 없습니다!"); // GameManager가 없을 경우 에러 로그 출력
         }
     }
 

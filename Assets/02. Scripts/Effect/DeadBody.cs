@@ -9,6 +9,15 @@ public class DeadBody : MonoBehaviour
 
     Vector3 originPosition;
 
+    AudioSource audioSource;
+    [SerializeField]
+    AudioClip clip;
+
+    private void Awake()
+    {
+        audioSource = GetComponent<AudioSource>();
+    }
+
     public void Interact()
     {
         if (hoverCount != 0) return;
@@ -24,7 +33,8 @@ public class DeadBody : MonoBehaviour
 
         while (shakeTime < 1f)
         {
-            this.transform.localPosition = Random.insideUnitSphere * 0.1f + originPosition;
+            audioSource.PlayOneShot(clip);
+            this.transform.localPosition = Random.insideUnitSphere * 0.2f + originPosition;
 
             shakeTime += Time.deltaTime;
             yield return null;

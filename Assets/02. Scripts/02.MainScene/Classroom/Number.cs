@@ -43,6 +43,8 @@ public class Number : MonoBehaviour
     {
         if (groove1.CorrectA)
         {
+            groove1.audioSource.PlayOneShot(groove1.audioClip[1]);
+
             groove1.Numbers[8].SetActive(false); // 비활성화
             Number9.SetActive(true);
 
@@ -57,6 +59,8 @@ public class Number : MonoBehaviour
 
         if (groove2.CorrectB)
         {
+            groove1.audioSource.PlayOneShot(groove1.audioClip[1]);
+
             groove1.Numbers[0].SetActive(false); // 비활성화
             Number1.SetActive(true);
 
@@ -64,8 +68,14 @@ public class Number : MonoBehaviour
 
             transform.rotation = originalParentRotation;
             transform.localRotation = originalLocalChildRotations;
+
             groove2.CorrectB = false;
             return;
+        }
+
+        if (!groove1.audioSource.isPlaying)
+        {
+            groove1.audioSource.PlayOneShot(groove1.audioClip[0]);
         }
 
         // 부모 객체의 월드 좌표를 원래대로 되돌리기

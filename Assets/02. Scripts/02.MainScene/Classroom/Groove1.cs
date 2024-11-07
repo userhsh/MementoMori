@@ -11,11 +11,18 @@ public class Groove1 : MonoBehaviour
     public Groove2 groove2;
     public GameObject Password;
     public bool isFog = false;
+    public AudioSource audioSource;
+    public AudioClip[] audioClip;
 
     private Vector3 originalParentPosition;
     private Quaternion originalParentRotation;
     private Vector3[] originalLocalChildPositions;
     private Quaternion[] originalLocalChildRotations;
+
+    private void Awake()
+    {
+        audioSource = GetComponent<AudioSource>();
+    }
 
     private void Start()
     {
@@ -26,7 +33,7 @@ public class Groove1 : MonoBehaviour
     {
         if (other.gameObject == Numbers[8]) // 9
         {
-            CorrectA = true; 
+            CorrectA = true;
         }
     }
 
@@ -45,6 +52,7 @@ public class Groove1 : MonoBehaviour
             yield return null;
         }
 
+        audioSource.PlayOneShot(audioClip[2]);
         SuccessText.SetActive(true);
         Password.SetActive(true);
         isFog = true;

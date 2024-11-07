@@ -68,7 +68,7 @@ public class RightController : XRRayInteractor
             {
                 case "Doll":
                     UIItem.SetActive(true);
-                    UIItemText.text = "아이템: 인형\n안에서 바스락 거리는 소리가 난다.";
+                    UIItemText.text = "아이템: 인형\n...찢을 수 있을 것 같다.";
                     break;
                 case "Crowbar":
                     UIItem.SetActive(true);
@@ -121,6 +121,7 @@ public class RightController : XRRayInteractor
                 case "Medicine":
                     UIItem.SetActive(true);
                     UIItem.transform.GetChild(1).gameObject.SetActive(false);
+                    UIItemText.GetComponent<Text>().fontSize = 45;
                     UIItemText.text = "병에 뭐라고 쓰여있다. \n\"묵은 때 제거\"";
                     break;
                 case "PillowFabic":
@@ -134,26 +135,31 @@ public class RightController : XRRayInteractor
                 case "Mirror":
                     UIItem.SetActive(true);
                     UIItem.transform.GetChild(1).gameObject.SetActive(false);
+                    UIItemText.GetComponent<Text>().fontSize = 45;
                     UIItemText.text = "더럽다. 무언가로 닦을 수 있을 것 같다.";
                     break;
                 case "BloodCollider":
                     UIItem.SetActive(true);
                     UIItem.transform.GetChild(1).gameObject.SetActive(false);
+                    UIItemText.GetComponent<Text>().fontSize = 45;
                     UIItemText.text = "무언가 적혔던 흔적이 있다.";
                     break;
                 case "StrangeTile":
                     UIItem.SetActive(true);
                     UIItem.transform.GetChild(1).gameObject.SetActive(false);
+                    UIItemText.GetComponent<Text>().fontSize = 45;
                     UIItemText.text = "수상한 타일이다. \n공구로 떼어낼 수 있을 것 같다.";
                     break;
                 case "ButtonHole":
                     UIItem.SetActive(true);
                     UIItem.transform.GetChild(1).gameObject.SetActive(false);
+                    UIItemText.GetComponent<Text>().fontSize = 45;
                     UIItemText.text = "버튼을 끼울 수 있을 것 같다.";
                     break;
-                case "TV_Retro":
+                case "TV":
                     UIItem.SetActive(true);
                     UIItem.transform.GetChild(1).gameObject.SetActive(false);
+                    UIItemText.GetComponent<Text>().fontSize = 45;
                     UIItemText.text = "리모컨으로 켤 수 있을 것 같다.";
                     break;
                 default:
@@ -191,6 +197,7 @@ public class RightController : XRRayInteractor
     {
        
         UIItemText.text = "";
+        UIItemText.GetComponent<Text>().fontSize = 55;
         UIItem.SetActive(false);
         subTitleText.text = "";
         subTitle.SetActive(false);

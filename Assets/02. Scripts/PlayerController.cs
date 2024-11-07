@@ -89,11 +89,11 @@ public class PlayerController : MonoBehaviour
         cameraOffsetOriginPosition = cameraOffset.transform.localPosition;
 
         // 0.5초동안
-        while (shakeTime < 0.5f)
+        while (shakeTime < 1f)
         {
             // 카메라 cameraOffsetOriginPosition 위치에서 0.1 크기의 원으로 랜덤하게 흔들기
             cameraOffset.transform.localPosition = Random.insideUnitSphere * 0.1f + cameraOffsetOriginPosition;
-            
+
             shakeTime += Time.deltaTime;
             yield return null;
         }

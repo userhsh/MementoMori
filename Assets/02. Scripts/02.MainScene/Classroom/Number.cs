@@ -29,6 +29,7 @@ public class Number : MonoBehaviour
     private void Start()
     {
         grabinteractable.selectExited.AddListener(OnRelease);
+        grabinteractable.activated.AddListener(TriggerOn);
 
         // 부모 객체의 원래 위치와 회전값을 저장 (월드 좌표)
         originalParentPosition = transform.position;
@@ -41,19 +42,27 @@ public class Number : MonoBehaviour
 
     private void OnRelease(SelectExitEventArgs args)
     {
+        // 부모 객체의 월드 좌표를 원래대로 되돌리기
+        transform.position = originalParentPosition;
+        transform.rotation = originalParentRotation;
+
+        // 자식 객체의 로컬 위치와 회전값을 원래대로 되돌리기
+        transform.localPosition = originalLocalChildPositions;
+        transform.localRotation = originalLocalChildRotations;
+    }
+
+    private void TriggerOn(ActivateEventArgs args)
+    {
         if (groove1.CorrectA)
         {
             groove1.audioSource.PlayOneShot(groove1.audioClip[1]);
 
             groove1.Numbers[8].SetActive(false); // 비활성화
             Number9.SetActive(true);
-
             groove1.Numbers[8].GetComponent<Collider>().enabled = false;
 
-            transform.rotation = originalParentRotation;
-            transform.localRotation = originalLocalChildRotations;
-
             groove1.CorrectA = false;
+
             return;
         }
 
@@ -63,27 +72,21 @@ public class Number : MonoBehaviour
 
             groove1.Numbers[0].SetActive(false); // 비활성화
             Number1.SetActive(true);
-
             groove1.Numbers[0].GetComponent<Collider>().enabled = false;
 
-            transform.rotation = originalParentRotation;
-            transform.localRotation = originalLocalChildRotations;
-
             groove2.CorrectB = false;
+
             return;
         }
 
-        if (!groove1.audioSource.isPlaying)
+        if (groove1.isWrong == true && !groove1.audioSource.isPlaying)
         {
             groove1.audioSource.PlayOneShot(groove1.audioClip[0]);
         }
 
-        // 부모 객체의 월드 좌표를 원래대로 되돌리기
-        transform.position = originalParentPosition;
-        transform.rotation = originalParentRotation;
-
-        // 자식 객체의 로컬 위치와 회전값을 원래대로 되돌리기
-        transform.localPosition = originalLocalChildPositions;
-        transform.localRotation = originalLocalChildRotations;
+        if (groove2.IsWrong == true && !groove1.audioSource.isPlaying)
+        {
+            groove1.audioSource.PlayOneShot(groove1.audioClip[0]);
+        }
     }
 }

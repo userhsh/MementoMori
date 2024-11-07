@@ -8,10 +8,26 @@ public class SpotLightController : MonoBehaviour
     private float blinkInterval = 0.5f;
     private Coroutine blinkCoroutine;
 
-    private void Start()
+    private void Awake()
     {
         spotLight = GetComponent<Light>();
-        blinkCoroutine = StartCoroutine(BlinkLight());
+    }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.CompareTag("Body"))
+        {
+            blinkCoroutine = StartCoroutine(BlinkLight());
+        }
+
+    }
+
+    private void OnTriggerExit(Collider other)
+    {
+        if (other.CompareTag("Body"))
+        {
+            StopCoroutine(blinkCoroutine);
+        }
     }
 
     private IEnumerator BlinkLight()
@@ -21,10 +37,5 @@ public class SpotLightController : MonoBehaviour
             spotLight.enabled = !spotLight.enabled;
             yield return new WaitForSeconds(blinkInterval);
         }
-    }
-
-    public void StopBlinking()
-    {
-        StopCoroutine(blinkCoroutine);
     }
 }

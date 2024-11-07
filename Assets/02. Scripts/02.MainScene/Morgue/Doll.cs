@@ -7,12 +7,15 @@ public class Doll : MonoBehaviour
     GameObject pictureDiary = null;
     private Scalpel scalpel;
     bool isInteractable = false;
+    public GameObject devil_doll;
+    private Collider collider;
 
     private void Awake()
     {
         // pictureDiary를 Resources 폴더의 Collection3로 설정
         pictureDiary = Resources.Load("Prefabs/Collection3", typeof(GameObject)) as GameObject;
         scalpel = FindObjectOfType<Scalpel>();
+        collider = GetComponent<Collider>();
     }
 
     private void OnCollisionEnter(Collision collision)
@@ -41,7 +44,8 @@ public class Doll : MonoBehaviour
             scalpel.PlayDollSFX();
             Instantiate(pictureDiary, this.transform.position, this.transform.rotation);
             // 인형 삭제
-            Destroy(this.gameObject, scalpel.DollSFXLength());
+            devil_doll.SetActive(false);
+            collider.enabled = false;
             isInteractable = false;
         }
     }

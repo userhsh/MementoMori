@@ -23,6 +23,9 @@ public class UIManager : MonoBehaviour
 
     public LeftController leftController;
 
+    public UITalk uITalk;
+    public int collectTalkCount = 0;
+
     private bool isAllCollection = false;
     public bool IsAllCollection { get { return isAllCollection; } }
 
@@ -135,6 +138,44 @@ public class UIManager : MonoBehaviour
         {
             isAllCollection = true;
         }
+    }
+    public IEnumerator CollectGetTalkCountColltin()
+    {
+
+        yield return new WaitForSeconds(3f);
+
+        GameObject.Find("Left Controller").GetComponent<LeftController>().enabled = false;
+        GameObject.Find("Right Controller").GetComponent<RightController>().enabled = false;
+
+        switch (collectTalkCount)
+        {
+            case 1:
+
+                StartCoroutine(uITalk.InteractionTalk("'내'가 왜 이런 곳에\n있는 걸까."));
+                break;
+            case 2:
+
+                StartCoroutine(uITalk.InteractionTalk("결코 잊을 수 없는\n얼굴이 떠올랐다."));
+                break;
+            case 3:
+
+                StartCoroutine(uITalk.InteractionTalk("내게 그 누구보다 의미 있는\n존재였던 아이의 얼굴."));
+                break;
+            case 4:
+
+                StartCoroutine(uITalk.InteractionTalk("운이 나빴다. \n조금만 더 신경 썼더라면..."));
+                break;
+        }
+
+        yield break;
+    }
+    public void CollectGetTalkCount()
+    {
+
+        StartCoroutine(CollectGetTalkCountColltin());
+
+
+
     }
 
 

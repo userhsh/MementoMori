@@ -34,6 +34,8 @@ public class ChildPalmPrint : MonoBehaviour
     {
         //수집품 획득 시 수집품UI의 버튼 해금
         GameObject.Find("PlayerUI").GetComponent<UIManager>().collections[0] = true;
+        GameObject.Find("PlayerUI").GetComponent<UIManager>().collectTalkCount++;
+        GameObject.Find("PlayerUI").GetComponent<UIManager>().CollectGetTalkCount();
 
         audioSource.clip = collectionSound;
         audioSource.Play();

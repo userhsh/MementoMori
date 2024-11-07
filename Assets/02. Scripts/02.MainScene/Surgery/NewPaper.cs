@@ -24,6 +24,9 @@ public class NewPaper : MonoBehaviour
     public void GetCollection()
     {
         GameObject.Find("PlayerUI").GetComponent<UIManager>().collections[3] = true;
+        GameObject.Find("PlayerUI").GetComponent<UIManager>().collectTalkCount++;
+        GameObject.Find("PlayerUI").GetComponent<UIManager>().CollectGetTalkCount();
+
         audioSource.PlayOneShot(collectionSound);
         meshRenderer.enabled = false;
         collider.enabled = false;

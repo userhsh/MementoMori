@@ -84,6 +84,9 @@ public class TableBlood : MonoBehaviour, IInteractable
         if (isTrue)
         {
             GameObject.Find("PlayerUI").GetComponent<UIManager>().collections[1] = true;
+            GameObject.Find("PlayerUI").GetComponent<UIManager>().collectTalkCount++;
+            GameObject.Find("PlayerUI").GetComponent<UIManager>().CollectGetTalkCount();
+
             meshRenderer.enabled = false;
             collider.enabled = false;
             paperName.gameObject.SetActive(false);

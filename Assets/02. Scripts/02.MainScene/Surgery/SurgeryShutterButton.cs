@@ -7,7 +7,7 @@ public class SurgeryShutterButton : MonoBehaviour, IInteractable
     // 셔터를 담을 변수 선언
     public Shutter shutter = null;
 
-    int soundCount = 0;
+   public int soundCount = 0;
 
     Animator animator;
 

@@ -82,6 +82,8 @@ public class UITalk : MonoBehaviour
         }
         yield return new WaitForSeconds(2f);
 
+        leftController.GetComponent<LeftController>().enabled = true;
+        rightController.GetComponent<RightController>().enabled = true;
         uiTalk.SetActive(false);
         isCoroutine = false;
 

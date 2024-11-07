@@ -56,5 +56,12 @@ public class Groove1 : MonoBehaviour
         SuccessText.SetActive(true);
         Password.SetActive(true);
         isFog = true;
+
+        Invoke("CorrectTalkText", 3); //증기가 멈췄다는 대사 3초후 실행
+    }
+
+    void CorrectTalkText()
+    {
+        StartCoroutine(GameObject.Find("PlayerUI").GetComponent<UITalk>().InteractionTalk("증기가 멈춘 것 같다."));
     }
 }

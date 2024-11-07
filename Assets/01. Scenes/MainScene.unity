@@ -45218,6 +45218,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   shutter: {fileID: 8601660336635260016}
+  soundCount: 0
   clip: {fileID: 8300000, guid: 614e7fee17f8b6f4ead0bad723f7b1b4, type: 3}
 --- !u!114 &2166139376368647401
 MonoBehaviour:
@@ -100261,7 +100262,7 @@ MonoBehaviour:
   m_SnapToColliderVolume: 1
   m_ReinitializeDynamicAttachEverySingleGrab: 1
   m_AttachEaseInTime: 0.15
-  m_MovementType: 2
+  m_MovementType: 0
   m_VelocityDamping: 1
   m_VelocityScale: 1
   m_AngularVelocityDamping: 1
@@ -104703,7 +104704,7 @@ AudioSource:
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 9017925431412108034, guid: 92e4153804180cb4ba1904ec21870c4d, type: 2}
   m_audioClip: {fileID: 8300000, guid: 614e7fee17f8b6f4ead0bad723f7b1b4, type: 3}
-  m_PlayOnAwake: 1
+  m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1
   Loop: 0
@@ -108353,7 +108354,7 @@ SphereCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Radius: 0.5
+  m_Radius: 0.42
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!114 &6786342443226601499
 MonoBehaviour:
@@ -108437,7 +108438,7 @@ Transform:
   m_GameObject: {fileID: 6786342443226601509}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 6.78, y: 6.505121, z: 6.0129814}
+  m_LocalScale: {x: 4.58, y: 4.3943152, z: 4.0618653}
   m_ConstrainProportionsScale: 1
   m_Children: []
   m_Father: {fileID: 6786342444174503612}
@@ -109834,7 +109835,7 @@ Transform:
   m_GameObject: {fileID: 6786342444584831857}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 6.78, y: 6.505121, z: 6.0129814}
+  m_LocalScale: {x: 4.58, y: 4.3943152, z: 4.0618653}
   m_ConstrainProportionsScale: 1
   m_Children: []
   m_Father: {fileID: 6786342444174503612}
@@ -109922,7 +109923,7 @@ SphereCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Radius: 0.5
+  m_Radius: 0.42
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!114 &6786342444584831863
 MonoBehaviour:
@@ -125840,6 +125841,8 @@ MonoBehaviour:
   - {fileID: 8414364878629016924}
   - {fileID: 8414364878659737251}
   leftController: {fileID: 6786342444870372101}
+  uITalk: {fileID: 8414364878899944280}
+  collectTalkCount: 0
 --- !u!222 &8414364878302139428
 CanvasRenderer:
   m_ObjectHideFlags: 0

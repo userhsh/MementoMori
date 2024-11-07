@@ -13,6 +13,7 @@ public class Groove1 : MonoBehaviour
     public bool isFog = false;
     public AudioSource audioSource;
     public AudioClip[] audioClip;
+    public bool isWrong = false;
 
     private Vector3 originalParentPosition;
     private Quaternion originalParentRotation;
@@ -29,11 +30,18 @@ public class Groove1 : MonoBehaviour
         StartCoroutine(Correct());
     }
 
-    private void OnTriggerEnter(Collider other)
+    private void OnTriggerStay(Collider other)
     {
         if (other.gameObject == Numbers[8]) // 9
         {
             CorrectA = true;
+        }
+        else
+        {
+            if (!other.CompareTag("SpotLight"))
+            {
+                isWrong = true;
+            }
         }
     }
 
@@ -42,6 +50,13 @@ public class Groove1 : MonoBehaviour
         if (other.gameObject == Numbers[8]) // 9
         {
             CorrectA = false;
+        }
+        else
+        {
+            if (!other.CompareTag("SpotLight"))
+            {
+                isWrong = false;
+            }           
         }
     }
 
@@ -52,7 +67,6 @@ public class Groove1 : MonoBehaviour
             yield return null;
         }
 
-        audioSource.PlayOneShot(audioClip[2]);
         SuccessText.SetActive(true);
         Password.SetActive(true);
         isFog = true;

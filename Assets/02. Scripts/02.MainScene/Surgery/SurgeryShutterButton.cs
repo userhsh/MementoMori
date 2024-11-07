@@ -7,6 +7,8 @@ public class SurgeryShutterButton : MonoBehaviour, IInteractable
     // 셔터를 담을 변수 선언
     public Shutter shutter = null;
 
+    int soundCount = 0;
+
     Animator animator;
 
     AudioSource audioSource;
@@ -24,8 +26,14 @@ public class SurgeryShutterButton : MonoBehaviour, IInteractable
         // 애니메이션 실행
         animator.SetTrigger("IsPush");
 
-        audioSource.PlayOneShot(clip);
+        if (soundCount == 0) 
+        {
+            audioSource.PlayOneShot(clip);
+        }
+
         // 셔터 제거 메서드 실행
         shutter.gameObject.SetActive(false);
+
+        soundCount++;
     }
 }

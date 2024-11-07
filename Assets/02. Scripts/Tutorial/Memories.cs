@@ -39,18 +39,26 @@ public class Memories : MonoBehaviour
         GameObject.Find("PlayerUI").GetComponent<TUIManager>().collections = true;
         spriteRenderer.enabled = false;
         collider.enabled = false;
-
+       
         StartCoroutine(Collection0GetTalk());
 
     }
 
     IEnumerator Collection0GetTalk()
     {
-       yield return new WaitForSeconds(3.5f);
+        yield return new WaitForSeconds(1.5f);
+
+        GameObject.Find("Left Controller").GetComponent<TLeftController>().enabled = false;
+        GameObject.Find("Right Controller").GetComponent<TRightController>().enabled = false;
+
+        yield return new WaitForSeconds(2f);
        
-       StartCoroutine(GameObject.Find("PlayerUI").GetComponent<TUITalk>().GetCollection0Talk());
+       StartCoroutine(GameObject.Find("PlayerUI").GetComponent<TUITalk>().GetCollection0Talk()); //UI대사 실행
 
         yield return new WaitForSeconds(5f);
+
+        GameObject.Find("Left Controller").GetComponent<TLeftController>().enabled = true;
+        GameObject.Find("Right Controller").GetComponent<TRightController>().enabled = true;
         GetNumberPaper();
     }
 

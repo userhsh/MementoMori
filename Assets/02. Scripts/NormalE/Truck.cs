@@ -4,7 +4,8 @@ using UnityEngine;
 
 public class Truck : MonoBehaviour
 {
-
+    [SerializeField]
+    AudioSource audioSource;
 
     private Transform playerPosition;
 
@@ -17,13 +18,14 @@ public class Truck : MonoBehaviour
         playerPosition = GameObject.FindGameObjectWithTag("PLAYER").transform;
     }
 
+    private void Start()
+    {
+        audioSource.PlayDelayed(2f);
+    }
+
     private void Update()
     {
-        //플레이어 쪽으로 달려오도록
-        Vector3 direction = (playerPosition.position - transform.position).normalized;
-
-        transform.position += direction * truckSpeed * Time.deltaTime;
-
+        Invoke("CollisionPlayer", 2f);
     }
 
     private void OnTriggerEnter(Collider other)
@@ -34,4 +36,11 @@ public class Truck : MonoBehaviour
 
     }
 
+    private void CollisionPlayer()
+    {
+        //플레이어 쪽으로 달려오도록
+        Vector3 direction = (playerPosition.position - transform.position).normalized;
+        
+        transform.position += direction * truckSpeed * Time.deltaTime;
+    }
 }

@@ -44,7 +44,7 @@ public class UIManager : MonoBehaviour
         gameManager = FindObjectOfType<GameManager>();
         if (gameManager == null)
         {
-            Debug.Log("GameManager not found in the scene!");
+            //Debug.Log("GameManager not found in the scene!");
         }
     }
 
@@ -102,7 +102,7 @@ public class UIManager : MonoBehaviour
         }
         else
         {
-            Debug.Log("GameManager is null in ExitButton!");
+            //Debug.Log("GameManager is null in ExitButton!");
         }
 
         SceneManager.LoadScene("GameStartScene"); // 첫 번째 씬으로 전환

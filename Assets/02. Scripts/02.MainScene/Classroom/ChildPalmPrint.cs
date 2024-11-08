@@ -44,6 +44,6 @@ public class ChildPalmPrint : MonoBehaviour
         this.gameObject.GetComponent<Image>().enabled = false;
         this.gameObject.GetComponent<BoxCollider>().enabled = false;
 
-        Destroy(this.gameObject, collectionSound.length);
+        //Destroy(this.gameObject, collectionSound.length);
     }
 }

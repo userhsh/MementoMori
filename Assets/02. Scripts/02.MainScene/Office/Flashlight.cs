@@ -24,12 +24,10 @@ public class Flashlight : MonoBehaviour
         RaycastHit hit;
         if (Physics.Raycast(transform.position, transform.forward, out hit, interactionDistance))
         {
-            if (hit.collider.CompareTag("RANGE"))
+            if (hit.collider.CompareTag("RANGE") && flashLight.enabled)
             {
-                if (flashLight.enabled == true)
-                {                  
-                    Collection1?.SetActive(true);
-                }
+                Collection1?.SetActive(true);
+                print("Coll1");
             }
         }
     }

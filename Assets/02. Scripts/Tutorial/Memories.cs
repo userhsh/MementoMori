@@ -28,14 +28,14 @@ public class Memories : MonoBehaviour
 
     private void Start()
     {
-        collectionSound = Resources.Load<AudioClip>("TutorialSFX/CollectionSound/collectionSound");
+        //collectionSound = Resources.Load<AudioClip>("TutorialSFX/CollectionSound/collectionSound");
 
         PaperSFX = Resources.Load<AudioClip>("TutorialSFX/PaperSFX");
     }
 
     public void Collection0Get()
     {
-        audioSource.PlayOneShot(collectionSound);
+        audioSource.PlayOneShot(PaperSFX);
         GameObject.Find("PlayerUI").GetComponent<TUIManager>().collections = true;
         spriteRenderer.enabled = false;
         collider.enabled = false;

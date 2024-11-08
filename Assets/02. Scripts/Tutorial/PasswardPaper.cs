@@ -17,7 +17,7 @@ public class PasswardPaper : MonoBehaviour
 
     private void Start()
     {
-        ClickSound = Resources.Load<AudioClip>("TutorialSFX/ClickSound/ClickSound");
+        ClickSound = Resources.Load<AudioClip>("TutorialSFX/PaperSFX");
     }
 
     public void PaperClick()

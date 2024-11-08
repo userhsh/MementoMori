@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.UI;
 using UnityEngine.XR.Interaction.Toolkit;
 
 public class ChildPalmPrint : MonoBehaviour
@@ -20,7 +21,7 @@ public class ChildPalmPrint : MonoBehaviour
 
     private void Start()
     {
-        collectionSound = Resources.Load<AudioClip>("ClassroomSFX/CollectionSound/collectionSound");
+        collectionSound = Resources.Load<AudioClip>("TutorialSFX/PaperSFX");
 
         //물체를 잡을 때 호출되는 이벤트 연결
         grabInteractable.selectEntered.AddListener(OnGrabbed);
@@ -40,6 +41,9 @@ public class ChildPalmPrint : MonoBehaviour
         audioSource.clip = collectionSound;
         audioSource.Play();
 
-        this.gameObject.SetActive(false);
+        this.gameObject.GetComponent<Image>().enabled = false;
+        this.gameObject.GetComponent<BoxCollider>().enabled = false;
+
+        Destroy(this.gameObject, collectionSound.length);
     }
 }

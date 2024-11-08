@@ -11,6 +11,9 @@ public class ButtonHole : MonoBehaviour, IInteractable
 
     public ShutterButton shutterButton;
 
+    public AudioSource audioSource;
+    public AudioClip audioClip;
+
     private void Awake()
     {
         surgeryShutterButton.gameObject.SetActive(false);
@@ -43,8 +46,13 @@ public class ButtonHole : MonoBehaviour, IInteractable
 
         surgeryShutterButton.gameObject.SetActive(true);
 
+        audioSource.PlayOneShot(audioClip);
+
+        this.gameObject.GetComponent<MeshRenderer>().enabled = false;
+        this.gameObject.GetComponent<BoxCollider>().enabled = false;
+        // 셔터 버튼 제거
         Destroy(shutterButton.gameObject);
         // 버튼 홀 제거
-        Destroy(this.gameObject);
+        Destroy(this.gameObject, audioClip.length);
     }
 }

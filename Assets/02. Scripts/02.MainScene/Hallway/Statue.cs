@@ -10,7 +10,7 @@ public class Statue : MonoBehaviour, IInteractable
     HallwayBox hallwayBox = null;
 
     // 퀴즈 창 가져올 변수 선언
-    public Canvas statueQuizCanvas = null;
+    public GameObject quizBlock = null;
     // 퀴즈 정답 입력 받을 버튼들 담을 변수 선언
     Button[] quizButtons = null;
     // 입력 값 표시할 텍스트 변수 선언
@@ -56,7 +56,7 @@ public class Statue : MonoBehaviour, IInteractable
         ButtonsInit();
 
         // 처음에 퀴즈창 꺼두기
-        statueQuizCanvas.gameObject.SetActive(false);
+        quizBlock.gameObject.SetActive(false);
     }
 
     public void Interact()
@@ -65,7 +65,7 @@ public class Statue : MonoBehaviour, IInteractable
         // 인터렉션이 작동할 때 마다 isQuizOpen 상태 바꿔주기
         isQuizOpen = !isQuizOpen;
         // isQuizOpen 상태의 따라 퀴즈 창 켜고 끄기
-        statueQuizCanvas.gameObject.SetActive(isQuizOpen);
+        quizBlock.gameObject.SetActive(isQuizOpen);
     }
 
     // 버튼의 메서드 매핑
@@ -134,7 +134,7 @@ public class Statue : MonoBehaviour, IInteractable
         }
         // 정답을 맞췄다면
         // 퀴즈창 닫기
-        statueQuizCanvas.gameObject.SetActive(false);
+        quizBlock.gameObject.SetActive(false);
 
         
         // 상자 오픈

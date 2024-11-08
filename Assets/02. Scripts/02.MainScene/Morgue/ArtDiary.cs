@@ -15,7 +15,7 @@ public class ArtDiary : MonoBehaviour
     private void Start()
     {
         this.gameObject.name = "Collection3";
-        collectionSound = Resources.Load<AudioClip>("SurgerySFX/collectionSound");
+        collectionSound = Resources.Load<AudioClip>("TutorialSFX/PaperSFX");
     }
     public void Collection3Get()
     {

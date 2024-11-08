@@ -35,7 +35,7 @@ public class TableBlood : MonoBehaviour, IInteractable
     {
         PaperSFX = Resources.Load<AudioClip>("OfficeSFX/PaperSFX");
         PencilSFX = Resources.Load<AudioClip>("OfficeSFX/PencilSFX");
-        collectionSound = Resources.Load<AudioClip>("OfficeSFX/collectionSound");
+        collectionSound = Resources.Load<AudioClip>("TutorialSFX/PaperSFX");
     }
 
     private void OnTriggerEnter(Collider other)

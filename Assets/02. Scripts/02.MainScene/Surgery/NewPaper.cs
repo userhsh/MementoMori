@@ -18,7 +18,7 @@ public class NewPaper : MonoBehaviour
 
     private void Start()
     {
-        collectionSound = Resources.Load<AudioClip>("SurgerySFX/collectionSound");
+        collectionSound = Resources.Load<AudioClip>("TutorialSFX/PaperSFX");
     }
 
     public void GetCollection()

@@ -31,7 +31,8 @@ public class Remocon : MonoBehaviour, IUseable
             if (TV != null)
             {
                 interactable?.Interact();
-
+                TV.gameObject.name = "TV_On";
+                Destroy(this.gameObject);
             }
 
         }

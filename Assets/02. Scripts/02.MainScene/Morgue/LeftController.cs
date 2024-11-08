@@ -116,7 +116,7 @@ public class LeftController : XRRayInteractor
                     break;
                 case "DoctorCard":
                     UIItem.SetActive(true);
-                    UIItemText.text = "아이템: 의사 카드";
+                    UIItemText.text = "아이템: ID 카드";
                     break;
                 case "CabinetKey":
                     UIItem.SetActive(true);

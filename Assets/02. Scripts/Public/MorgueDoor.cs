@@ -13,11 +13,13 @@ public class MorgueDoor : Door
 
     private void Update()
     {
-        if (anotherDoor.isLocked == false)
+        // 다른 문이 잠금 해제 상태인 경우 현재 문 잠금을 해제
+        if (anotherDoor != null && !anotherDoor.isLocked)
         {
             this.isLocked = false;
         }
-        else if (this.isLocked == false)
+        // 현재 문이 잠금 해제 상태일 경우 다른 문도 잠금 해제
+        else if (this.isLocked == false && anotherDoor != null)
         {
             anotherDoor.isLocked = false;
         }
@@ -32,12 +34,25 @@ public class MorgueDoor : Door
 
         doorAnimator = GetComponent<Animator>();
 
-        lockIcon?.gameObject.SetActive(false);
+        lockIcon?.gameObject.SetActive(true);
+        lockCanvas?.gameObject.SetActive(false);
 
         audioSource = GetComponent<AudioSource>();
-        unlockSound = Resources.Load<AudioClip>("UnlockSound/unlockSound");
+        unlockSound = Resources.Load<AudioClip>("HallwaySFX/UnlockSound/unlockSound");
 
-        doorOpenSound = Resources.Load<AudioClip>("DoorSound/doorOpen");
-        doorCloseSound = Resources.Load<AudioClip>("DoorSound/doorClose");
+        doorOpenSound = Resources.Load<AudioClip>("HallwaySFX/DoorSound/doorOpen");
+        doorCloseSound = Resources.Load<AudioClip>("HallwaySFX/DoorSound/doorClose");
+    }
+
+    public void UpdateMorgueDoorState()
+    {
+        // 잠금 상태가 해제된 경우 잠금 아이콘 숨기기
+        if (!isLocked)
+        {
+            lockIcon?.gameObject.SetActive(false);
+        }
+
+        // 열림/닫힘 상태에 따라 애니메이션 설정
+        doorAnimator.SetBool("IsOpen", isOpen);
     }
 }

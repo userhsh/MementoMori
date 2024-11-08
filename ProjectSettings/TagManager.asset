@@ -9,6 +9,13 @@ TagManager:
   - STARTPOSITION
   - CABINET
   - OFFICEDOOR
+  - RANGE
+  - MorgueKey
+  - Body
+  - WALL
+  - Groove2
+  - Groove1
+  - SpotLight
   layers:
   - Default
   - TransparentFX
@@ -21,7 +28,7 @@ TagManager:
   - INTERACTABLE
   - ITEM
   - PLAYER
-  - 
+  - WALL
   - 
   - 
   - 

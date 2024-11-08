@@ -21,7 +21,7 @@ public class PlayerFootsteps : MonoBehaviour
 
     private void Start()
     {
-        footstepSound = Resources.Load<AudioClip>("FootstepSound/footstepSound");
+        footstepSound = Resources.Load<AudioClip>("PlayerSFX/FootstepSound/footstepSound");
     }
 
     private void Update()

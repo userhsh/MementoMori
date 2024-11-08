@@ -27,7 +27,6 @@ public class Flashlight : MonoBehaviour
             if (hit.collider.CompareTag("RANGE") && flashLight.enabled)
             {
                 Collection1?.SetActive(true);
-                print("Coll1");
             }
         }
     }

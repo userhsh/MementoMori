@@ -16,6 +16,8 @@ public class TableBlood : MonoBehaviour, IInteractable
     private AudioClip collectionSound;
     private Collider collider;
 
+    public GameObject pencil;
+
     bool isPencilInteractable = false;
 
     public Collider bloodCollider = null;
@@ -97,6 +99,7 @@ public class TableBlood : MonoBehaviour, IInteractable
     private IEnumerator PlayPencilSound()
     {
         audioSource.PlayOneShot(PencilSFX);
+        Destroy(pencil.gameObject);
         yield return new WaitForSeconds(1f);
         audioSource.Stop();
     }

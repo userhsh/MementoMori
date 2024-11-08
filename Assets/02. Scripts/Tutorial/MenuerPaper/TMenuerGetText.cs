@@ -16,7 +16,7 @@ public class TMenuerGetText : MonoBehaviour
 
     public IEnumerator PaperGetTalk(int paperNum) 
     { 
-        string paperGetTalk = $"≡메뉴 - 조작 메뉴얼\n{paperNum + 1} / 7 page에서 확인";
+        string paperGetTalk = $"≡메뉴 - 조작 메뉴얼\n{paperNum + 1} / 7 page";
 
         getTextBox.SetActive(true);
         GetText.text = "";

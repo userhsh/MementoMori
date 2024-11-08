@@ -5,7 +5,8 @@ using UnityEngine;
 public class Menuer : MonoBehaviour
 {
     public GameObject menu;
-   public void MenuerClose()
+
+    public void MenuerClose()
     {
         menu.SetActive(false);
     }

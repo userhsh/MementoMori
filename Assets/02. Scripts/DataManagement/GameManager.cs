@@ -35,13 +35,13 @@ public class GameManager : MonoBehaviour
 
         if (loadedData != null) // 저장된 데이터가 있으면
         {
-            isContinueAvailable = loadedData.isContinueAvailable; // 저장된 이어하기 가능 여부 설정
+            //isContinueAvailable = loadedData.isContinueAvailable; // 저장된 이어하기 가능 여부 설정
 
             // MainmenuButtons 스크립트를 찾아서 이어하기 버튼 상태 업데이트
             MainmenuButtons mainmenuButtons = FindObjectOfType<MainmenuButtons>();
             if (mainmenuButtons != null)
             {
-                mainmenuButtons.UpdateContinueButton(isContinueAvailable); // 이어하기 버튼 업데이트
+                //mainmenuButtons.UpdateContinueButton(isContinueAvailable); // 이어하기 버튼 업데이트
             }
         }
         else
@@ -71,11 +71,11 @@ public class GameManager : MonoBehaviour
         {
             playerPosition = initialPosition, // 초기 플레이어 위치
             playerRotation = initialRotation, // 초기 플레이어 회전 (Y: 180도)
-            isContinueAvailable = true // 이어하기 가능 상태
+            //isContinueAvailable = true // 이어하기 가능 상태
         }; // 새 게임 데이터 설정
 
         SaveGameData(initialPosition, initialRotation); // 데이터 저장
-        isContinueAvailable = true; // 이어하기 가능 상태로 변경
+        //isContinueAvailable = true; // 이어하기 가능 상태로 변경
     }
 
     // 게임 데이터를 저장하는 메서드 (플레이어 위치 및 회전값을 인자로 받아 저장)
@@ -86,7 +86,7 @@ public class GameManager : MonoBehaviour
             // 0.플레이어 위치,회전 및 이어하기 여부
             playerPosition = playerPosition, // 현재 플레이어 위치 저장
             playerRotation = playerRotation, // 현재 플레이어 회전 저장
-            isContinueAvailable = this.isContinueAvailable, // 현재 이어하기 가능 상태 저장
+            //isContinueAvailable = this.isContinueAvailable, // 현재 이어하기 가능 상태 저장
 
             // 1. 시체안치실 
             morgueDoorOpenStates = new List<bool>(),

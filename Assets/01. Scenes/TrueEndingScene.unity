@@ -1548,8 +1548,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: The End
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: ed630c9b5bbaffc45ab0f469f45f9cc0, type: 2}
+  m_sharedMaterial: {fileID: -2950006996281204258, guid: ed630c9b5bbaffc45ab0f469f45f9cc0, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -3030,8 +3030,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: "\uC8FD\uC5B4\uB77C"
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 4217d7cc850fc024ab4fbaedbc5513a6, type: 2}
-  m_sharedMaterial: {fileID: 4769562092089113136, guid: 4217d7cc850fc024ab4fbaedbc5513a6, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: c2fe365f63bb08846a71174e1b51929e, type: 2}
+  m_sharedMaterial: {fileID: 5516659781137431117, guid: c2fe365f63bb08846a71174e1b51929e, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []

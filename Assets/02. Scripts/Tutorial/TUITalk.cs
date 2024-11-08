@@ -13,7 +13,7 @@ public class TUITalk : MonoBehaviour
 
     public GameObject fadeOut;
 
-    string SuccessTalk = "기억해라..! \n결코 넌 죽어야만 하는것을!";
+    string SuccessTalk = "기억해라..! \n결국 넌 죽어야만 하는것을!";
     string NotTalk = "중요한걸 챙겨야 한다.";
     string NotAmmoTalk = "총알이 필요하다..";
     string Collection0Talk = "그립구나.. 딸..";
@@ -89,5 +89,18 @@ public class TUITalk : MonoBehaviour
         UITalk.SetActive(false);
     }
 
+    IEnumerator GunPasswardTalk()
+    {
+        UITalk.SetActive(true);
+        talk.text = "중요한 정보가 있다";
 
+        yield return new WaitForSeconds(2f);
+        talk.text = "";
+        UITalk.SetActive(false);
+    }
+
+    public void StartGunPasswardTalk()
+    {
+        StartCoroutine(GunPasswardTalk());
+    }
 }

@@ -27,6 +27,8 @@ public class Statue : MonoBehaviour, IInteractable
     AudioClip correctclip = null;
     [SerializeField]
     AudioClip unCorrectclip = null;
+    [SerializeField]
+    AudioClip buttonSelectclip = null;
 
     private void Awake()
     {
@@ -114,6 +116,7 @@ public class Statue : MonoBehaviour, IInteractable
     {
         if (answerInputText.NowAnswer.Length == 0) return;
 
+        audioSource.PlayOneShot(buttonSelectclip);
         answerInputText.NowAnswer = answerInputText.NowAnswer.Substring(0, answerInputText.NowAnswer.Length - 1);
     }
 
@@ -121,7 +124,8 @@ public class Statue : MonoBehaviour, IInteractable
     private void AddAnswer(int _value)
     {
         if (answerInputText.NowAnswer.Length >= 3) return;
-            
+
+        audioSource.PlayOneShot(buttonSelectclip);
         answerInputText.NowAnswer += _value;
     }
 

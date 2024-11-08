@@ -47,7 +47,7 @@ public class MainmenuButtons : MonoBehaviour
 
         if (gameManager != null)
         {
-            continueButton.interactable = gameManager.isContinueAvailable; // 이어하기 버튼의 활성화 여부 설정
+            //continueButton.interactable = gameManager.isContinueAvailable; // 이어하기 버튼의 활성화 여부 설정
         }
         else
         {
@@ -101,6 +101,6 @@ public class MainmenuButtons : MonoBehaviour
     // 이어하기 버튼 상태 업데이트 메서드
     public void UpdateContinueButton(bool isContinueAvailable)
     {
-        continueButton.interactable = isContinueAvailable; // 버튼의 interactable 상태 업데이트
+        //continueButton.interactable = isContinueAvailable; // 버튼의 interactable 상태 업데이트
     }
 }

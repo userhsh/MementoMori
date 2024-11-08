@@ -28,7 +28,7 @@ public class Flashlight : MonoBehaviour
             {
                 if (flashLight.enabled == true)
                 {                  
-                    Collection1.SetActive(true);
+                    Collection1?.SetActive(true);
                 }
             }
         }

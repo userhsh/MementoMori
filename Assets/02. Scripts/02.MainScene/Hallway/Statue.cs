@@ -9,6 +9,8 @@ public class Statue : MonoBehaviour, IInteractable
     // 복도 상자 가져올 변수 선언
     HallwayBox hallwayBox = null;
 
+    public GameObject boxDoor;
+
     // 퀴즈 창 가져올 변수 선언
     public GameObject quizBlock = null;
     // 퀴즈 정답 입력 받을 버튼들 담을 변수 선언
@@ -136,8 +138,9 @@ public class Statue : MonoBehaviour, IInteractable
         // 퀴즈창 닫기
         quizBlock.gameObject.SetActive(false);
 
-        
+        Destroy(boxDoor.gameObject);
+
         // 상자 오픈
-        hallwayBox.HallwayBoxAnimator.SetTrigger("IsOpen");
+        //hallwayBox.HallwayBoxAnimator.SetTrigger("IsOpen");
     }
 }

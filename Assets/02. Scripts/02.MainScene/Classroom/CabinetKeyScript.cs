@@ -13,6 +13,7 @@ public class CabinetKeyScript : MonoBehaviour
     private AudioSource audioSource;
 
     public float interactionDistance = 1.5f;  // 문과의 상호작용 최대 거리
+    public GameObject cabinetTriggerRayOff; //캐비닛 벽뚫 레이 방지
 
     void Start()
     {
@@ -44,6 +45,7 @@ public class CabinetKeyScript : MonoBehaviour
                 {
                     // 문이 잠겨있으면 잠금 해제
                     doorScript.UnlockDoor();
+                    cabinetTriggerRayOff.SetActive(false);
                     //Debug.Log("Raycast를 통해 열쇠로 문을 열었습니다.");
                     // Unlock 사운드 재생 후 오브젝트 파괴
                     audioSource.PlayOneShot(unlockSound);

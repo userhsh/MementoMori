@@ -16,6 +16,7 @@ TagManager:
   - Groove2
   - Groove1
   - SpotLight
+  - DEAD
   layers:
   - Default
   - TransparentFX

@@ -7,6 +7,8 @@ public class SafeBox : MonoBehaviour, IInteractable
     SafeBoxDoor safeBoxDoor = null;
     SafeBoxCardMechine safeBoxCardMechine = null;
 
+    public GameObject safeBoxTriggerRayOff;
+
     // 문의 잠금 여부를 확인할 변수 선언
     bool isLocked = true;
     // 문을 열 수 있는 상태인지 확인할 변수 선언(열린 상태인지, 닫힌 상태인지 구분)
@@ -76,6 +78,8 @@ public class SafeBox : MonoBehaviour, IInteractable
         // 잠겨져 있는 상태가 아니라면
         if (!isLocked)
         {
+            safeBoxTriggerRayOff.SetActive(false);
+
             // isOpenable의 상태에 따라 파라미터 이름 가져오기
             parameterName = (isOpenable) ? "IsOpen" : "IsClose";
             // 가져온 파라미터로 애니메이션 재생

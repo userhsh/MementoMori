@@ -11,6 +11,8 @@ public class SafeLockerCardLeader : MonoBehaviour
     private AudioClip SafeOpen;
     public GameObject paper4True;
 
+    public GameObject safeBoxTriggerRayOff;
+
     private void Awake()
     {
         audioSource = GetComponent<AudioSource>();
@@ -40,6 +42,7 @@ public class SafeLockerCardLeader : MonoBehaviour
     public void LockOn()
     {
         cardMechineRenderer.material.SetColor("_EmissionColor", Color.green);
+        safeBoxTriggerRayOff.SetActive(false);
         audioSource.clip = SafeOpen;
         audioSource.PlayDelayed(2f);
     }

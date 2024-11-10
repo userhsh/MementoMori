@@ -10,6 +10,7 @@ public class Statue : MonoBehaviour, IInteractable
     HallwayBox hallwayBox = null;
 
     public GameObject boxDoor;
+    public GameObject shutterBoxTriggerRayOff;
 
     // 퀴즈 창 가져올 변수 선언
     public GameObject quizBlock = null;
@@ -141,7 +142,7 @@ public class Statue : MonoBehaviour, IInteractable
         // 정답을 맞췄다면
         // 퀴즈창 닫기
         quizBlock.gameObject.SetActive(false);
-
+        shutterBoxTriggerRayOff.SetActive(false);
         Destroy(boxDoor.gameObject);
 
         // 상자 오픈

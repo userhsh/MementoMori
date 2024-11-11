@@ -15,6 +15,8 @@ public class PosterHuman : MonoBehaviour, IInteractable
     private AudioClip CorrectSound;
     private bool puzzleClear = false;
 
+    public ResetPuzzleCanvas resetPuzzleCanvas = null;
+
     private void Awake()
     {
         PosterHumanInit();
@@ -43,6 +45,8 @@ public class PosterHuman : MonoBehaviour, IInteractable
         slidePuzzle.BoardInit();
         // 슬라이드 퍼즐 꺼두기
         slidePuzzle.gameObject.SetActive(false);
+
+        resetPuzzleCanvas.gameObject.SetActive(false);
         // 금고 꺼두기
         safeBox.gameObject.SetActive(false);
     }
@@ -53,6 +57,7 @@ public class PosterHuman : MonoBehaviour, IInteractable
         slidePuzzle.gameObject.SetActive(true);
         audioSource.PlayOneShot(PuzzleShuffleSound);
         collider.enabled = false;
+        resetPuzzleCanvas.gameObject.SetActive(true);
     }
 
     // 퍼즐 완료 시 인체모형도 제거 메서드
@@ -67,6 +72,8 @@ public class PosterHuman : MonoBehaviour, IInteractable
                 audioSource.PlayOneShot(CorrectSound);
             }
             puzzleClear = true;
+
+            resetPuzzleCanvas.gameObject.SetActive(false);
             // 인체모형도, 퍼즐 제거
             Destroy(this.gameObject, CorrectSound.length);
             // 금고 생성
@@ -86,5 +93,11 @@ public class PosterHuman : MonoBehaviour, IInteractable
         {
             audioSource.PlayOneShot(PuzzleMoveSound);
         }
+    }
+
+    public void ResetPuzzle()
+    {
+        slidePuzzle.gameObject.SetActive(false);
+        slidePuzzle.gameObject.SetActive(true);
     }
 }

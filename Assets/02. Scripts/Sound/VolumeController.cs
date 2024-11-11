@@ -10,6 +10,8 @@ public class VolumeController : MonoBehaviour
     public Slider masterVolumeSlider; // 마스터 볼륨 슬라이더
     public Slider sfxVolumeSlider;  // 효과음(SFX) 슬라이더
 
+    public AudioSource sfxAudioSource;
+
     private string saveFilePath;
 
     void Start()
@@ -90,6 +92,8 @@ public class VolumeController : MonoBehaviour
     // 효과음(SFX) 볼륨 조정
     public void SetSFXVolume(float sliderValue)
     {
+        sfxAudioSource.Stop();
+
         if (sliderValue <= 0.0001f)
         {
             audioMixer.SetFloat("SFX", -80f);   // 최소 볼륨
@@ -102,6 +106,8 @@ public class VolumeController : MonoBehaviour
             float volume = Mathf.Log10(sliderValue) * 20 + masterVolume;
             audioMixer.SetFloat("SFX", volume);
         }
+
+        sfxAudioSource.PlayOneShot(sfxAudioSource.clip);
         SaveVolumeData(); // 볼륨 데이터 저장
     }
 

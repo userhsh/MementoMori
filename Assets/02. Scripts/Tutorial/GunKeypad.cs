@@ -19,6 +19,7 @@ public class GunKeypad : MonoBehaviour
     public GameObject keypadSuccessGreen;
     public GameObject succeseImg;
     public Animator gunBoxGlass;
+    public GameObject GunBoxTriggerRay;
 
     private void Awake()
     {
@@ -117,6 +118,7 @@ public class GunKeypad : MonoBehaviour
     {
         canvas.enabled = false;
         gunBoxGlass.enabled = true;
+        GunBoxTriggerRay.SetActive(false);
         audiosource.PlayOneShot(GlassSound);
     }
 }

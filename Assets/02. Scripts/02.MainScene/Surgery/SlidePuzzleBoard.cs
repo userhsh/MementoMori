@@ -109,6 +109,8 @@ public class SlidePuzzleBoard : MonoBehaviour
         // 섞인 타일로 배열 다시 가져오기
         tiles = GetComponentsInChildren<SlidePuzzleTile>();
 
+        inversions = 0;
+
         // inversions 계산 
         // i는 0부터 끝까지
         for (int i = 0; i < tiles.Length; i++)
@@ -127,10 +129,13 @@ public class SlidePuzzleBoard : MonoBehaviour
         }
 
         // inversions가 짝수이고 0이 아닐 경우
-        if (inversions % 2 == 0 && inversions != 0)
+        if (inversions % 2 == 0)
         {
-            // 클리어 가능
-            isClearable = true;
+            if (inversions != 0)
+            {
+                // 클리어 가능
+                isClearable = true;
+            }
         }
         // inversions가 홀수이거나 0일 경우
         else
@@ -138,6 +143,8 @@ public class SlidePuzzleBoard : MonoBehaviour
             // 클리어 불가
             isClearable = false;
         }
+
+        print(inversions);
     }
 
     // 재셔플 코루틴

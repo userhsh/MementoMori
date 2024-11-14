@@ -136,6 +136,7 @@ public class TLeftController : XRRayInteractor
 
     protected override void OnHoverExited(XRBaseInteractable interactable)
     {
+        UIItem.transform.GetChild(1).gameObject.SetActive(true);
         UIItemText.text = "";
         UIItem.SetActive(false);
         subTitleText.text = "";

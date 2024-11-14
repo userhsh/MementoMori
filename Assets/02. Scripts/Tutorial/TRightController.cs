@@ -51,6 +51,8 @@ public class TRightController : XRRayInteractor
 
     protected override void OnHoverEntered(XRBaseInteractable interactable)
     {
+
+
         if (isGrip)
         {
             switch (interactable.name)

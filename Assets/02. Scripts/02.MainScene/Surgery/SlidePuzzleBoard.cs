@@ -136,6 +136,10 @@ public class SlidePuzzleBoard : MonoBehaviour
                 // 클리어 가능
                 isClearable = true;
             }
+            else
+            {
+                isClearable = false;
+            }
         }
         // inversions가 홀수이거나 0일 경우
         else

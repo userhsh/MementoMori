@@ -162,6 +162,11 @@ public class RightController : XRRayInteractor
                     UIItemText.GetComponent<Text>().fontSize = 45;
                     UIItemText.text = "리모컨으로 켤 수 있을 것 같다.";
                     break;
+                case "Ramen":
+                    UIItem.SetActive(true);
+                    UIItem.transform.GetChild(1).gameObject.SetActive(false);
+                    UIItemText.text = "라면이다. \n한입만...?";
+                    break;
                 default:
                     break;
             }

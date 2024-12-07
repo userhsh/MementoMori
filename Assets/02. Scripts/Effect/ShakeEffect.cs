@@ -12,13 +12,12 @@ public class ShakeEffect : MonoBehaviour, IShakable
         audioSource = GetComponent<AudioSource>();
     }
 
-    private void OnTriggerEnter(Collider other)
+    public void TriggerEffect()
     {
-        if (soundCount > 2) return;
+        if (soundCount != 0) return;
 
-        if (other.gameObject.CompareTag("PLAYER"))
-        {
-            audioSource.PlayOneShot(audioSource.clip);
-        }
+        audioSource.PlayOneShot(audioSource.clip);
+
+        soundCount++;
     }
 }

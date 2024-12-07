@@ -60,9 +60,10 @@ public class PlayerController : MonoBehaviour
         // 쉐이크 가능 확인
         if (shakable != null)
         {
-            if (shakeCount > 2) return;
+            if (shakeCount >= 2) return;
 
             StartShakeCamera();
+            shakable?.TriggerEffect();
         }
     }
 

@@ -6,6 +6,7 @@ using UnityEngine;
 public class LightEffect : MonoBehaviour
 {
     Light pointLight = null;
+    Renderer lampRenderer = null;
 
     int lightValue = 0;
 
@@ -14,6 +15,7 @@ public class LightEffect : MonoBehaviour
     private void Awake()
     {
         pointLight = GetComponentInChildren<Light>();
+        lampRenderer = GetComponent<Renderer>();
     }
 
     private void Start() 
@@ -30,11 +32,13 @@ public class LightEffect : MonoBehaviour
             if (lightValue == 0)
             {
                 pointLight.gameObject.SetActive(true);
+                lampRenderer.material.EnableKeyword("_EMISSION");
                 yield return new WaitForSeconds(5f);
             }
             else
             {
                 pointLight.gameObject.SetActive(false);
+                lampRenderer.material.DisableKeyword("_EMISSION");
                 yield return new WaitForSeconds(0.35f);
             }
         }

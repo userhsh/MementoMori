@@ -6,6 +6,8 @@ public class SwitchButton : MonoBehaviour
 {
     public MedRackDoor[] medRackDoorlock;
     public GameObject medRackTriggerRayOff;
+    public GameObject medRackLockAudioClip;
+    public GameObject buttonSparkEffect;
     private AudioSource audioSource;
     private AudioClip MedRackDoorUnlock;
 
@@ -25,6 +27,8 @@ public class SwitchButton : MonoBehaviour
     {
         if (count == 1)
         {
+            Invoke("MedRackUnlock", 2f);
+            buttonSparkEffect.SetActive(true);
             gameObject.GetComponentInChildren<Animator>().SetBool("ButtonClick", true);
             medRackTriggerRayOff.SetActive(false);
             for (int i = 0; i < medRackDoorlock.Length; i++)
@@ -35,6 +39,10 @@ public class SwitchButton : MonoBehaviour
             audioSource.PlayOneShot(MedRackDoorUnlock);
             count--;
         }
+    }
 
+    private void MedRackUnlock()
+    {
+        medRackLockAudioClip.SetActive(true);
     }
 }

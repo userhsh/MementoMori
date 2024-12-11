@@ -30,6 +30,8 @@ public class Statue : MonoBehaviour, IInteractable
     AudioClip unCorrectclip = null;
     [SerializeField]
     AudioClip buttonSelectclip = null;
+    [SerializeField]
+    AudioClip correctPanelclip = null;
 
     private void Awake()
     {
@@ -67,10 +69,12 @@ public class Statue : MonoBehaviour, IInteractable
     public void Interact()
     {
         if (isQuizClear) return;
-        // 인터렉션이 작동할 때 마다 isQuizOpen 상태 바꿔주기
-        isQuizOpen = !isQuizOpen;
+        if (isQuizOpen) return;
+        // isQuizOpen을 true로 변경
+        isQuizOpen = true;
         // isQuizOpen 상태의 따라 퀴즈 창 켜고 끄기
         quizBlock.gameObject.SetActive(isQuizOpen);
+        audioSource.PlayOneShot(correctPanelclip);
     }
 
     // 버튼의 메서드 매핑

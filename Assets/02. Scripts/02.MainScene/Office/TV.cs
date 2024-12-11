@@ -27,7 +27,8 @@ public class TV : MonoBehaviour, IInteractable
         {
             // tvPW 켜져있으면 끄고 꺼져있으면 켬
             tvPW.gameObject.SetActive(!tvPW.gameObject.activeSelf);
-            audioSource.PlayOneShot(TVSFX);
+            audioSource.clip = TVSFX;
+            audioSource.Play();
         }
         else
         {

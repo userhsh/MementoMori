@@ -152,6 +152,7 @@ public class Mouse : MonoBehaviour
 
     public IEnumerator SmokeDie() //게임중 죽었을 때 이벤트
     {
+        
         //사망시작용
         GameObject.Find("Left Controller").SetActive(false);
         GameObject.Find("Right Controller").SetActive(false);

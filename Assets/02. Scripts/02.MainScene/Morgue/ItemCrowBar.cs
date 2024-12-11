@@ -10,6 +10,7 @@ public class ItemCrowBar : MonoBehaviour
 
     public GameObject strangeTile;
     public GameObject switchButton;
+    public GameObject strangeTileEffect;
     private AudioSource audioSource;
     private AudioClip crawbarSound;
     private MeshRenderer childmeshRenderer;
@@ -59,7 +60,7 @@ public class ItemCrowBar : MonoBehaviour
             childmeshRenderer.enabled = false;
             collider.enabled = false;
             switchButton.GetComponent<BoxCollider>().enabled = true;
-
+            strangeTileEffect.SetActive(true); // 이상한타일 없앨때 이펙트
             gameManager.crowbarActive = false; // GameManager의 crowbarActive 상태 업데이트
             gameManager.SaveGameData(transform.position, transform.rotation.eulerAngles); // 데이터 저장
         }

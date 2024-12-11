@@ -12,6 +12,8 @@ public class Mouse : MonoBehaviour
     public AudioClip[] audioClips;
     AudioSource audioSource;
 
+    public LeftController leftController;
+
     bool coughingStart = false;
     bool noodleStart = false;
 
@@ -29,14 +31,12 @@ public class Mouse : MonoBehaviour
         if (other.gameObject.name == "Ramen")
         {
             ramenDieCount += Time.deltaTime;
-            print("츄르릅");
 
             StartCoroutine(NoodleSound());
 
             if (ramenDieCount > 3f)
             {
                 Destroy(other.gameObject);
-                print("사망");
                 GameObject.Find("Player").GetComponent<ActionBasedContinuousMoveProvider>().moveSpeed = 0.3f;
                 StartCoroutine(RamenDie());
             }
@@ -46,14 +46,12 @@ public class Mouse : MonoBehaviour
         {
             smokeDieCount += Time.deltaTime;
             GameObject.Find("Player").GetComponent<ActionBasedContinuousMoveProvider>().moveSpeed = 0.3f;
-            print("콜록콜록");
 
             StartCoroutine(CoughingSound());
 
             if (smokeDieCount > 5f)
             {
                 other.gameObject.name = "DieZone";
-                print("사망");
                 StartCoroutine(SmokeDie());
             }
         }
@@ -63,7 +61,6 @@ public class Mouse : MonoBehaviour
     {
         if (other.gameObject.name == "Ramen")
         {
-            //
             coughingCount = 0;
         }
 
@@ -73,8 +70,6 @@ public class Mouse : MonoBehaviour
             smokeDieCount = 0f;
             coughingCount = 0;
         }
-
-
     }
 
     bool soundable = true;
@@ -147,6 +142,8 @@ public class Mouse : MonoBehaviour
         dieUI.gameObject.SetActive(true);
         GameObject.Find("UiFadeOut").SetActive(false);
         //
+        leftController.RemoveEvent(); //씬으로 나가기전에 vr컨트롤러 인풋메니저 기능 해제
+
         yield return new WaitForSeconds(4f); //DIE 로고 보여준 후 게임시작씬으로 이동       
         SceneManager.LoadScene("GameStartScene");
 
@@ -172,6 +169,8 @@ public class Mouse : MonoBehaviour
         dieUI.gameObject.SetActive(true);
         GameObject.Find("UiFadeOut").SetActive(false);
         //
+        leftController.RemoveEvent(); //씬으로 나가기전에 vr컨트롤러 인풋메니저 기능 해제
+
         yield return new WaitForSeconds(4f); //DIE 로고 보여준 후 게임시작씬으로 이동       
         SceneManager.LoadScene("GameStartScene");
 

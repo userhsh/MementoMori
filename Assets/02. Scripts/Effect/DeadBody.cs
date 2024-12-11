@@ -30,12 +30,11 @@ public class DeadBody : MonoBehaviour
     { 
         float shakeTime = 0;
         originPosition = this.transform.localPosition;
-
+        audioSource.PlayOneShot(clip);
         while (shakeTime < 1f)
         {
-            audioSource.PlayOneShot(clip);
+            
             this.transform.localPosition = Random.insideUnitSphere * 0.2f + originPosition;
-
             shakeTime += Time.deltaTime;
             yield return null;
         }

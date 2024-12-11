@@ -56,11 +56,12 @@ public class OutArea : MonoBehaviour
             GameObject.Find("Player").GetComponent<PlayerFootsteps>().enabled = false;
             GameObject.Find("Player").GetComponent<AudioSource>().enabled = false;
             GameObject.Find("GunAmmo").GetComponent<Gun>().dontText = true;
+            GameObject.Find("OutArea").GetComponent<Transform>().localScale = new Vector3(6, 1.259817f, 6); //에어리어 공간 크게하여 재진입 방지
             tUITalk.StopAllCoroutines();
             tUITalk.UITalk.SetActive(false);
             StartCoroutine(tUITalk.OutAreaTalk());
         }
-        else if (condition2 == true && notAmmo == true)
+        else if (condition2 == true && notAmmo == true) //총알이 없다면
         {
             if (nextfullcheck == false)
             {
@@ -71,7 +72,7 @@ public class OutArea : MonoBehaviour
             }
 
         }
-        else if (condition2 == true)
+        else if (condition2 == true) //그냥 나가면
         {
             if (nextfullcheck == false)
             {

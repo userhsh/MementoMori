@@ -5,6 +5,7 @@ using UnityEngine;
 public class Doll : MonoBehaviour
 {
     GameObject pictureDiary = null;
+    public GameObject effectFeather;
     private Scalpel scalpel;
     bool isInteractable = false;
     public GameObject devil_doll;
@@ -43,10 +44,18 @@ public class Doll : MonoBehaviour
         {
             scalpel.PlayDollSFX();
             Instantiate(pictureDiary, this.transform.position, this.transform.rotation);
+            effectFeather.gameObject.transform.position = this.transform.position;
+            effectFeather.SetActive(true);
+            Invoke("Effect_Feather_Setactive_false", 5f);
             // 인형 삭제
             devil_doll.SetActive(false);
             collider.enabled = false;
             isInteractable = false;
         }
+    }
+
+    void Effect_Feather_Setactive_false()
+    {
+        effectFeather.SetActive(false);
     }
 }

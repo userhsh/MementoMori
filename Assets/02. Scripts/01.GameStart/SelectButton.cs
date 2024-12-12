@@ -30,7 +30,7 @@ public class SelectButton : MonoBehaviour
 
     void Yes()
     {
-        mainmenuButtons.continueButton.interactable = true; // 새 게임이 저장되었으므로 이어하기 버튼 활성화
+        mainmenuButtons.creditButton.interactable = true; // 새 게임이 저장되었으므로 이어하기 버튼 활성화
         GameManager.Instance.isTutorial = true;
         SceneManager.LoadScene("LoadingScene");
     }
@@ -43,7 +43,7 @@ public class SelectButton : MonoBehaviour
         if (gameManager != null)
         {
             gameManager.StartNewGame(); // 새 게임 시작 메소드 호출
-            mainmenuButtons.continueButton.interactable = true; // 새 게임이 저장되었으므로 이어하기 버튼 활성화
+            mainmenuButtons.creditButton.interactable = true; // 새 게임이 저장되었으므로 이어하기 버튼 활성화
             SceneManager.LoadScene("LoadingScene"); // 로딩 씬으로 전환
         }
         else

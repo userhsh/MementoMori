@@ -11,10 +11,11 @@ public class MainmenuButtons : MonoBehaviour
     public GameObject Mainmenu; // 메인 메뉴 게임 오브젝트
     public GameObject Optionmenu; // 옵션 메뉴 게임 오브젝트
     public GameObject TutorialMenu;
-    public Button continueButton; // 이어하기 버튼 참조 추가
+    public GameObject CreditMenu; //크레딧창
+    public Button creditButton; // 이어하기 버튼 참조 추가
 
     private const int NewGameButtonIndex = 0; // 새 게임 버튼 인덱스
-    private const int ContinueButtonIndex = 1; // 이어하기 버튼 인덱스
+    private const int CreditButtonIndex = 1; // 이어하기 버튼 인덱스
     private const int OptionButtonIndex = 2; // 옵션 버튼 인덱스
     private const int ExitButtonIndex = 3; // 종료 버튼 인덱스
 
@@ -31,14 +32,14 @@ public class MainmenuButtons : MonoBehaviour
         }
 
         // 이어하기 버튼 참조
-        continueButton = buttons[ContinueButtonIndex];
+        creditButton = buttons[CreditButtonIndex];
     }
 
     private void Start()
     {
         // 각 버튼에 클릭 이벤트 리스너 추가
         buttons[NewGameButtonIndex].onClick.AddListener(NewGame);  // 새 게임 버튼
-        buttons[ContinueButtonIndex].onClick.AddListener(Continue);  // 이어하기 버튼
+        buttons[CreditButtonIndex].onClick.AddListener(Credit);  // 크레딧 버튼
         buttons[OptionButtonIndex].onClick.AddListener(EnterOption);  // 옵션 메뉴 버튼
         buttons[ExitButtonIndex].onClick.AddListener(GameExit);   // 게임 종료 버튼
 
@@ -51,7 +52,7 @@ public class MainmenuButtons : MonoBehaviour
         }
         else
         {
-            continueButton.interactable = false; // GameManager가 없으면 비활성화
+            creditButton.interactable = false; // GameManager가 없으면 비활성화
             //Debug.LogError("GameManager를 찾을 수 없습니다.");
         }
     }
@@ -62,11 +63,13 @@ public class MainmenuButtons : MonoBehaviour
         Mainmenu.SetActive(false);
     }
 
-    void Continue()  // 이어하기
+    void Credit() //크레딧열기  // 이어하기
     {
-        GameManager.Instance.isTutorial = false;
+        // GameManager.Instance.isTutorial = false;
+        // SceneManager.LoadScene("LoadingScene");  // 로딩 씬 로드
 
-        SceneManager.LoadScene("LoadingScene");  // 로딩 씬 로드
+        Mainmenu.SetActive(false);  // 메인 메뉴 비활성화
+        CreditMenu.SetActive(true); //크레딧 메뉴 활성
     }
 
     void EnterOption() // 옵션 메뉴로 전환

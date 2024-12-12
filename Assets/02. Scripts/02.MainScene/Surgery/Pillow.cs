@@ -6,6 +6,7 @@ using UnityEngine.XR.Interaction.Toolkit;
 public class Pillow : MonoBehaviour, IInteractable
 {
     public Fabric fabric;
+    public GameObject effectFeather;
 
     bool isInteractable = false;
 
@@ -47,7 +48,14 @@ public class Pillow : MonoBehaviour, IInteractable
         }
         // 玫 积己
         fabric.gameObject.SetActive(true);
+        effectFeather.gameObject.SetActive(true);
+        Invoke("Effect_Feather_Setactive_false", 5f);
         // 海俺 力芭
         Destroy(gameObject, clip.length);
+    }
+
+    void Effect_Feather_Setactive_false()
+    {
+        effectFeather.SetActive(false);
     }
 }

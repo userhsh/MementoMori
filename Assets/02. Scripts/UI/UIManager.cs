@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
+using UnityEngine.XR.Interaction.Toolkit;
+
 public class UIManager : MonoBehaviour
 {
     private GameManager gameManager; // GameManager 변수 선언
@@ -23,6 +25,9 @@ public class UIManager : MonoBehaviour
 
     public LeftController leftController;
 
+    public GameObject sliderRotate;
+    private GameObject gamemanager;
+
     public UITalk uITalk;
     public int collectTalkCount = 0;
 
@@ -37,6 +42,11 @@ public class UIManager : MonoBehaviour
         {
             collections[i] = false;
         }
+
+        gamemanager = GameObject.Find("GameManager"); //게임메니저의 회전 슬라이드값이 필요하여 따로 선언
+        sliderRotate.GetComponent<Slider>().value = gamemanager.GetComponent<GameManager>().rotateValue / 100f;
+        GameObject.Find("Player").GetComponent<ActionBasedContinuousTurnProvider>().turnSpeed = gamemanager.GetComponent<GameManager>().rotateValue;
+
     }
 
     private void Start()
@@ -46,6 +56,8 @@ public class UIManager : MonoBehaviour
         {
             //Debug.Log("GameManager not found in the scene!");
         }
+
+
     }
 
     private void Update()

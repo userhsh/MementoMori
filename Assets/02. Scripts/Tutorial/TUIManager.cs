@@ -24,9 +24,14 @@ public class TUIManager : MonoBehaviour
 
     public TLeftController TleftController;
 
+    private GameObject gameManager;
+    public GameObject sliderRotate;
+
     private void Awake()
     {
-
+        gameManager = GameObject.Find("GameManager");
+        sliderRotate.GetComponent<Slider>().value = gameManager.GetComponent<GameManager>().rotateValue / 100f;
+        GameObject.Find("Player").GetComponent<ActionBasedContinuousTurnProvider>().turnSpeed = gameManager.GetComponent<GameManager>().rotateValue;
     }
 
     private void Update()

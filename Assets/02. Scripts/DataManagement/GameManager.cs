@@ -2,6 +2,8 @@ using System.IO;
 using UnityEngine;
 using System.Collections.Generic;
 using UnityEngine.Playables;
+using UnityEngine.XR.Interaction.Toolkit;
+
 public class GameManager : MonoBehaviour
 {
     public static GameManager instance; // 싱글톤 인스턴스를 보관하는 변수
@@ -247,5 +249,15 @@ public class GameManager : MonoBehaviour
     public static GameManager GetInstance()
     {
         return instance;
+    }
+
+
+
+   public float rotateValue = 50f;
+    public void RotateController(float _value)
+    {
+        rotateValue = _value * 100f;
+        GameObject.Find("Player").GetComponent<ActionBasedContinuousTurnProvider>().turnSpeed = rotateValue;
+
     }
 }

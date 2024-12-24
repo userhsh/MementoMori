@@ -72,6 +72,7 @@ public class SafeBox : MonoBehaviour, IInteractable
 
         doctorCard?.gameObject.SetActive(false);
     }
+    
 
     private void DoorOpen()
     {

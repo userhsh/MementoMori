@@ -6,6 +6,7 @@ using UnityEngine.UI;
 public class CreditCloseButtons : MonoBehaviour
 {
     Button button = null;
+    public RectTransform contentValue;
     public GameObject Mainmenu;
     public GameObject Creditmenu;
 
@@ -21,6 +22,7 @@ public class CreditCloseButtons : MonoBehaviour
 
     void Back()
     {
+        contentValue.anchoredPosition = new Vector3(0, 0, 0);
         Mainmenu.SetActive(true);   // 메인메뉴 활성화
         Creditmenu.SetActive(false);    //옵션메뉴 비활성화
     }

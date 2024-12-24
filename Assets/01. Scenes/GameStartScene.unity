@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.009055041, g: 0.013165807, b: 0.020603705, a: 1}
+  m_IndirectSpecularColor: {r: 0.009010915, g: 0.013113563, b: 0.02054074, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -452,7 +452,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 618.03973}
+  m_AnchoredPosition: {x: 0, y: 507.03986}
   m_SizeDelta: {x: 646.7, y: 286.1}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &148981798
@@ -477,7 +477,7 @@ MonoBehaviour:
       m_Calls: []
   m_FontData:
     m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
-    m_FontSize: 25
+    m_FontSize: 18
     m_FontStyle: 0
     m_BestFit: 0
     m_MinSize: 10
@@ -487,17 +487,31 @@ MonoBehaviour:
     m_RichText: 1
     m_HorizontalOverflow: 1
     m_VerticalOverflow: 1
-    m_LineSpacing: 1
-  m_Text: '-Font-
-
-
-    -Image-
-
-
-    -3D Model-
-
-
-    -Sound-'
+    m_LineSpacing: 1.37
+  m_Text: "<Developer>\n\uBB38\uC5F0\uC218, \uBC15\uD61C\uB9BC, \uAE40\uD55C\uC6C5,
+    \uD669\uC11D\uD658\n\n<Font>\n\uC601\uBB38\uD3F0\uD2B8 - https://www.dafont.com/runtoe.font?text=runto\n\uD55C\uAE00\uD3F0\uD2B8
+    - https://gongu.copyright.or.kr/gongu/wrt/wrt/view.do?wrtSn=13305046\n&menuNo=200023\n\n<3D
+    Model>\n\uC0AC\uC2B4 \uD53C\uADDC\uC5B4 - https://skfb.ly/oQHqQ\n\n<Image>\n\uC544\uC774\uD15C\uD328\uB110UI
+    - https://www.freepik.com/free-vector/set-vector-grunge-frame-temp\nlates-shabby-dirty-vector-illustration_11054026.htm#fromView=keyword&page=1\n&position=0&uuid=898ae15a-cadf-42b1-8435-e2cf6c7d94c0\n\uB300\uC0AC\uD328\uB110UI
+    - https://svgsilh.com/ko/image/1986217.html\n\uAE43\uD138 \uD30C\uD2F0\uD074
+    - https://www.freepik.com/free-psd/beautiful-feather-studio_3608518\n15.htm\nID\uCE74\uB4DC
+    - https://pixabay.com/illustrations/doctor-hospital-clinical-health-8587851/\n\uC190\uC790\uAD6D
+    - https://pixabay.com/users/noupload-2404633/?utm_source=link-attributi\non&utm_medium=referral&utm_campaign=image&utm_content=2106508\n\uC2E0\uBB38\uAE30\uC0AC
+    -  https://www.freepik.com/free-psd/folded-newspaper-with-cover-newsp\naper_874540.htm#fromView=search&page=1&position=2&uuid=50b69c81-1305-\n46a2-ba4f-787745e881fe\n\n<Sound>\n\uAC70\uC6B8
+    \uB2E6\uAE30 - https://taira-komori.jpn.org/sound_os2/daily01/polishing2.mp3\n\uB204\uC218
+    \uC2DC- https://taira-komori.jpn.org/sound_os2/horror02/dropping.mp3\n\uBA54\uC2A4
+    \uC0AC\uC6A9 - https://taira-komori.jpn.org/sound_os2/daily02/cutting_a_paper.mp3\n\uC218\uC220\uC2E4
+    \uBB38 \uB178\uD06C - https://taira-komori.jpn.org/sound_os2/daily01/knocking_an_iron\n_door3.mp3\n\uAD50\uC2E4
+    \uBB38 \uB178\uD06C - https://taira-komori.jpn.org/sound_os2/daily01/knocking_a_woode\nn_door2.mp3\n\uC154\uD130
+    \uC5F4\uB9BC - https://taira-komori.jpn.org/sound_os2/openclose01/shutter1.mp3\n\uC5F0\uD544
+    \uB4DC\uB86D - https://taira-komori.jpn.org/sound_os2/putting01/putting_a_pencil.mp3\n\uCE74\uBA54\uB77C
+    \uC250\uC774\uD06C - https://taira-komori.jpn.org/sound_os2/horror01/terror_attack.mp3\n\uB5A8\uC5B4\uC9C0\uB294
+    \uC0AC\uC6B4\uB4DC - https://taira-komori.jpn.org/sound_os2/putting01/putting1.mp3\nDIE
+    \uC5F0\uCD9C \uC2DC - https://pixabay.com/ko/sound-effects/\n\uC2DC\uCCB4 \uBE44\uBA85
+    - https://pixabay.com/ko/users/46691455/?tab=all&order=latest&pagi=1\n\uC57D\uD488\uC120\uBC18
+    \uC7A0\uAE08\uD574\uC81C - https://taira-komori.jpn.org/putting01kr.html\n\uC0AC\uC2B4\uBFD4
+    \uD68C\uC804 \uC2DC - https://pixabay.com/ko/users/freesound_community-46691455/?\nutm_source=link-attribution&utm_medium=referral&utm_campaign=music&utm_c\nontent=94493\nTV
+    \uB178\uC774\uC988 - https://taira-komori.jpn.org/horror01kr.html"
 --- !u!222 &148981799
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -611,7 +625,7 @@ RectTransform:
   m_GameObject: {fileID: 157661298}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: -0.00061035156}
-  m_LocalScale: {x: 0.5999999, y: 0.8039999, z: 0.5999999}
+  m_LocalScale: {x: 0.79621947, y: 0.8039999, z: 0.5999999}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 844628993}
@@ -620,7 +634,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -4.8, y: -136.39987}
+  m_AnchoredPosition: {x: -4.8, y: -153.5}
   m_SizeDelta: {x: 199.92, y: 41.31}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &157661300
@@ -635,6 +649,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 346f5d86626c36c4e888b75a76066ee7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  contentValue: {fileID: 963641462}
   Mainmenu: {fileID: 354214321}
   Creditmenu: {fileID: 139669249}
 --- !u!114 &157661301
@@ -1122,7 +1137,7 @@ RectTransform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 375117246}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: -0.0012207031}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -1132,7 +1147,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 0.00045776367, y: -0.000091552734}
   m_SizeDelta: {x: 20, y: -17}
   m_Pivot: {x: 1, y: 1}
 --- !u!114 &375117248
@@ -1179,7 +1194,7 @@ MonoBehaviour:
   m_HandleRect: {fileID: 2146031925}
   m_Direction: 2
   m_Value: 1.0000001
-  m_Size: 0.13020155
+  m_Size: 0.15384616
   m_NumberOfSteps: 0
   m_OnValueChanged:
     m_PersistentCalls:
@@ -2592,7 +2607,7 @@ RectTransform:
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 1, y: 1}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: 1536.08}
+  m_SizeDelta: {x: 0, y: 1300}
   m_Pivot: {x: 0, y: 1}
 --- !u!1 &988288773
 GameObject:
@@ -4824,6 +4839,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   isContinueAvailable: 0
   crowbarActive: 0
+  rotateValue: 50
 --- !u!4 &1836489527
 Transform:
   m_ObjectHideFlags: 0
@@ -5109,7 +5125,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -9.8, y: -39.1}
+  m_AnchoredPosition: {x: -9.8, y: -26.6}
   m_SizeDelta: {x: 681, y: 200}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1966601545
@@ -5528,7 +5544,7 @@ RectTransform:
   m_Father: {fileID: 300065774}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0.8697984}
+  m_AnchorMin: {x: 0, y: 0.84615386}
   m_AnchorMax: {x: 1, y: 1}
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 20, y: 20}

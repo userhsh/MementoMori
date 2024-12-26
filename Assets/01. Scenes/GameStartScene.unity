@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.009010915, g: 0.013113563, b: 0.02054074, a: 1}
+  m_IndirectSpecularColor: {r: 0.009030921, g: 0.013147005, b: 0.020592697, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -367,8 +367,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 1
     m_VerticalOverflow: 1
     m_LineSpacing: 1
-  m_Text: "\uB9AC\uC18C\uC2A4 \uC81C\uACF5\uC73C\uB85C \uB3C4\uC6C0\uC744 \uC8FC\uC154\uC11C
-    \uAC10\uC0AC\uD569\uB2C8\uB2E4."
+  m_Text: "\uAC1C\uBC1C\uC790 \uBC0F \uB9AC\uC18C\uC2A4 \uC81C\uACF5 \uCD9C\uCC98\uBAA9\uB85D"
 --- !u!222 &96828110
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -452,7 +451,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 507.03986}
+  m_AnchoredPosition: {x: 0, y: 757.0401}
   m_SizeDelta: {x: 646.7, y: 286.1}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &148981798
@@ -511,7 +510,22 @@ MonoBehaviour:
     - https://pixabay.com/ko/users/46691455/?tab=all&order=latest&pagi=1\n\uC57D\uD488\uC120\uBC18
     \uC7A0\uAE08\uD574\uC81C - https://taira-komori.jpn.org/putting01kr.html\n\uC0AC\uC2B4\uBFD4
     \uD68C\uC804 \uC2DC - https://pixabay.com/ko/users/freesound_community-46691455/?\nutm_source=link-attribution&utm_medium=referral&utm_campaign=music&utm_c\nontent=94493\nTV
-    \uB178\uC774\uC988 - https://taira-komori.jpn.org/horror01kr.html"
+    \uB178\uC774\uC988 - https://taira-komori.jpn.org/horror01kr.html\n\uAE30\uCE68 
+    - https://taira-komori.jpn.org/sound_os2/human01/man_coughing2.mp3\n\uB77C\uBA74 
+    - https://taira-komori.jpn.org/sound_os2/eating01/noodles1.mp3\n\uBC84\uD2BC
+    \uC624\uB2F5 - https://taira-komori.jpn.org/sound_os2/game01/blip02.mp3\n\uBC84\uD2BC
+    \uC815\uB2F5 - https://taira-komori.jpn.org/sound_os2/game01/correct_answer2.mp3\n\uBC84\uD2BC
+    \uC120\uD0DD - https://taira-komori.jpn.org/sound_os2/game01/button01a.mp3\n\uBC14\uB78C
+    - https://taira-komori.jpn.org/sound_os2/nature01/strong_wind2.mp3\n\uC778\uD615
+    \uCC22\uAE30- https://taira-komori.jpn.org/sound_os2/daily02/tearing_papers1.mp3\n\uD37C\uC990
+    \uC774\uB3D9 - https://taira-komori.jpn.org/freesoundkr.html\n\uD37C\uC990 \uC11E\uAE30
+    - https://taira-komori.jpn.org/freesoundkr.html\n\uC57D\uD488 \uC0AC\uC6A9  -
+    https://taira-komori.jpn.org/freesoundkr.html\n\uAD50\uD1B5\uC0AC\uACE0 \uC2DC
+    - https://pixabay.com/ko/sound-effects/\n\uCEE4\uD2BC \uD574\uC81C \uC2DC - https://taira-komori.jpn.org/freesoundkr.html\n\uC885\uC774
+    \uB118\uAE38 \uC2DC - https://taira-komori.jpn.org/freesoundkr.html\n\uC5F0\uD544
+    \uC0AC\uC6A9 \uC2DC - https://taira-komori.jpn.org/sound_os2/daily02/writing_in_a_pencil.mp3\n\uC18C\uD30C
+    - https://taira-komori.jpn.org/freesoundkr.html\n\n<Other Assets>\n\uC5D0\uC14B
+    \uC2A4\uD1A0\uC5B4 - https://assetstore.unity.com"
 --- !u!222 &148981799
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -1194,7 +1208,7 @@ MonoBehaviour:
   m_HandleRect: {fileID: 2146031925}
   m_Direction: 2
   m_Value: 1.0000001
-  m_Size: 0.15384616
+  m_Size: 0.111111104
   m_NumberOfSteps: 0
   m_OnValueChanged:
     m_PersistentCalls:
@@ -2607,7 +2621,7 @@ RectTransform:
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 1, y: 1}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: 1300}
+  m_SizeDelta: {x: 0, y: 1800}
   m_Pivot: {x: 0, y: 1}
 --- !u!1 &988288773
 GameObject:
@@ -5544,7 +5558,7 @@ RectTransform:
   m_Father: {fileID: 300065774}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0.84615386}
+  m_AnchorMin: {x: 0, y: 0.8888889}
   m_AnchorMax: {x: 1, y: 1}
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 20, y: 20}

@@ -144,7 +144,7 @@ public class VolumeController : MonoBehaviour
         }
         else
         {
-            Debug.LogWarning("Volume data file does not exist."); // 파일이 없을 경우 경고
+           // 파일이 없을 경우 경고
         }
     }
 }

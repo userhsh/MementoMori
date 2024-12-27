@@ -21,7 +21,6 @@ public class TUITalk : MonoBehaviour
     private void Awake()
     {
 
-
     }
     public IEnumerator OutAreaTalk() //ÃÑÀ» Ã¬°Ü³ª¿À°í ¼º°ø ½Ã
     {

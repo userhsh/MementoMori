@@ -6,7 +6,6 @@ public class Paper : MonoBehaviour, IUseable
 {
     public void GetItem(Transform _pos)
     {
-        print("¸®¸ðÄÁ È¹µæ");
         this.gameObject.SetActive(false);
     }
 

@@ -32,7 +32,7 @@ public class TV : MonoBehaviour, IInteractable
         }
         else
         {
-            //Debug.Log("다른 곳에 사용해보자.");
+        
         }
     }
 }

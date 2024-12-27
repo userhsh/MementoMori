@@ -7,18 +7,16 @@ public class SurgeryShutterButton : MonoBehaviour, IInteractable
     // 셔터를 담을 변수 선언
     public Shutter shutter = null;
 
-   public int soundCount = 0;
+    public int soundCount = 0;
 
     Animator animator;
 
-    AudioSource audioSource;
     [SerializeField]
-    AudioClip clip;
+    AudioSource audioSource;
 
     private void Awake()
     {
         animator = GetComponent<Animator>();
-        audioSource = GetComponent<AudioSource>();
     }
 
     public void Interact()
@@ -28,7 +26,7 @@ public class SurgeryShutterButton : MonoBehaviour, IInteractable
 
         if (soundCount == 0) 
         {
-            audioSource.PlayOneShot(clip);
+            audioSource.PlayOneShot(audioSource.clip);
         }
 
         // 셔터 제거 메서드 실행

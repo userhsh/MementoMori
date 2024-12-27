@@ -92,6 +92,7 @@ public class SlidePuzzleBoard : MonoBehaviour
 
         // 셔플된 타일의 Inversions 계산해서 클리어 여부 판단하기
         InversionsCalCulation();
+        EmptyTilePosition();
 
         // 다시 타일 섞기
         StartCoroutine(ReShuffleTile());
@@ -148,7 +149,20 @@ public class SlidePuzzleBoard : MonoBehaviour
             isClearable = false;
         }
 
-        print(inversions);
+    }
+
+    private void EmptyTilePosition()
+    {
+        for (int i = 0; i < tiles.Length; i++) 
+        {
+            if (i % 2 != 0)
+            {
+                if (tiles[i].TileValue == 8)
+                {
+                    isClearable = false;
+                }
+            }
+        }
     }
 
     // 재셔플 코루틴
@@ -163,6 +177,7 @@ public class SlidePuzzleBoard : MonoBehaviour
             tiles[tileIndex].transform.SetAsLastSibling();
             // 퍼즐 inversions 확인해서 클리어 여부 판단하기
             InversionsCalCulation();
+            EmptyTilePosition();
 
             // 0.1초간 대기 (다시 섞을 때는 천천히 섞기 위해)
             yield return new WaitForSeconds(0.1f);

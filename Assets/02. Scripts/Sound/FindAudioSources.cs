@@ -8,7 +8,6 @@ public class FindAudioSources : MonoBehaviour
         AudioSource[] audioSources = FindObjectsOfType<AudioSource>();
         foreach (AudioSource source in audioSources)
         {
-            Debug.Log("Found Audio Source on: " + source.gameObject.name);
         }
     }
 }

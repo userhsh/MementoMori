@@ -19,9 +19,7 @@ public class OptionUI : MonoBehaviour
         button = GetComponentInChildren<Button>();
 
         gameManager = GameObject.Find("GameManager");
-        sliderRotate = GameObject.Find("Slider Rotate");
-      //  sliderRotate.GetComponent<Slider>().value = gameManager.GetComponent<GameManager>().rotateValue / 100f;
-      //  GameObject.Find("Player").GetComponent<ActionBasedContinuousTurnProvider>().turnSpeed = gameManager.GetComponent<GameManager>().rotateValue;
+        sliderRotate = GameObject.Find("Slider Rotate");     
     }
 
     private void Start()

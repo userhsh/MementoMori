@@ -54,7 +54,6 @@ public class ItemCrowBar : MonoBehaviour
     {
         if (use == true)
         {
-            print("크로우바 사용");
             strangeTile.gameObject.SetActive(false);
             audioSource.PlayOneShot(crawbarSound);
             childmeshRenderer.enabled = false;

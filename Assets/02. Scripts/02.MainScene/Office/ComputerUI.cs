@@ -60,7 +60,6 @@ public class ComputerUI : MonoBehaviour
         if (password.Length >= 4) return; //최대 4자리 넘지않도록 > 넘으면 리턴
         password += _buttonName; //판별할 값에 입력숫자 더해줌
         DisplayText(); //* 갯수 업데이트
-        print(password);
     }
 
     private void DeletePassword() // DEL 눌렀을때 
@@ -69,7 +68,6 @@ public class ComputerUI : MonoBehaviour
         {
             password = password.Substring(0, password.Length - 1);
             DisplayText();
-            print(password);
         }
     }
 
@@ -84,7 +82,6 @@ public class ComputerUI : MonoBehaviour
         {
             if (password == correctPassword)
             {
-                print("CorrectPassword");
                 audioSource.PlayOneShot(correctClip);
                 quizWindow.gameObject.SetActive(true); //퀴즈화면 띄움
                 isQuizOn = true;
@@ -103,7 +100,6 @@ public class ComputerUI : MonoBehaviour
         {
             if (password == quizAnswer)
             {
-                print("정답화면 출력");
                 audioSource.PlayOneShot(correctClip);
                 quizWindow.gameObject.SetActive(false);
                 answerWindow.gameObject.SetActive(true);
@@ -111,7 +107,6 @@ public class ComputerUI : MonoBehaviour
             }
             else
             {
-                print("오답");
                 audioSource.PlayOneShot(wrongClip);
                 ClearPassword();
             }

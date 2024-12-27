@@ -241,7 +241,7 @@ public class GameManager : MonoBehaviour
         }
         else
         {
-            //Debug.Log("PlayerController not found during application quit."); // 로그 추가
+
         }
     }
 

@@ -7,7 +7,6 @@ using UnityEngine.UI;
 
 public class GunHit : MonoBehaviour
 {
-
     private Transform shakeCamera;
     private Image bloodImage;
     private AudioClip shotClip;
@@ -22,7 +21,6 @@ public class GunHit : MonoBehaviour
 
     private void Awake()
     {
-
         shakeCamera = GetComponentInChildren<Camera>().transform;
         bloodImage = GetComponentInChildren<Image>();
         endText = GetComponentInChildren<TextMeshProUGUI>();
@@ -41,9 +39,6 @@ public class GunHit : MonoBehaviour
     // 총에 맞았을 때 호출되는 메서드
     public IEnumerator ShakeCamera(float duration = 0.2f, float magnitudePos = 0.5f, float magnitudeRot = 0.1f)
     {
-
-        print("1");
-
         shotSource.PlayOneShot(shotClip);
         float passTime = 0f;
 
@@ -79,7 +74,6 @@ public class GunHit : MonoBehaviour
 
     public IEnumerator ShowBloodEffect()
     {
-        print("2");
         // 피 이미지 활성화
         bloodImage.gameObject.SetActive(true);
         float elapsed = 0f; // 경과 시간
@@ -102,7 +96,6 @@ public class GunHit : MonoBehaviour
 
     private void ShowEndText()
     {
-        print("3");
         endText.gameObject.SetActive(true);
 
         Invoke("BackToStart", 5f);
@@ -111,7 +104,6 @@ public class GunHit : MonoBehaviour
 
     private void BackToStart()
     {
-        print("4");
         SceneManager.LoadScene("GameStartScene");
     }
 }

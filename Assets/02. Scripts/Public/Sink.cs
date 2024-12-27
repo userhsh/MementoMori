@@ -49,8 +49,6 @@ public class Sink : MonoBehaviour, IInteractable
     {
         if (isTap) // 수도꼭지가 세면대에 존재한다면
         {
-            // 상호작용
-            print("Water");
             // 수도꼭지와 상호작용할 때 마다 물 틀었다 껐다 하기 
             isOnTap = !isOnTap;
             sinkWater.gameObject.SetActive(isOnTap);
@@ -64,8 +62,7 @@ public class Sink : MonoBehaviour, IInteractable
         }
         else // 수도꼭지가 없다면
         {
-            // 수도꼭지 없음 출력
-            print("No Tap");
+
         }
     }
 }

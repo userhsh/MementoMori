@@ -162,20 +162,48 @@ public class UIManager : MonoBehaviour
         switch (collectTalkCount)
         {
             case 1:
-
-                StartCoroutine(uITalk.InteractionTalk("'내'가 왜 이런 곳에\n있는 걸까."));
+                if (GameObject.Find("LauguageManager").GetComponent<LauguageMainGame>().languageEnglish == true)
+                {
+                    StartCoroutine(uITalk.InteractionTalk("Why am I\nin this place."));
+                }
+                else if (GameObject.Find("LauguageManager").GetComponent<LauguageMainGame>().languageKorean == true)
+                {
+                     StartCoroutine(uITalk.InteractionTalk("'내'가 왜 이런 곳에\n있는 걸까."));
+                }
+             
                 break;
             case 2:
-
-                StartCoroutine(uITalk.InteractionTalk("결코 잊을 수 없는\n얼굴이 떠올랐다."));
+                if (GameObject.Find("LauguageManager").GetComponent<LauguageMainGame>().languageEnglish == true)
+                {
+                    StartCoroutine(uITalk.InteractionTalk("A face that I will never\nforget came to mind."));
+                }
+                else if (GameObject.Find("LauguageManager").GetComponent<LauguageMainGame>().languageKorean == true)
+                {
+                    StartCoroutine(uITalk.InteractionTalk("결코 잊을 수 없는\n얼굴이 떠올랐다."));
+                }
+                
                 break;
             case 3:
-
-                StartCoroutine(uITalk.InteractionTalk("내게 그 누구보다 의미 있는\n존재였던 아이의 얼굴."));
+                if (GameObject.Find("LauguageManager").GetComponent<LauguageMainGame>().languageEnglish == true)
+                {
+                    StartCoroutine(uITalk.InteractionTalk("A child's face that meant\nmore to me than anyone else"));
+                }
+                else if (GameObject.Find("LauguageManager").GetComponent<LauguageMainGame>().languageKorean == true)
+                {
+                   StartCoroutine(uITalk.InteractionTalk("내게 그 누구보다 의미 있는\n존재였던 아이의 얼굴."));
+                }
+                
                 break;
             case 4:
-
-                StartCoroutine(uITalk.InteractionTalk("운이 나빴다. \n조금만 더 신경 썼더라면..."));
+                if (GameObject.Find("LauguageManager").GetComponent<LauguageMainGame>().languageEnglish == true)
+                {
+                    StartCoroutine(uITalk.InteractionTalk("I was unlucky. If only \nI had cared a little more..."));
+                }
+                else if (GameObject.Find("LauguageManager").GetComponent<LauguageMainGame>().languageKorean == true)
+                {
+                   StartCoroutine(uITalk.InteractionTalk("운이 나빴다. \n조금만 더 신경 썼더라면..."));
+                }
+               
                 break;
         }
 

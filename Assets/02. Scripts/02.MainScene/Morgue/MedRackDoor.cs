@@ -52,7 +52,15 @@ public class MedRackDoor : MonoBehaviour
         }
         else
         {
-            StartCoroutine(uITalk.InteractionTalk("잠겨있다..."));
+            if (GameObject.Find("LauguageManager").GetComponent<LauguageMainGame>().languageEnglish == true)
+            {
+                StartCoroutine(uITalk.InteractionTalk("Locked.."));
+            }
+            else if (GameObject.Find("LauguageManager").GetComponent<LauguageMainGame>().languageKorean == true)
+            {
+               StartCoroutine(uITalk.InteractionTalk("잠겨있다..."));
+            }
+           
         }
 
     }

@@ -20,7 +20,15 @@ public class FogCollision : MonoBehaviour, IEffectable
     {
         if (collisionCount != 0) return;
 
-        StartCoroutine(uiTalk.InteractionTalk("여기로 가면 안될 것 같다..."));
+        if (GameObject.Find("LauguageManager").GetComponent<LauguageMainGame>().languageEnglish == true)
+        {
+            StartCoroutine(uiTalk.InteractionTalk("I don't think I should go.."));
+        }
+        else if (GameObject.Find("LauguageManager").GetComponent<LauguageMainGame>().languageKorean == true)
+        {
+           StartCoroutine(uiTalk.InteractionTalk("여기로 가면 안될 것 같다..."));
+        }
+        
         collisionCount++;
 
         StartCoroutine(OffFogCollider());

@@ -23,8 +23,12 @@ public class LeftController : XRRayInteractor
 
     public GameObject[] UICollectionGet;
 
+    public bool languageEnglish = false;
+    public bool languageKorean = false;
+
     private new void Start()
     {
+        //VR기기 버튼에 기능을 펑션하여 추가
         menu.action.performed += MenuOn;
         collectionOn.action.performed += CollectionOn;
         collectionOff.action.performed += CollectionOff;
@@ -32,6 +36,7 @@ public class LeftController : XRRayInteractor
 
     public void RemoveEvent()
     {
+        //씬 전환 및 로비 이동 시 기능을 해제하여 기능 초기화
         menu.action.performed -= MenuOn;
         collectionOn.action.performed -= CollectionOn;
         collectionOff.action.performed -= CollectionOff;
@@ -93,115 +98,290 @@ public class LeftController : XRRayInteractor
         UIItem.transform.GetChild(1).gameObject.SetActive(false);
     }
 
+    //컨트롤러에 interact가 된 아이템을 Hover 시
     protected override void OnHoverEntered(XRBaseInteractable interactable)
     {
-
-        if (isGrip)
+        if (isGrip) //레이가 상호작용 가능한 상태라면
         {
+            //UIItem의 자식인 텍스트 박스을 활성화
             UIItem.transform.GetChild(1).gameObject.SetActive(true);
-
-            switch (interactable.name)
+        
+            switch (interactable.name) //오브젝트 이름과 비교
             {
-                case "Doll":
+                case "Doll": //인형
                     UIItem.SetActive(true);
-                    UIItemText.text = "아이템: 인형\n...찢을 수 있을 것 같다."; 
+                    if (languageEnglish) //영어설정 시
+                    {   //UI텍스트 상자에 아이템: 이름, 설명 표시
+                        UIItemText.text = "Item: Doll\n...can rip this off";
+                    }
+                    else if (languageKorean) //한국어 설정 시
+                    {
+                        UIItemText.text = "아이템: 인형\n...찢을 수 있을 것 같다.";
+                    }
                     break;
-                case "Crowbar":
+                case "Crowbar": //크로우바
                     UIItem.SetActive(true);
-                    UIItemText.text = "아이템: 크로우바";
+                    if (languageEnglish)
+                    {
+                        UIItemText.text = "Item: Crowbar";
+                    }
+                    else if (languageKorean)
+                    {
+                        UIItemText.text = "아이템: 크로우바";
+                    }
                     break;
-                case "MorgueKey":
+                case "MorgueKey": //안치실 열쇠
                     UIItem.SetActive(true);
-                    UIItemText.text = "아이템: 시체 안치실 열쇠";
+                    if (languageEnglish)
+                    {
+                        UIItemText.text = "Item: Morgue Key";
+                    }
+                    else if (languageKorean)
+                    {
+                        UIItemText.text = "아이템: 시체 안치실 열쇠";
+                    }
+
                     break;
                 case "DoctorCard":
                     UIItem.SetActive(true);
-                    UIItemText.text = "아이템: ID 카드";
+                    if (languageEnglish)
+                    {
+                        UIItemText.text = "Item: ID Card";
+                    }
+                    else if (languageKorean)
+                    {
+                        UIItemText.text = "아이템: ID 카드";
+                    }
+
                     break;
                 case "CabinetKey":
                     UIItem.SetActive(true);
-                    UIItemText.text = "아이템: 캐비넷 열쇠";
+                    if (languageEnglish)
+                    {
+                        UIItemText.text = "Item: Cabinet Key";
+                    }
+                    else if (languageKorean)
+                    {
+                        UIItemText.text = "아이템: 캐비넷 열쇠";
+                    }
+
                     break;
                 case "Pencil":
                     UIItem.SetActive(true);
-                    UIItemText.text = "아이템: 연필";
+                    if (languageEnglish)
+                    {
+                        UIItemText.text = "Item: Pencil";
+                    }
+                    else if (languageKorean)
+                    {
+                        UIItemText.text = "아이템: 연필";
+                    }
+
                     break;
                 case "OfficeKey":
                     UIItem.SetActive(true);
-                    UIItemText.text = "아이템: 사무실 열쇠";
+                    if (languageEnglish)
+                    {
+                        UIItemText.text = "Item: Office Key";
+                    }
+                    else if (languageKorean)
+                    {
+                        UIItemText.text = "아이템: 사무실 열쇠";
+                    }
+
                     break;
                 case "RemoconPivot":
                     UIItem.SetActive(true);
-                    UIItemText.text = "아이템: 리모콘";
+                    if (languageEnglish)
+                    {
+                        UIItemText.text = "Item: Remocon";
+                    }
+                    else if (languageKorean)
+                    {
+                        UIItemText.text = "아이템: 리모콘";
+                    }
+
                     break;
                 case "Flashlight":
                     UIItem.SetActive(true);
-                    UIItemText.text = "아이템: 손전등";
+                    if (languageEnglish)
+                    {
+                        UIItemText.text = "Item: Flashlight";
+                    }
+                    else if (languageKorean)
+                    {
+                        UIItemText.text = "아이템: 손전등";
+                    }
+
                     break;
                 case "Paper_None":
                     UIItem.SetActive(true);
-                    UIItemText.text = "아이템: 종이";
+                    if (languageEnglish)
+                    {
+                        UIItemText.text = "Item: Paper_None";
+                    }
+                    else if (languageKorean)
+                    {
+                        UIItemText.text = "아이템: 종이";
+                    }
+
                     break;
                 case "SurgeryKey":
                     UIItem.SetActive(true);
-                    UIItemText.text = "아이템: 수술실 열쇠";
+                    if (languageEnglish)
+                    {
+                        UIItemText.text = "Item: Surgery Key";
+                    }
+                    else if (languageKorean)
+                    {
+                        UIItemText.text = "아이템: 수술실 열쇠";
+                    }
+
                     break;
                 case "Scalpel":
                     UIItem.SetActive(true);
-                    UIItemText.text = "아이템: 메스";
+                    if (languageEnglish)
+                    {
+                        UIItemText.text = "Item: Scalpel";
+                    }
+                    else if (languageKorean)
+                    {
+                        UIItemText.text = "아이템: 메스";
+                    }
+
                     break;
                 case "PillowFabic_Medicine":
                     UIItem.SetActive(true);
-                    UIItemText.text = "아이템: 약 묻은 천";
+                    if (languageEnglish)
+                    {
+                        UIItemText.text = "Item: Medicated cloth";
+                    }
+                    else if (languageKorean)
+                    {
+                        UIItemText.text = "아이템: 약 묻은 천";
+                    }
+
                     break;
                 case "Medicine":
                     UIItem.SetActive(true);
                     UIItem.transform.GetChild(1).gameObject.SetActive(false);
                     UIItemText.GetComponent<Text>().fontSize = 45;
-                    UIItemText.text = "병에 뭐라고 쓰여있다. \n\"묵은 때 제거\"";
+                    if (languageEnglish)
+                    {
+                        UIItemText.text = "It says something on the bottle. \n\"Remove dirt\"";
+                    }
+                    else if (languageKorean)
+                    {
+                        UIItemText.text = "병에 뭐라고 쓰여있다. \n\"묵은 때 제거\"";
+                    }
+
                     break;
                 case "PillowFabic":
                     UIItem.SetActive(true);
-                    UIItemText.text = "아이템: 천";
+                    if (languageEnglish)
+                    {
+                        UIItemText.text = "Item: Cloth";
+                    }
+                    else if (languageKorean)
+                    {
+                        UIItemText.text = "아이템: 천";
+                    }
+
                     break;
                 case "ShutterButton":
                     UIItem.SetActive(true);
-                    UIItemText.text = "아이템: 셔터 버튼";
+                    if (languageEnglish)
+                    {
+                        UIItemText.text = "Item: Shutter button";
+                    }
+                    else if (languageKorean)
+                    {
+                        UIItemText.text = "아이템: 셔터 버튼";
+                    }
+
                     break;
                 case "Mirror":
                     UIItem.SetActive(true);
                     UIItem.transform.GetChild(1).gameObject.SetActive(false);
                     UIItemText.GetComponent<Text>().fontSize = 45;
-                    UIItemText.text = "더럽다. 무언가로 닦을 수 있을 것 같다.";
+                    if (languageEnglish)
+                    {
+                        UIItemText.text = "It's dirty. I think I can wipe it with something.";
+                    }
+                    else if (languageKorean)
+                    {
+                        UIItemText.text = "더럽다. 무언가로 닦을 수 있을 것 같다.";
+                    }
+
                     break;
                 case "BloodCollider":
                     UIItem.SetActive(true);
                     UIItem.transform.GetChild(1).gameObject.SetActive(false);
                     UIItemText.GetComponent<Text>().fontSize = 45;
-                    UIItemText.text = "무언가 적혔던 흔적이 있다.";
+                    if (languageEnglish)
+                    {
+                        UIItemText.text = "There are traces of something written on it.";
+                    }
+                    else if (languageKorean)
+                    {
+                        UIItemText.text = "무언가 적혔던 흔적이 있다.";
+                    }
+
                     break;
                 case "StrangeTile":
                     UIItem.SetActive(true);
                     UIItem.transform.GetChild(1).gameObject.SetActive(false);
                     UIItemText.GetComponent<Text>().fontSize = 45;
-                    UIItemText.text = "수상한 타일이다. \n공구로 떼어낼 수 있을 것 같다.";
+                    if (languageEnglish)
+                    {
+                        UIItemText.text = "It's a suspicious tile. \nI think it can be removed with a \"tool\".";
+                    }
+                    else if (languageKorean)
+                    {
+                        UIItemText.text = "수상한 타일이다. \n공구로 떼어낼 수 있을 것 같다.";
+                    }
+
                     break;
                 case "ButtonHole":
                     UIItem.SetActive(true);
                     UIItem.transform.GetChild(1).gameObject.SetActive(false);
                     UIItemText.GetComponent<Text>().fontSize = 45;
-                    UIItemText.text = "버튼을 끼울 수 있을 것 같다.";
+                    if (languageEnglish)
+                    {
+                        UIItemText.text = "Can attach a button.";
+                    }
+                    else if (languageKorean)
+                    {
+                        UIItemText.text = "버튼을 끼울 수 있을 것 같다.";
+                    }
+
                     break;
                 case "TV":
                     UIItem.SetActive(true);
                     UIItem.transform.GetChild(1).gameObject.SetActive(false);
                     UIItemText.GetComponent<Text>().fontSize = 45;
-                    UIItemText.text = "리모컨으로 켤 수 있을 것 같다.";
+                    if (languageEnglish)
+                    {
+                        UIItemText.text = "Can turn it on with a remocon.";
+                    }
+                    else if (languageKorean)
+                    {
+                        UIItemText.text = "리모컨으로 켤 수 있을 것 같다.";
+                    }
+
                     break;
                 case "Ramen":
                     UIItem.SetActive(true);
                     UIItem.transform.GetChild(1).gameObject.SetActive(false);
-                    UIItemText.text = "라면이다. \n한입만...?";
+                    if (languageEnglish)
+                    {
+                        UIItemText.text = "Ramen. \nJust one bite..?";
+                    }
+                    else if (languageKorean)
+                    {
+                        UIItemText.text = "라면이다. \n한입만...?";
+                    }
+
                     break;
                 default:
                     break;
@@ -211,19 +391,51 @@ public class LeftController : XRRayInteractor
             {
                 case "Collection1":
                     subTitle.SetActive(true);
-                    subTitleText.text = "첫번째 수집품";
+                    if (languageEnglish)
+                    {
+                        subTitleText.text = "First Collection";
+                    }
+                    else if (languageKorean)
+                    {
+                        subTitleText.text = "첫번째 수집품";
+                    }
+
                     break;
                 case "Collection2":
                     subTitle.SetActive(true);
-                    subTitleText.text = "두번째 수집품";
+                    if (languageEnglish)
+                    {
+                        subTitleText.text = "Second Collection";
+                    }
+                    else if (languageKorean)
+                    {
+                        subTitleText.text = "두번째 수집품";
+                    }
+
                     break;
                 case "Collection3":
                     subTitle.SetActive(true);
-                    subTitleText.text = "세번째 수집품";
+                    if (languageEnglish)
+                    {
+                        subTitleText.text = "Third Collection";
+                    }
+                    else if (languageKorean)
+                    {
+                        subTitleText.text = "세번째 수집품";
+                    }
+
                     break;
                 case "Collection4":
                     subTitle.SetActive(true);
-                    subTitleText.text = "네번째 수집품";
+                    if (languageEnglish)
+                    {
+                        subTitleText.text = "Fourth Collection";
+                    }
+                    else if (languageKorean)
+                    {
+                        subTitleText.text = "네번째 수집품";
+                    }
+
                     break;
                 default:
                     break;

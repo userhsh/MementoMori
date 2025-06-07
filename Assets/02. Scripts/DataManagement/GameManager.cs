@@ -14,8 +14,10 @@ public class GameManager : MonoBehaviour
     public bool isContinueAvailable; // 이어하기 가능 여부를 나타내는 변수
     public bool crowbarActive;
 
-    public
-    void Awake()
+    public bool languageEng = false;
+    public bool languageKor = false;
+
+    public void Awake()
     {
         // 싱글톤 패턴을 통해 GameManager 인스턴스를 하나만 유지
         if (instance != null) // 인스턴스가 이미 존재하면
@@ -260,4 +262,7 @@ public class GameManager : MonoBehaviour
         GameObject.Find("Player").GetComponent<ActionBasedContinuousTurnProvider>().turnSpeed = rotateValue;
 
     }
+
+
+   
 }

@@ -81,6 +81,14 @@ public class Groove1 : MonoBehaviour
     void CorrectTalkText()
     {
         // UI에서 대사 처리
-        StartCoroutine(GameObject.Find("PlayerUI").GetComponent<UITalk>().InteractionTalk("증기가 멈춘 것 같다."));
+        if (GameObject.Find("LauguageManager").GetComponent<LauguageMainGame>().languageEnglish == true)
+        {
+            StartCoroutine(GameObject.Find("PlayerUI").GetComponent<UITalk>().InteractionTalk("The steam stopped."));
+        }
+        else if (GameObject.Find("LauguageManager").GetComponent<LauguageMainGame>().languageKorean == true)
+        {
+            StartCoroutine(GameObject.Find("PlayerUI").GetComponent<UITalk>().InteractionTalk("증기가 멈춘 것 같다."));
+        }
+      
     }
 }

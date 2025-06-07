@@ -3426,7 +3426,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &7072732552358706461
 RectTransform:
   m_ObjectHideFlags: 0
@@ -4640,6 +4640,7 @@ MonoBehaviour:
   - {fileID: 7072732552628318997}
   - {fileID: 7072732552598745322}
   leftController: {fileID: 0}
+  sliderRotate: {fileID: 0}
   uITalk: {fileID: 0}
   collectTalkCount: 0
 --- !u!224 &7072732553002808496

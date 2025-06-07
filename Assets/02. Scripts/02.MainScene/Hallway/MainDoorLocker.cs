@@ -9,6 +9,8 @@ public class MainDoorLocker : MonoBehaviour
     public Keypad surgeryKeypad = null;
     public UIManager uiManager = null;
 
+    public LeftController leftController;
+
     bool isGameclear = false;
 
     private void Update()
@@ -29,6 +31,8 @@ public class MainDoorLocker : MonoBehaviour
     private void ChangeEndingScene()
     {
         if (!isGameclear) return;
+
+        leftController.RemoveEvent();
 
         if (uiManager.IsAllCollection)
         {

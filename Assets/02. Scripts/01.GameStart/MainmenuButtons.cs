@@ -32,6 +32,8 @@ public class MainmenuButtons : MonoBehaviour
 
         // 이어하기 버튼 참조
         creditButton = buttons[CreditButtonIndex];
+
+        languageEnglishCheck();
     }
 
     private void Start()
@@ -53,6 +55,8 @@ public class MainmenuButtons : MonoBehaviour
         {
             creditButton.interactable = false; // GameManager가 없으면 비활성화
         }
+
+
     }
 
     void NewGame() // 새 게임 시작
@@ -96,6 +100,45 @@ public class MainmenuButtons : MonoBehaviour
 #else   // 그 외 애플리케이션일 때
         Application.Quit(); // 애플리케이션 종료
 #endif
+    }
+
+    public GameObject engCheckBox;
+    public GameObject korCheckBox;
+    public GameObject tutolanguageEng;
+    public GameObject tutolanguageKor;
+    public GameObject creditEng;
+    public GameObject creditKor;
+    public GameObject[] StartSceneEnglish;
+    public GameObject[] StartSceneKorean;
+
+    public void languageEnglishCheck() //영어언어 체크 시 
+    {   //게임매니저에 영어 설정 true 값을 넘김
+        GameObject.Find("GameManager").GetComponent<GameManager>().languageKor = false;
+        GameObject.Find("GameManager").GetComponent<GameManager>().languageEng = true;
+        //메인에 있는 텍스트 및 이미지를 영어로 교체 및 활성
+        for (int i = 0; i < StartSceneKorean.Length; i++)
+        {
+            StartSceneKorean[i].SetActive(false);
+        }
+        for (int i = 0; i < StartSceneEnglish.Length; i++)
+        {
+            StartSceneEnglish[i].SetActive(true);
+        }
+    }
+    public void languageKoreanCheck() //한국언어 체크 시 
+    {   //게임매니저에 한국어 설정 true 값을 넘김
+        GameObject.Find("GameManager").GetComponent<GameManager>().languageEng = false;
+        GameObject.Find("GameManager").GetComponent<GameManager>().languageKor = true;
+        //메인에 있는 텍스트 및 이미지를 한국어로 교체 및 활성
+        for (int i = 0; i < StartSceneEnglish.Length; i++)
+        {
+            StartSceneEnglish[i].SetActive(false);
+        }
+        for (int i = 0; i < StartSceneKorean.Length; i++)
+        {
+            StartSceneKorean[i].SetActive(true);
+        }
+       
     }
 
     // 이어하기 버튼 상태 업데이트 메서드

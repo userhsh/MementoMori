@@ -4,6 +4,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.InputSystem;
 using UnityEngine.XR.Interaction.Toolkit;
+using Unity.VisualScripting;
 
 public class TLeftController : XRRayInteractor
 {
@@ -24,12 +25,15 @@ public class TLeftController : XRRayInteractor
 
     public GameObject UICollectionGet;
 
+    public bool languageEnglish = false;
+    public bool languageKorean = false;
+
     private new void Start()
     {
         menu.action.performed += MenuOn;
         collectionOn.action.performed += CollectionOn;
-        collectionOff.action.performed += CollectionOff;
-    }
+        collectionOff.action.performed += CollectionOff;       
+    }       
 
     public void RemoveEvent()
     {
@@ -100,23 +104,58 @@ public class TLeftController : XRRayInteractor
             {
                 case "PoliceCard":
                     UIItem.SetActive(true);
-                    UIItemText.text = "아이템: 경찰 보안카드";
+                    if (languageEnglish)
+                    {
+                        UIItemText.text = "Item: Cop ID Card";
+                    }
+                    else if (languageKorean)
+                    {
+                        UIItemText.text = "아이템: 경찰 보안카드";
+                    }
                     break;
                 case "Ammo":
                     UIItem.SetActive(true);
-                    UIItemText.text = "아이템: 탄약";
+                    if (languageEnglish)
+                    {
+                        UIItemText.text = "Item: Ammo";
+                    }
+                    else if (languageKorean)
+                    {
+                        UIItemText.text = "아이템: 탄약";
+                    }                  
                     break;
                 case "Gun":
                     UIItem.SetActive(true);
-                    UIItemText.text = "아이템: 권총";
+                    if (languageEnglish)
+                    {
+                        UIItemText.text = "Item: Pistol";
+                    }
+                    else if (languageKorean)
+                    {
+                        UIItemText.text = "아이템: 권총";
+                    }                   
                     break;
                 case "GunAmmo":
                     UIItem.SetActive(true);
-                    UIItemText.text = "아이템: 장전 된 권총";
+                    if (languageEnglish)
+                    {
+                        UIItemText.text = "Item: Reload Pistol";
+                    }
+                    else if (languageKorean)
+                    {
+                        UIItemText.text = "아이템: 장전 된 권총";
+                    }                    
                     break;
                 case "PoilceKey":
                     UIItem.SetActive(true);
-                    UIItemText.text = "아이템: 문 열쇠";
+                    if (languageEnglish)
+                    {
+                        UIItemText.text = "Item: Door Key";
+                    }
+                    else if (languageKorean)
+                    {
+                        UIItemText.text = "아이템: 문 열쇠";
+                    }                
                     break;
                 default:
                     break;
@@ -126,7 +165,15 @@ public class TLeftController : XRRayInteractor
             {
                 case "Collection0":
                     subTitle.SetActive(true);
-                    subTitleText.text = "수집품";
+                    if (languageEnglish)
+                    {
+                        subTitleText.text = "Collection";
+                    }
+                    else if (languageKorean)
+                    {
+                        subTitleText.text = "수집품";
+                    }
+                   
                     break;
                 default:
                     break;

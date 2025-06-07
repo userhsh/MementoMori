@@ -19,21 +19,37 @@ public class EndingText : MonoBehaviour
 
     private void Awake()
     {
+
+
         gunHit = GameObject.FindGameObjectWithTag("PLAYER")?.GetComponent<GunHit>();
         gunImage = GetComponentInChildren<Image>();
         showEndingText = GetComponentInChildren<TextMeshProUGUI>();
         showEndingText.text = "";
 
-        endingText = new string[]
+        if (GameObject.Find("GameManager").GetComponent<GameManager>().languageEng)
         {
+            endingText = new string[]
+                   {
+            "Looks like you've finally shown up.",
+            "...",
+            "My daughter will probably hate me for this,",
+            "but... I'm already not a good father..",
+            "...",
+            "...Go to hell."
+                   };
+        }
+        else if (GameObject.Find("GameManager").GetComponent<GameManager>().languageKor)
+        {
+            endingText = new string[]
+                 {
             "결국 여기까지 왔군.",
             "...",
             "그 애가 싫어하겠지만...",
             "난 이미 좋은 아빠가 아니라서.",
             "...",
             "...지옥에서 기다려라."
-        };        
-
+                 };
+        }
 
     }
 

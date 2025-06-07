@@ -14,9 +14,19 @@ public class TMenuerGetText : MonoBehaviour
 
     public int getSetPaperNumber = 0;
 
-    public IEnumerator PaperGetTalk(int paperNum) 
-    { 
-        string paperGetTalk = $"≡메뉴 - 조작 메뉴얼\n{paperNum + 1} / 7 page";
+    string paperGetTalk = "";
+
+    public IEnumerator PaperGetTalk(int paperNum)
+    {
+        if (GameObject.Find("GameManager").GetComponent<GameManager>().languageEng == true)
+        {
+            paperGetTalk = $"≡Menu - Controll Menuer\n{paperNum + 1} / 7 page";
+        }
+        if (GameObject.Find("GameManager").GetComponent<GameManager>().languageKor == true)
+        {
+           paperGetTalk = $"≡메뉴 - 조작 메뉴얼\n{paperNum + 1} / 7 page";
+        }
+
 
         getTextBox.SetActive(true);
         GetText.text = "";
@@ -27,19 +37,19 @@ public class TMenuerGetText : MonoBehaviour
         }
         yield return new WaitForSeconds(4f);
         getTextBox.SetActive(false);
-      
+
         yield break;
     }
 
     public void CloseButtonEvent()
     {
 
-        for(int i = 0;i < Papers.Length;i++)
+        for (int i = 0; i < Papers.Length; i++)
         {
             Papers[i].gameObject.SetActive(false);
         }
         menuerEscButton.SetActive(false);
-       
+
         StartCoroutine(PaperGetTalk(getSetPaperNumber)); //메뉴얼 경로를 설명하는 텍스트
     }
 }

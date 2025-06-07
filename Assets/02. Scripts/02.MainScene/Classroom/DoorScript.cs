@@ -38,7 +38,16 @@ public class DoorScript : MonoBehaviour
     {
         if (isLocked) // 문이 잠겨 있는 경우
         {
-            StartCoroutine(uiTalk.InteractionTalk("잠겨있다...")); // 잠김 메시지 출력
+            //잠김 메시지 출력
+            if (GameObject.Find("LauguageManager").GetComponent<LauguageMainGame>().languageEnglish == true)
+            {
+                StartCoroutine(uiTalk.InteractionTalk("Locked.."));
+            }
+            else if (GameObject.Find("LauguageManager").GetComponent<LauguageMainGame>().languageKorean == true)
+            {
+                StartCoroutine(uiTalk.InteractionTalk("잠겨있다..."));
+            }
+
             return; // 함수 종료
         }
 

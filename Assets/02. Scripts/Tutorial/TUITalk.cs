@@ -21,6 +21,20 @@ public class TUITalk : MonoBehaviour
     private void Awake()
     {
 
+        if (GameObject.Find("GameManager").GetComponent<GameManager>().languageEng == true)
+        {
+            SuccessTalk = "Remember..!\nIn the end, you must die!";
+            NotTalk = "I have to pack \nimportant things.";
+            NotAmmoTalk = "I need a bullet..";
+            Collection0Talk = "I miss you, \nmy daughter..";
+        }
+        else if (GameObject.Find("GameManager").GetComponent<GameManager>().languageKor == true)
+        {
+            SuccessTalk = "기억해라..! \n결국 넌 죽어야만 하는것을!";
+            NotTalk = "중요한걸 챙겨야 한다.";
+            NotAmmoTalk = "총알이 필요하다..";
+            Collection0Talk = "그립구나.. 딸..";
+        }
     }
     public IEnumerator OutAreaTalk() //총을 챙겨나오고 성공 시
     {
@@ -71,7 +85,7 @@ public class TUITalk : MonoBehaviour
         for (int i = 0; i < Collection0Talk.Length; i++)
         {
             talk.text += Collection0Talk[i];
-            yield return new WaitForSeconds(0.15f);
+            yield return new WaitForSeconds(0.06f);
         }
         yield return new WaitForSeconds(2f);
         UITalk.SetActive(false);
@@ -80,7 +94,15 @@ public class TUITalk : MonoBehaviour
     public IEnumerator DontShotTalk()
     {
         UITalk.SetActive(true);
-        talk.text = "아직은 쏠때가 아니다..\n나가자..!!";
+        if (GameObject.Find("GameManager").GetComponent<GameManager>().languageEng == true)
+        {
+            talk.text = "It's not time to shoot..\nLet's get out..!";
+        }
+        else if (GameObject.Find("GameManager").GetComponent<GameManager>().languageKor == true)
+        {
+            talk.text = "아직은 쏠때가 아니다..\n나가자..!!";
+        }
+
 
 
         yield return new WaitForSeconds(2f);
@@ -91,8 +113,14 @@ public class TUITalk : MonoBehaviour
     IEnumerator GunPasswardTalk()
     {
         UITalk.SetActive(true);
-        talk.text = "중요한 정보가 있다";
-
+        if (GameObject.Find("GameManager").GetComponent<GameManager>().languageEng == true)
+        {
+            talk.text = "There is important \ninformation here";
+        }
+        else if (GameObject.Find("GameManager").GetComponent<GameManager>().languageKor == true)
+        {
+            talk.text = "중요한 정보가 있다";
+        }
         yield return new WaitForSeconds(2f);
         talk.text = "";
         UITalk.SetActive(false);

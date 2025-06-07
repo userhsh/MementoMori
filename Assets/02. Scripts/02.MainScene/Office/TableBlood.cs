@@ -70,14 +70,14 @@ public class TableBlood : MonoBehaviour, IInteractable
         otherCollider = null;
     }
 
-    public void Interact()
+    public void Interact() //상호작용
     {
-        if (!isPencilInteractable) return;
+        if (!isPencilInteractable) return; //연필 아이템이 아닐 시 반환
 
-        isTrue = true;
-        Destroy(otherCollider?.gameObject);
-        nameElie.enabled = true; //이름 출현
-        this.gameObject.name = "Collection2";
+        isTrue = true; 
+        Destroy(otherCollider?.gameObject); //연필 아이템 삭제
+        nameElie.enabled = true; //이름이미지 출현
+        this.gameObject.name = "Collection2"; //콜렉션2로 이름이 바뀜
         StartCoroutine(PlayPencilSound());
     }
 
